@@ -4,6 +4,14 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>Relay</title>
         <item>
+            <title>0.1.2</title>
+            <pubDate>Tue, 15 Sep 2026 22:44:51 -0500</pubDate>
+            <sparkle:version>4</sparkle:version>
+            <sparkle:shortVersionString>0.1.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/chungus-actual/relay-releases/releases/download/macos-v0.1.2-4/Relay-4.zip" length="244145527" type="application/octet-stream" sparkle:edSignature="iggZ0eWyU47I4BB15U6jjyMRhGZKikjK4Ajh64pfBVod3VBai16GSRt2tzMS0W4C0OrHd+iJeoTyaBZ0TsAnCA=="></enclosure>
+        </item>
+        <item>
             <title>0.1.1</title>
             <pubDate>Tue, 15 Sep 2026 21:57:23 -0500</pubDate>
             <sparkle:version>3</sparkle:version>
@@ -21,6 +29,6 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: /PClfzOlvY20g/SSDDcFxOfBeVCLFubG91L7bL3Ktd4S0GaMkHRqGn7J6IS9SNbheD9dXnYusMABtAIlhE8eBg==
-length: 1697
+edSignature: TFfgNwUsPZMjeeclgefWUskiib0jy0P785TimZ3tBXYD2IAIXBt9ICDlyZpapfYkpooUTLPQOS1WZvjnPZNzBQ==
+length: 2324
 -->
