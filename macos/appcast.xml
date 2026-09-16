@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="yes"?><!-- sparkle-sign-warning:
+IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
+--><rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Relay</title>
+        <item>
+            <title>0.1.0</title>
+            <pubDate>Tue, 15 Sep 2026 21:48:11 -0500</pubDate>
+            <sparkle:version>2</sparkle:version>
+            <sparkle:shortVersionString>0.1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/chungus-actual/relay-releases/releases/download/macos-v0.1.0-2/Relay-2.zip" length="243544182" type="application/octet-stream" sparkle:edSignature="JHlb78Ss9xvjstk75EwN1kr5hwtK9YHbIxoRLJ/9XGUthRMyF0Hwkkhe4VYbAoFIpUkqW/cMNK+KKQJ99CYYBQ=="></enclosure>
+        </item>
+    </channel>
+</rss><!-- sparkle-signatures:
+edSignature: FmkYEa6nq8ENz3G/Zq4etRMeGViMELxXNwyDKvwHMQhWU3e4fCoQVefK9D+dnzS4sxtE9s/MDENe4qvWDSWQAg==
+length: 1053
+-->
