@@ -1,0 +1,27 @@
+.tools/
+bin/
+obj/
+dist/
+.test-data/
+artifacts/
+*.user
+
+# Local editor state and credentials
+.vs/
+*.log
+*.log.*
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+
+# Local development journal
+RESUME.md
+
+# macOS Swift build products
+.build/
+__pycache__/
+*.pyc
+
+.DS_Store

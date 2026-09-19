@@ -1,0 +1,36 @@
+name: macOS build
+on:
+  workflow_dispatch:
+  push:
+    paths: ['macos/**', 'scripts/*macOS*', 'scripts/Publish-Release.py', 'scripts/Test-release.py', 'scripts/Test-platform-parity.py', 'LinkRouting.cs', 'ServicePopups.cs', 'services.json', 'Relay.csproj', 'UnreadDetection.cs', 'MessengerChrome.cs', 'MediaControls.cs', 'AGENTS.md', 'Assets/**', '.github/workflows/macos.yml']
+  pull_request:
+    paths: ['macos/**', 'scripts/*macOS*', 'scripts/Publish-Release.py', 'scripts/Test-release.py', 'scripts/Test-platform-parity.py', 'LinkRouting.cs', 'ServicePopups.cs', 'services.json', 'Relay.csproj', 'UnreadDetection.cs', 'MessengerChrome.cs', 'MediaControls.cs', 'AGENTS.md', 'Assets/**', '.github/workflows/macos.yml']
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # Matches the Windows workflow.
+      - name: Model and persistence checks
+        run: bash scripts/Test-macOS.sh
+      - name: Native button click checks
+        run: bash scripts/Test-macOS-controls.sh
+      - name: Shared release validation checks
+        run: python3 scripts/Test-release.py
+      - name: Universal development app
+        env:
+          RELAY_UNIVERSAL: '1'
+          RELAY_CODESIGN_IDENTITY: '-'
+        run: bash scripts/Build-macOS.sh
+      - name: Verify and package
+        run: |
+          RELAY_BUILT_ARCHS="$(lipo -archs dist/macos/Relay.app/Contents/MacOS/Relay)"
+          [[ " $RELAY_BUILT_ARCHS " == *" arm64 "* && " $RELAY_BUILT_ARCHS " == *" x86_64 "* ]]
+          codesign --verify --deep --strict dist/macos/Relay.app
+          ditto -c -k --sequesterRsrc --keepParent dist/macos/Relay.app dist/macos/Relay-macOS-universal.zip
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # Matches the Windows workflow.
+        with:
+          name: Relay-macOS-development
+          path: dist/macos/Relay-macOS-universal.zip
+          if-no-files-found: error

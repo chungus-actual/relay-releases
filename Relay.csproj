@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <ApplicationIcon>Assets\Relay.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AssemblyName>Relay</AssemblyName>
+    <Version>0.6.5</Version>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <DefaultItemExcludes>$(DefaultItemExcludes);.tools/**;.test-data/**;artifacts/**;dist/**;macos/**</DefaultItemExcludes>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4191.47" />
+    <Resource Include="Assets\Relay.ico" />
+    <Resource Include="Assets\Relay-tray.ico" />
+    <Content Include="Assets\Relay-preview.png" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="SECURITY.md" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="THIRD-PARTY-NOTICES.md" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Assets\Services\LICENSE.txt" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="scripts\Apply-Update.ps1" Link="Apply-Update.ps1" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="services.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>
