@@ -2,7 +2,7 @@
 
 The [latest release](https://github.com/chungus-actual/relay-releases/releases/latest) contains Windows and macOS packages. Relay also checks for updates in the app. Published downloads remain available in the [release history](https://github.com/chungus-actual/relay-releases/releases).
 
-Relay 0.6.7 supports Windows x64 and macOS 14+ on Apple silicon and Intel. Future Mac releases will target Apple silicon; the [0.6.7 universal Mac download](https://github.com/chungus-actual/relay-releases/releases/tag/v0.6.7) remains available for Intel Macs.
+Relay 0.6.8 supports Windows x64 and macOS 14+ on Apple silicon. Mac releases from 0.6.8 require Apple silicon; Intel Macs can keep using the [0.6.7 universal Mac download](https://github.com/chungus-actual/relay-releases/releases/tag/v0.6.7).
 
 ## Verify a download
 
