@@ -4,6 +4,15 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>Relay</title>
         <item>
+            <title>0.6.9</title>
+            <pubDate>Thu, 01 Oct 2026 10:07:05 -0700</pubDate>
+            <sparkle:version>25</sparkle:version>
+            <sparkle:shortVersionString>0.6.9</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://github.com/chungus-actual/relay-releases/releases/download/v0.6.9/Relay-25.zip" length="3784124" type="application/octet-stream" sparkle:edSignature="vJuU8meM9+U44oyxqEVy9hjJreFmZ7BiSeF81PM6XGArQjQRqhyfNphYlxs0w6ssM7Zo7Cmiw7UY2JriW6+IDw=="></enclosure>
+        </item>
+        <item>
             <title>0.6.8</title>
             <pubDate>Mon, 21 Sep 2026 15:52:29 -0700</pubDate>
             <sparkle:version>24</sparkle:version>
@@ -102,6 +111,6 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: uksxAz6sRCAUXusdXlIi4RGqfafk9YvU0gD6NfvkgdcACzJ2x5jTpWjf4TAi6vIzMx4Ux0AJ27LNhmnUD4RYDw==
-length: 8010
+edSignature: LlKKHvJNmhu+k+it8a0hkVSjaYvw4gK4HCBpPP5VvxtBFgpjyqiCMsN7lxW48pSZWKLQgA5o4bFUuua5BkEBCw==
+length: 8708
 -->
