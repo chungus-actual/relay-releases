@@ -50,6 +50,9 @@ extension BrowserChecks {
             print("Terminal document: \(String(describing: state))"); fflush(stdout)
             throw error
         }
+        let policyFixture = try String(contentsOf: root.appendingPathComponent("Assets/Fixtures/terminal-policy-checks.js"), encoding: .utf8)
+        let policyBlocked = try await first.webView.callAsyncJavaScript("return await " + policyFixture, arguments: [:], in: nil, contentWorld: .page) as? Bool
+        try require(policyBlocked == true, "Terminal CSP blocks worker creation and remote fetches")
         let tab = workspace.current!, pane = tab.panes[0], originalPID = pane.process!.processID
         try await input("printf '\\n%s%s\\n' RELAY_ READY; tty; stty size\r", pane: pane)
         try await waitFor("PTY output") { history(pane).contains("RELAY_READY") && history(pane).contains("/dev/ttys") }

@@ -7,8 +7,8 @@
     <key>CFBundleName</key><string>Relay</string>
     <key>CFBundleIconFile</key><string>Relay.icns</string>
     <key>CFBundlePackageType</key><string>APPL</string>
-    <key>CFBundleShortVersionString</key><string>0.6.10</string>
-    <key>CFBundleVersion</key><string>26</string>
+    <key>CFBundleShortVersionString</key><string>0.6.11</string>
+    <key>CFBundleVersion</key><string>27</string>
     <key>LSMinimumSystemVersion</key><string>14.0</string>
     <key>NSPrincipalClass</key><string>NSApplication</string>
     <key>NSHighResolutionCapable</key><true/>

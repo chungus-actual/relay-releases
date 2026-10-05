@@ -165,6 +165,7 @@ public partial class MainWindow
 
     private void InitializeMedia()
     {
+        InitializeTaskbarMedia();
         mediaTimer.Tick += async (_, _) => await RefreshMedia();
     }
 
@@ -187,7 +188,7 @@ public partial class MainWindow
         mediaGeneration++; mediaCore = null; mediaService = null; mediaPlaying = false;
         if (!services.Any(s => s.Options.Enabled && !s.Definition.IsTerminal && s.Core != null)) mediaTimer.Stop();
         MediaTitle.Text = ""; MediaControls.ToolTip = null;
-        MediaControls.Visibility = Visibility.Collapsed; RefreshCaptionLayout();
+        MediaControls.Visibility = Visibility.Collapsed; RefreshCaptionLayout(); RefreshTaskbarMedia();
     }
 
     private async Task RefreshMedia()
@@ -229,6 +230,7 @@ public partial class MainWindow
             MediaNextButton.IsEnabled = data.Next;
             MediaTitle.Text = data.Title;
             MediaControls.ToolTip = string.IsNullOrEmpty(data.Artist) ? data.Title : data.Title + " · " + data.Artist;
+            RefreshTaskbarMedia();
             RefreshFloatingMedia();
             RefreshCaptionLayout();
         }

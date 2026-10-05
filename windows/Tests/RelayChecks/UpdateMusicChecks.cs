@@ -187,6 +187,21 @@ public partial class MainWindow
         await core.ExecuteScriptAsync("navigator.mediaSession.setActionHandler('nexttrack', null)");
         await RefreshFixtureMedia();
         Check(!MediaNextButton.IsEnabled, "Unavailable track skipping is disabled");
+        Check(TaskbarItemInfo.ThumbButtonInfos.Count == 3 && taskbarPlay.Visibility == Visibility.Visible && taskbarPlay.Description == "Pause", "Taskbar preview exposes native playback controls");
+        Check(TaskbarItemInfo.Description.Contains("Next fixture track") && !taskbarNext.IsEnabled, "Taskbar title and skip availability follow the active account");
+        await core.ExecuteScriptAsync("window.mediaCalls=[]");
+        void NativeTaskbarClick(int index) => SendMessage(new System.Windows.Interop.WindowInteropHelper(this).Handle, 0x0111, new IntPtr((0x1800 << 16) | index), IntPtr.Zero);
+        NativeTaskbarClick(1); NativeTaskbarClick(1);
+        await Until(() => !taskbarMediaBusy && !mediaPolling); await RefreshFixtureMedia();
+        Check(!mediaPlaying && taskbarPlay.Description == "Play", "Native taskbar click pauses background playback and updates its glyph");
+        Check(await core.ExecuteScriptAsync("mediaCalls.length") == "1", "Repeated taskbar clicks during an outstanding action do not toggle twice");
+        NativeTaskbarClick(2);
+        await Dispatcher.InvokeAsync(() => { }, System.Windows.Threading.DispatcherPriority.ApplicationIdle);
+        Check(await core.ExecuteScriptAsync("mediaCalls.length") == "1", "Unavailable native taskbar skip cannot reach the service");
+        NativeTaskbarClick(1);
+        await Until(() => !taskbarMediaBusy && !mediaPolling); await RefreshFixtureMedia();
+        Check(mediaPlaying && taskbarPlay.Description == "Pause" && selected != music, "Taskbar resume keeps the currently viewed service selected");
+
         var slider = CreateZoomSlider(music); slider.Value = 125;
         Check(music.View!.ZoomFactor == 1.25 && services[0].Options.Zoom != 1.25, "Zoom slider changes only its own account");
         Capture(Path.Combine(output, "music-titlebar.png"));
@@ -215,6 +230,7 @@ public partial class MainWindow
         await RefreshFixtureMedia();
         Check(MediaControls.Visibility == Visibility.Collapsed && mediaCore == null, "Disconnect removes playback controls and clears their target");
         Check(!mediaPlaying && !CaptionPet.Motion.MusicPlaying, "Disconnected playback clears Puke music state");
+        Check(TaskbarItemInfo.ThumbButtonInfos.All(b => b.Visibility == Visibility.Collapsed && !b.IsEnabled) && TaskbarItemInfo.Description == "Relay", "Unload removes stale taskbar buttons and metadata");
         SetPetEnabled(petWasEnabled);
         File.WriteAllText(Path.Combine(output, "update-music-checks.txt"), "PASS: release selection, downgrade/prerelease exclusion, download origin, checksum/size checks, failed staging cleanup, local-build exclusion, music profiles and controls, background play/pause/skip, account zoom, disconnect cleanup.\n");
     }

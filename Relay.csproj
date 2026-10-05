@@ -11,7 +11,7 @@
     <ApplicationManifest>windows\app.manifest</ApplicationManifest>
     <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
     <AssemblyName>Relay</AssemblyName>
-    <Version>0.6.10</Version>
+    <Version>0.6.11</Version>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <DefaultItemExcludes>$(DefaultItemExcludes);.tools/**;.test-data/**;artifacts/**;dist/**;macos/**</DefaultItemExcludes>
   </PropertyGroup>

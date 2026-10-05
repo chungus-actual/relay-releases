@@ -1,7 +1,8 @@
 """Publish one verified Windows/macOS release, then advance the signed Sparkle feed.
 
-Run on the signing Mac after Windows tag CI succeeds and the Mac update is notarized
-and packaged. Does not replace existing releases or change historical feed entries.
+Run on the signing Mac after verified Windows packages are published to the private
+source release and the Mac update is notarized and packaged. Does not replace
+existing releases or change historical feed entries.
 """
 import argparse
 import base64
@@ -14,6 +15,7 @@ import subprocess
 import tempfile
 import urllib.request
 import xml.etree.ElementTree as ET
+import release_source
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 REPO = 'chungus-actual/relay-releases'
@@ -74,6 +76,7 @@ def main():
     if version != ET.parse(ROOT / 'Relay.csproj').findtext('./PropertyGroup/Version'):
         raise ValueError('Version differs from source project')
     tag = 'v' + version
+    release_source.export(ROOT, version) # Validate the tagged source before any publication.
     notes = ROOT / 'docs/releases' / (version + '.md')
     if not notes.is_file():
         raise ValueError('Missing release notes')
@@ -112,22 +115,23 @@ def main():
     check_manifest(windows_checksums, windows)
     source = api(SOURCE, 'releases/tags/' + tag)
     if source['draft']:
-        raise ValueError('Windows CI release is not published')
+        raise ValueError('Verified Windows source release is not published')
     for asset in windows + [windows_checksums]:
         matches = [entry for entry in source['assets'] if entry['name'] == asset.name]
         if len(matches) != 1 or matches[0].get('digest') != 'sha256:' + digest(asset):
-            raise ValueError('Windows asset differs from verified CI release: ' + asset.name)
+            raise ValueError('Windows asset differs from verified source release: ' + asset.name)
     mac_checksums = args.macos_dir / 'SHA256SUMS-macos.txt'
     check_manifest(mac_checksums, [archive, feed])
     assets = windows + [windows_checksums, archive, feed, mac_checksums]
     if args.validate_only:
-        print('Verified Windows CI assets, notarized macOS archive, signed feed, and historical downloads')
+        print('Verified Windows source release assets, notarized macOS archive, signed feed, and historical downloads')
         return
     work = ROOT / 'macos/.build' / ('publish-' + tag)
     work.mkdir(exist_ok=True)
     (work / 'feed-before.json').write_text(json.dumps(baseline))
+    public_source = release_source.publish(ROOT, version, work, REPO)
     run('gh', 'release', 'create', tag, '--repo', REPO, '--draft', '--latest=false',
-        '--title', 'Relay ' + version, '--notes-file', notes, *assets)
+        '--title', 'Relay ' + version, '--notes-file', notes, '--target', public_source, *assets)
     with tempfile.TemporaryDirectory(dir=work) as directory:
         run('gh', 'release', 'download', tag, '--repo', REPO, '--dir', directory)
         for asset in assets:

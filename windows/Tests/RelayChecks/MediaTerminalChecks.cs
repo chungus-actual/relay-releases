@@ -252,6 +252,7 @@ public partial class MainWindow
         await extra.Core.ExecuteScriptAsync("chrome.webview.postMessage(" + JsonSerializer.Serialize(new { type = "rename-pane", pane = firstPane.Id, name = "Wrong account" }) + ")");
         await Task.Delay(100);
         Check(!first.Exited && !extraPane.Process.Exited && firstTab.Name == "Build & test" && firstPane.Name == "PowerShell · build", "A terminal account cannot address or rename another account's session");
+        await CheckTerminalWorkerIsolation(terminalCore);
         DisconnectService(extra); RemoveAccount(extra); await Until(() => ProcessEnded(extraPID));
         await SoloPane(terminal);
         Check(CreateSetup().Accounts.All(a => a.Provider != "terminal"), "Windows-only terminal sessions do not break portable setups");

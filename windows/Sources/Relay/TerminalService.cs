@@ -47,7 +47,9 @@ public partial class MainWindow
         core.NewWindowRequested += (_, e) => e.Handled = true;
         core.PermissionRequested += (_, e) => e.State = CoreWebView2PermissionState.Deny;
         core.DownloadStarting += (_, e) => e.Cancel = true;
-        core.AddWebResourceRequestedFilter("*", CoreWebView2WebResourceContext.All, CoreWebView2WebResourceRequestSourceKinds.All);
+        // Shared/service-worker filters apply across the entire environment, including
+        // other account profiles. The terminal must only police its own document.
+        core.AddWebResourceRequestedFilter("*", CoreWebView2WebResourceContext.All, CoreWebView2WebResourceRequestSourceKinds.Document);
         var files = new HashSet<string>(StringComparer.Ordinal) { "/index.html", "/xterm.js", "/xterm.css", "/addon-fit.js", "/terminal.js", "/terminal.css" };
         core.WebResourceRequested += (_, e) => {
             if (!Uri.TryCreate(e.Request.Uri, UriKind.Absolute, out var uri) || uri.Scheme != "https" || uri.Host != "relay-terminal.invalid" || !files.Contains(uri.AbsolutePath))

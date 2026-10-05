@@ -12,8 +12,12 @@ public partial class MainWindow
     private bool darkTheme;
     private void SystemThemeChanged(object sender, UserPreferenceChangedEventArgs e)
     {
-        if (quitting || settings.Appearance != "System") return;
-        Dispatcher.BeginInvoke(new Action(() => { if (!quitting) { ApplyTheme(); if (localPage == "settings") RebuildSettings(); } }));
+        if (quitting) return;
+        Dispatcher.BeginInvoke(new Action(() => {
+            if (quitting) return;
+            RefreshTaskbarMedia();
+            if (settings.Appearance == "System") { ApplyTheme(); if (localPage == "settings") RebuildSettings(); }
+        }));
     }
     private bool ResolveDarkTheme()
     {
