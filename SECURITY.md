@@ -25,7 +25,7 @@ WebView2 also has APIs for enabling extensions and loading unpacked extension di
 
 ## Updates
 
-- Feed: the public `chungus-actual/relay-releases` repository over HTTPS; released application source is available in that repository; development history and signing credentials remain private.
+- Feed: the public `chungus-actual/relay-releases` repository over HTTPS; source remains private.
 - Stable versions only; exact asset names and GitHub paths, bounded metadata/archive sizes, no downgrades.
 - SHA-256 is checked after download and again by the install helper. Packages remain local until acknowledged restart.
 - Portable archives reject traversal, duplicate paths, symlinks, and oversized expansion. Destination links are rejected. File replacement uses atomic swaps with rollback on failure.

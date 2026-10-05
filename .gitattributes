@@ -4,4 +4,3 @@
 *.sh text eol=lf
 *.png binary
 *.ico binary
-macos/appcast.xml -text

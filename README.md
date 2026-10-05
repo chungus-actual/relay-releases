@@ -34,9 +34,3 @@ No Relay account. No Relay server. No telemetry. Your services still play by the
 Made for friends. No shareholders consulted.
 
 [Controls](docs/usage.md) · [macOS](docs/macos.md) · [Development](docs/development.md) · [Security](SECURITY.md) · [Credits](THIRD-PARTY-NOTICES.md)
-
-## Release source
-
-The [public repository](https://github.com/chungus-actual/relay-releases) includes released Windows and macOS source, assets, tests, and build scripts. Each `source-v<VERSION>` tag pins a release snapshot; `.release-source.json` records its original commit and file hashes. Build instructions are in [Development](docs/development.md).
-
-[Download the 0.6.10 source](https://github.com/chungus-actual/relay-releases/archive/refs/tags/source-v0.6.10.zip). The earlier 0.6.10 release tag is preserved; use this source tag for its application code. Future release tags point to their matching public source snapshot.
