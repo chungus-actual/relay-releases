@@ -1,0 +1,2037 @@
+{
+  "description": "Original 44x32 orange tabby. Pixel layers use the same coordinates on both platforms; A follows the app accent.",
+  "width": 44,
+  "height": 32,
+  "palette": {
+    "K": "49313D",
+    "O": "EFA14D",
+    "S": "BD653B",
+    "C": "FFF0CE",
+    "P": "DB8A7A",
+    "N": "9C5150",
+    "D": "252633",
+    "A": "accent",
+    "B": "C79668",
+    "H": "82583F",
+    "G": "AAAEB7",
+    "R": "717887",
+    "W": "D7DADF",
+    "b": "74B7D5",
+    "d": "B88FA4",
+    "e": "8E748F",
+    "Y": "F8D976"
+  },
+  "layers": {
+    "tail": {
+      "x": 0,
+      "y": 3,
+      "rows": [
+        "....KKK......",
+        "...KCCCK.....",
+        "...KCCOK.....",
+        "...KOOOK.....",
+        "....KOOK.....",
+        "....KOOK.....",
+        "....KOOK.....",
+        "....KSOK.....",
+        "....KSOK.....",
+        ".....KSOK....",
+        ".....KSOK....",
+        "......KSOK...",
+        "......KSOOK..",
+        ".......KSOOK.",
+        "........KSOOK",
+        ".........KSSK",
+        "..........KK."
+      ]
+    },
+    "body": {
+      "x": 10,
+      "y": 14,
+      "rows": [
+        ".....KKKKKKKKKKKK......",
+        "...KKOOOOOOOOOOOOKK....",
+        "..KOOOOOSOOOSOOOOOOKK..",
+        ".KOOOOOOSOOOSOOOOOOOK.",
+        "KOOOOOOSSOSSOOOOOOOOK.",
+        "KOOOOOOSOOSOOOOOOOOOOK",
+        "KOOOOOOOOOOOOOOOOOOOOK",
+        "KOOOOOOOOOOOOOOOOCCOOK",
+        "KOOOOOOOOOOOOOOOCCCCOK",
+        "KSOOOOOOOOOOOOOCCCCCK.",
+        ".KSSOOOOOOOOOOOCCCKK..",
+        "..KKSSSSSSSSSSSKKK....",
+        "....KKKKKKKKKKK......."
+      ]
+    },
+    "backHind": {
+      "x": 20,
+      "y": 24,
+      "rows": [
+        "KSSSK",
+        "KSSSK",
+        "KSSK.",
+        "KSSK.",
+        "KSSK.",
+        "KCCK.",
+        "KKKK."
+      ]
+    },
+    "backFront": {
+      "x": 31,
+      "y": 21,
+      "rows": [
+        "KSSK....",
+        ".KSSK...",
+        "..KSSK..",
+        "...KSSK.",
+        "...KSSK.",
+        "...KSSK.",
+        "...KCCK.",
+        "...KKKK."
+      ]
+    },
+    "hind": {
+      "x": 12,
+      "y": 22,
+      "rows": [
+        ".KOOOOK",
+        "KOOOOOK",
+        "KOOOOK.",
+        "KOOOK..",
+        "KOOOK..",
+        "KOOOK..",
+        "KSOOK..",
+        "KCCCK..",
+        "KKKKK.."
+      ]
+    },
+    "front": {
+      "x": 27,
+      "y": 22,
+      "rows": [
+        "KOOOOK",
+        "KOOOOK",
+        "KOOOOK",
+        "KOOOOK",
+        "KOOOK.",
+        "KOOOK.",
+        "KSOOK.",
+        "KCCCK.",
+        "KKKKK."
+      ]
+    },
+    "head": {
+      "x": 24,
+      "y": 3,
+      "rows": [
+        "..KK..........KK...",
+        "..KOK........KOK...",
+        "..KOOK......KOOK...",
+        "..KOPPKKKKKKPOOK...",
+        "..KOPPOOOOOOPOOK...",
+        ".KOOOOOSOOSOOOOOK..",
+        ".KOOOOOSOOSOOOOOK..",
+        "KOOOOOOOSOOOOOOOOK.",
+        "KOOOOOOOOOOOOOOOOK.",
+        "KOOOOOOOOOOOOOOOOK.",
+        "KOOOOOOOOOOOOOOOOK.",
+        "KOOOOOOOOOOOOCCOOK.",
+        ".KOOOOOOOOOCCCCCCK.",
+        ".KOOOOOOOOCCCCCCCK.",
+        "..KOOOOOOOCCCCCCK..",
+        "...KOOOOOOOCCCCK...",
+        "....KKOOOOOOOKK....",
+        "......KKKKKKK......"
+      ]
+    },
+    "eyes": {
+      "x": 28,
+      "y": 12,
+      "rows": [
+        "KKK......KKK",
+        "KCK......KCK",
+        "KKK......KKK"
+      ]
+    },
+    "closed": {
+      "x": 28,
+      "y": 13,
+      "rows": [
+        "K.K......K.K",
+        ".K........K."
+      ]
+    },
+    "sleepEyes": {
+      "x": 28,
+      "y": 14,
+      "rows": [
+        "KKK......KKK"
+      ]
+    },
+    "nose": {
+      "x": 35,
+      "y": 16,
+      "rows": [
+        "NNN",
+        "K.K",
+        ".K."
+      ]
+    },
+    "whiskers": {
+      "x": 24,
+      "y": 17,
+      "rows": [
+        "SS...............SS",
+        "..S.............S.."
+      ]
+    },
+    "bandana": {
+      "x": 27,
+      "y": 19,
+      "rows": [
+        "KAAAAAAK",
+        ".KAAAAK.",
+        "..KAA...",
+        "...KK..."
+      ]
+    },
+    "hoodie": {
+      "x": 10,
+      "y": 14,
+      "rows": [
+        ".....KKKKKKKKKKKK......",
+        "...KKAAAAAAAAAAAAKK....",
+        "..KAAAAAAAAAAAAAAAAKK..",
+        ".KAAAAAAAAAAAAAAAAAAK.",
+        "KAAAAAAAAAAAAAAAAAAAK.",
+        "KAAAAAAAAAAAAAAAAAAAAK",
+        "KAAAAAAAAAAAAAAAAAAAAK",
+        "KAAAAAAAAAKCCKAAAAAAAK",
+        "KAAAAAAAAAAKKAAAAAAAAK",
+        "KAAAAAAAAAAAAAAAAAAAK.",
+        ".KAAAAAAAAAAAAAAAAKK.."
+      ]
+    },
+    "shades": {
+      "x": 27,
+      "y": 11,
+      "rows": [
+        "KKKKKKKKKKKKKKK",
+        "KCDDDK...KCDDDK",
+        "KDDDDK...KDDDDK",
+        ".KKKK.....KKKK."
+      ]
+    },
+    "paw": {
+      "x": 35,
+      "y": 18,
+      "rows": [
+        "..KKKK.",
+        ".KOOOCK",
+        "KOOOCCK",
+        "KOOOOK.",
+        ".KKKK.."
+      ]
+    },
+    "sleepBody": {
+      "x": 10,
+      "y": 21,
+      "rows": [
+        ".....KKKKKKKKKKKKKKK.......",
+        "...KKOOOOOOOOOOOOOOOKK.....",
+        "..KOOOOOSOOOOSOOOOOOOOKK...",
+        ".KOOOOOSSOOOSSOOOOOOOOOOK..",
+        "KOOOOOOSOOOOSOOOOOOOOOOOOK.",
+        "KOOOOOOOOOOOOOOOOOOOOOOOOK",
+        "KOOOOOOOOOOOOOOOOOOOOOOOOK",
+        "KSOOOOOOOOOOOOOOOOOOOOOOOK",
+        ".KSSOOOOOOOOOOOOOOOOOOOKK.",
+        "..KKSSSSSSSSSSSSSSSSSSK...",
+        "....KKKKKKKKKKKKKKKKKK...."
+      ]
+    },
+    "sleepTail": {
+      "x": 10,
+      "y": 26,
+      "rows": [
+        "KKK.......................",
+        "KOOOK.....................",
+        ".KOOOKKKKKKKKKKKKK........",
+        "..KOOOOOOOOOOOOOOOK.......",
+        "...KKSSSSSSSSSSSCCK.......",
+        ".....KKKKKKKKKKKKK........"
+      ]
+    },
+    "raisedFront": {
+      "x": 28,
+      "y": 19,
+      "rows": [
+        ".......KKK...",
+        "......KOOOK..",
+        ".....KOOOK...",
+        "....KOOOK....",
+        "...KOOOK.....",
+        "..KOOOK......",
+        ".KOOOK.......",
+        "..KKK........"
+      ]
+    },
+    "sitBody": {
+      "x": 16,
+      "y": 15,
+      "rows": [
+        ".......KKKKKKKK...",
+        "......KOOOOOCCCK..",
+        ".....KOOOOOCCCCK..",
+        "....KOSOOOCCCCCK..",
+        "...KOOSOOOCCCCCK..",
+        "..KOOOSOOOCCCCCK..",
+        ".KOOOOOSOOCCCCCK..",
+        "KOOOOOOSOOOCCCCK..",
+        "KOOOOOOOOOOOCCCK..",
+        "KOOOOOOOOOOOOCCK..",
+        "KSOOOOOOOOOOOOOK..",
+        "KSSOOOOOOOOOOOOK..",
+        ".KSSOOOOOOOOOOOK..",
+        "..KSSSSOOOCCCCCK..",
+        "...KKSSSSCCCCCCK..",
+        ".....KKKKKKKKKK..."
+      ]
+    },
+    "sitTail": {
+      "x": 7,
+      "y": 25,
+      "rows": [
+        "..KKK...............",
+        ".KCCK...............",
+        "KCCOK...............",
+        "KOOOK...............",
+        ".KOOOKKKKKKKKK......",
+        "..KSSOOOOOOOOOK.....",
+        "....KKKKKKKKKK......"
+      ]
+    },
+    "sitFront": {
+      "x": 28,
+      "y": 23,
+      "rows": [
+        "KOOOOK",
+        "KOOOOK",
+        "KOOOOK",
+        "KSOOOK",
+        "KSOOOK",
+        "KCCCK.",
+        "KCCCK.",
+        "KKKKK."
+      ]
+    },
+    "sitHoodie": {
+      "x": 16,
+      "y": 15,
+      "rows": [
+        ".......KKKKKKKK...",
+        "......KAAAAAAAAK..",
+        ".....KAAAAAAAAAK..",
+        "....KAAAAAAAAAAK..",
+        "...KAAAAAAAAAAAK..",
+        "..KAAAAAAAAAAAAK..",
+        ".KAAAAAAAAAAAAAK..",
+        "KAAAAAAAKCCKAAAK..",
+        "KAAAAAAAAKKAAAAK..",
+        "KAAAAAAAAAAAAAAK..",
+        "KAAAAAAAAAAAAAAK..",
+        "KAAAAAAAAAAAAAAK..",
+        ".KAAAAAAAAAAAAAK..",
+        "..KAAAAAAAAAAAAK.."
+      ]
+    },
+    "loafBody": {
+      "x": 13,
+      "y": 21,
+      "rows": [
+        "......KKKKKKKKKKKK......",
+        "....KKOOOOOOOOOOOOKK....",
+        "..KKOOOSOOOSOOOOOOOOK...",
+        ".KOOOOOSOOOSOOOOOOOOK...",
+        "KOOOOOOSOOSOOOOOOOOOOK..",
+        "KOOOOOOOOOOOOOOOOOOOOK.",
+        "KOOOOOOOOOOOOOOOOOOOOK.",
+        "KSOOOOOOOOOOOOOOOOOOOK.",
+        ".KSSOOOOOOOOOOOOOOOOK..",
+        "..KKSSSSSSSSSSSSSSKK...",
+        "....KKKKKKKKKKKKKK....."
+      ]
+    },
+    "chinPaws": {
+      "x": 27,
+      "y": 29,
+      "rows": [
+        ".KKKK..KKKK.",
+        "KCCCCKKCCCCK",
+        "KKKKKKKKKKKK"
+      ]
+    },
+    "tuckedTail": {
+      "x": 15,
+      "y": 26,
+      "rows": [
+        "KKK..................",
+        "KOOOK................",
+        ".KOOOKKKKKKKKKKKKK...",
+        "..KOOOOOOOOOOOOCCCK..",
+        "...KKSSSSSSSSSSCCCK..",
+        ".....KKKKKKKKKKKKK..."
+      ]
+    },
+    "stretchBody": {
+      "x": 11,
+      "y": 15,
+      "rows": [
+        "....KKKKKKKK...........",
+        "..KKOOOOOOOOKK.........",
+        ".KOOOSOOOSOOOOKK.......",
+        "KOOOOSOOOSOOOOOOKK.....",
+        "KOOOOSOOSOOOOOOOOOKK...",
+        "KOOOOOOOOOOOOOOOOOOOK..",
+        "KOOOOOOOOOOOOOOOOOOOK..",
+        "KSOOOOOOOOOOOOOOCCOOK..",
+        ".KSSOOOOOOOOOOOCCCCOK..",
+        "..KKSSOOOOOOOOCCCCCK...",
+        "....KKSSSSSSSSSSKKK....",
+        "......KKKKKKKKKK......."
+      ]
+    },
+    "stretchFront": {
+      "x": 28,
+      "y": 26,
+      "rows": [
+        "KOOOK.......",
+        "KOOOOKKKK...",
+        ".KOOOOOCCK..",
+        "..KOOOOCCCK.",
+        "...KKKKKKKK."
+      ]
+    },
+    "yawnMouth": {
+      "x": 35,
+      "y": 17,
+      "rows": [
+        "KKK",
+        "KPK",
+        "KPK",
+        "KKK"
+      ]
+    },
+    "headTwitch": {
+      "x": 24,
+      "y": 3,
+      "rows": [
+        ".KK...........KK...",
+        ".KOK.........KOK...",
+        "..KOOK......KOOK...",
+        "..KOPPKKKKKKPOOK...",
+        "..KOPPOOOOOOPOOK...",
+        ".KOOOOOSOOSOOOOOK..",
+        ".KOOOOOSOOSOOOOOK..",
+        "KOOOOOOOSOOOOOOOOK.",
+        "KOOOOOOOOOOOOOOOOK.",
+        "KOOOOOOOOOOOOOOOOK.",
+        "KOOOOOOOOOOOOOOOOK.",
+        "KOOOOOOOOOOOOCCOOK.",
+        ".KOOOOOOOOOCCCCCCK.",
+        ".KOOOOOOOOCCCCCCCK.",
+        "..KOOOOOOOCCCCCCK..",
+        "...KOOOOOOOCCCCK...",
+        "....KKOOOOOOOKK....",
+        "......KKKKKKK......"
+      ]
+    },
+    "stretchHoodie": {
+      "x": 11,
+      "y": 15,
+      "rows": [
+        "....KKKKKKKK...........",
+        "..KKAAAAAAAAKK.........",
+        ".KAAAAAAAAAAAAKK.......",
+        "KAAAAAAAAAAAAAAAKK.....",
+        "KAAAAAAAAAAAAAAAAAKK...",
+        "KAAAAAAAAAAAAAAAAAAAK..",
+        "KAAAAAAAAAAAAAAAAAAAK..",
+        "KAAAAAAAAAKCCKAAAAAAK..",
+        ".KAAAAAAAAAKKAAAAAAAK..",
+        "..KKAAAAAAAAAAAAAAAK..."
+      ]
+    },
+    "toyPet": {
+      "x": 0,
+      "y": 0,
+      "rows": [
+        "............................................",
+        ".............................PP.PP..........",
+        "............................PPPPPPP.........",
+        "............................PPPPPPP.........",
+        ".............................PPPPP..........",
+        "..............................PPP...........",
+        "...............................P............",
+        "............................................",
+        "............................................",
+        "..................PP...PP...................",
+        ".................PPPP.PPPP..................",
+        ".................PPPP.PPPP..................",
+        ".............PP..PPPP.PPPP..PP..............",
+        "............PPPP..PP...PP..PPPP.............",
+        "............PPPP...........PPPP.............",
+        "............PPPP...........PPPP.............",
+        ".............PP.............PP..............",
+        "...................CCCCC....................",
+        "..................CCCCCCC...................",
+        ".................CCCCCCCCC..................",
+        "................CCCCPPPCCCC.................",
+        "................CCCPPPPPCCC.................",
+        "................CCCPPPPPCCC.................",
+        "................CCCPPPPPCCC.................",
+        ".................CCCPPPCCC..................",
+        "..................CCCCCCC...................",
+        "...................CCCCC....................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................"
+      ]
+    },
+    "toyFeed": {
+      "x": 0,
+      "y": 0,
+      "rows": [
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................C...............",
+        "...........................C................",
+        ".................KK......CC.................",
+        "................CKKCCCCCC...................",
+        ".........................CC.................",
+        "...........................C................",
+        "............................C...............",
+        "............................................",
+        "................CCCCCCCCCCCC................",
+        ".............CCCCCCCCCCCCCCCCCC.............",
+        "...........CCCCCSSSSSSSSSSSSCCCCC...........",
+        "..........CCCSSSSSSSSSSSSSSSSSSCCC..........",
+        ".........ACCCSSSSSSSSSSSSSSSSSSCCCA.........",
+        ".........AACCCCCSSSSSSSSSSSSCCCCCAA.........",
+        ".........AAAACCCCCCCCCCCCCCCCCCAAAA.........",
+        "........KAAAAAAACCCCCCCCCCCCAAAAAAAK........",
+        "........KAAAAAAAAAAAAAAAAAAAAAAAAAAK........",
+        "........KAAAAAAAAAAAAAAAAAAAAAAAAAAK........",
+        ".........AAAAAAAAAAAAAAAAAAAAAAAAAA.........",
+        "..........KKKKKKKKKKKKKKKKKKKKKKKK..........",
+        "............KKKKKKKKKKKKKKKKKKKK............",
+        "................KKKKKKKKKKKK................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................"
+      ]
+    },
+    "toyPlay": {
+      "x": 0,
+      "y": 0,
+      "rows": [
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "...................KKKKKKK..................",
+        ".................KKPPPPPPPKK................",
+        "...............KKPPPPPPPPCCPKK..............",
+        "..............KKPPPPPPCCCPPPPKK.............",
+        ".............KKPPPPCCCPPPPPPPPKK............",
+        ".............KPPCCCPPPPPPPPPPPPK............",
+        "............KPCCPPPPPPPPPPPPPPPPK...........",
+        "............KPPPPPPPPPPPPPPPPCCPK...........",
+        "...........KPPPPPPPPPPPPCCCCCPPPPK..........",
+        "...........KPPPPPPPPPCCCPPPPPPNPPK..........",
+        "...........KPPPPCCCCCPPPPPPPNNPPPK..........",
+        "...........KPPCCPPPPPPPPPPNNPPPPPK..........",
+        "...........KPPPPPPPPPPPPNNPPCCCPPK..........",
+        "...........KPPPPPPPPPPNNPCCCPPPPNK..........",
+        "...........KPPPPPPPPNNCCCPPPPNNNPK..........",
+        "............KPPPPCNNPPPPPPPPNPPPK...........",
+        "............KPCCNNPPPPPPPNNNPPPPK...........",
+        ".............KPNPPPPPPPPNPPPPPPK............",
+        ".............KKPPPPPPNNNPPPPPPKK............",
+        "..............KKPPPPNPPPPPPPPKK.............",
+        "...............KKPNNPPPPPPPPKK..............",
+        ".................KKPPPPPPPKK............P...",
+        "...................KKKKKKK..PPP........P....",
+        "...............................PPPP...P.....",
+        "...................................PPP......",
+        "............................................",
+        "............................................",
+        "............................................"
+      ]
+    },
+    "toyDress": {
+      "x": 0,
+      "y": 0,
+      "rows": [
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "...............................PPPPP........",
+        "...............................PPPPP........",
+        ".........CCCCCCCCCCCCCCCCCCCCCCPPPPP........",
+        ".........CCCCCCCCCCCCCCCCCCCCCCPPPPP........",
+        ".........CCCCCCCCCCCCCCCCCCCCCCPPPPPPPP.....",
+        ".........KKAAAAAAAAAAAAAAAAAAAAAKK.PPPP.....",
+        "..........KKAAAAAAAAAAAAAAAAAAAAKK.PPPP.....",
+        "..........KKAAAAAAAAAAAAAAAAAAAKK..PPPP.....",
+        "...........KKAAAAAAACCAAAAAAAAAKK...........",
+        "...........KKAAAAAAACCAAAAAAAAKK............",
+        "............KKAAAAAAAAAAAAAAAAKK............",
+        "............KKAAAAAAAAAAAAAAAKK.............",
+        ".............KKAAAAAAAAACCAAAKK.............",
+        ".............KKAAAAAAAAACCAAKK..............",
+        "..............KKAAAAAAAAAAAAKK..............",
+        "..............KKAAAAAAAAAAAKK...............",
+        "...............KKAAAAAAAAAAKK...............",
+        "...............KKAAAAAAAAAKK................",
+        "................KKAAAAAAAAKK................",
+        "................KKAAAAAAAKK.................",
+        ".................KKAAAAAAKK.................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................"
+      ]
+    },
+    "toyHighfive": {
+      "x": 0,
+      "y": 0,
+      "rows": [
+        ".......................O....................",
+        ".......................O....................",
+        ".......................O....................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "..................PP...PP...................",
+        ".................PPPP.PPPP...........O......",
+        ".................PPPP.PPPP.........OO.......",
+        ".............PP..PPPP.PPPP..PP....O.........",
+        "............PPPP..PP...PP..PPPP.............",
+        "............PPPP...........PPPP.............",
+        "......OOOO..PPPP...........PPPP.............",
+        ".............PP.............PP..............",
+        "...................CCCCC....................",
+        "..................CCCCCCC...................",
+        ".................CCCCCCCCC..................",
+        "................CCCCPPPCCCC.................",
+        "................CCCPPPPPCCC.................",
+        "................CCCPPPPPCCC.................",
+        "................CCCPPPPPCCC.................",
+        ".................CCCPPPCCC..................",
+        "..................CCCCCCC...................",
+        "...................CCCCC....................",
+        ".................OOOOOOOOO..................",
+        ".................OOOOOOOOO..................",
+        ".................OOOOOOOOO..................",
+        ".................OOOOOOOOO..................",
+        ".................OOOOOOOOO..................",
+        "............................................",
+        "............................................",
+        "............................................"
+      ]
+    },
+    "toyHide": {
+      "x": 0,
+      "y": 0,
+      "rows": [
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "..........CCCCCCCCCCCCCOOOOOOOOOOOO.........",
+        ".........CCCCCCCCCCCCC..OOOOOOOOOOOO........",
+        "........CCCCCCCCCCCCC....OOOOOOOOOOOO.......",
+        ".......CCCCCCCCCCCCC......OOOOOOOOOOOO......",
+        "......CCCCCCCCCCCCC........OOOOOOOOOOOO.....",
+        ".....CCCCCCCCCCCCCSSSSSSSSSSOOOOOOOOOOOO....",
+        "..........SSSSSSSSSSSSSSSSSSSSSSSSS.........",
+        "..........KOOOOOOOOOOCCCOOOOOOOOOOK.........",
+        "..........KOOOOOOOOOOCCCOOOOOOOOOOK.........",
+        "..........KOOOOOOOOOOCCCOOOOOOOOOOK.........",
+        "..........KOOOOOOOOOOCCCOOOOOOOOOOK.........",
+        "..........KOOOOOOOOOOCCCOOOOOOOOOOK.........",
+        "..........KOOOOOOOOOOCCCOOOOOOOOOOK.........",
+        "..........KOOOOOOOOOOCCCOOOOOOOOOOK.........",
+        "..........KOOOOOOOOOOCCCOOOSSSSOOOK.........",
+        "..........KOOOOOOOOOOCCCOOOSSSSOOOK.........",
+        "..........KOOOOOOOOOOCCCOOOSSSSOOOK.........",
+        "..........KOOOOOOOOOOCCCOOOOOOOOOOK.........",
+        "..........KOOOOOOOOOOCCCOOOOOOOOOOK.........",
+        "..........KOOOOOOOOOOCCCOOOOOOOOOOK.........",
+        "..........KKKKKKKKKKKKKKKKKKKKKKKKK.........",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................"
+      ]
+    },
+    "toyLitter": {
+      "x": 0,
+      "y": 0,
+      "rows": [
+        "............................................",
+        "............................................",
+        "............................................",
+        "..............................KKKKKKK.......",
+        "..............................KCCCCCK.......",
+        "..............................KCCCCCK.......",
+        "..............................KCCCCCK.......",
+        "..............................KCCCCCK.......",
+        "..............................KKKKKKK.......",
+        "................................O...........",
+        "................................O...........",
+        "...............................O............",
+        "...............................OO...........",
+        "...............................O.O..........",
+        "..............................O...OOO.......",
+        "..............................O......O......",
+        "..............................O.............",
+        "......KKKKKKKKKKKKKKKKKKKKKKKOKKKKK.........",
+        "......KACCCCCCCCCCCCCCCCCCCCCOCCCAK.........",
+        "......KACCSCCCSCCCSCCCSCCCSCCCSCCAK.........",
+        "......KACCCCCCCCCCCCCCCCCCCCCCCCCAK.........",
+        "......KACCCCCCCCCCCCCCCCCCCCCCCCCAK.........",
+        "......KAAAAAAAAAAAAAAAAAAAAAAAAAAAK.........",
+        "......KAAAAAAAAAAAAAAAAAAAAAAAAAAAK.........",
+        "......KAAAAAAAAAAAAAAAAAAAAAAAAAAAK.........",
+        "......KAAAAAAAAAAAAAAAAAAAAAAAAAAAK.........",
+        "......KAAAAAAAAAAAAAAAAAAAAAAAAAAAK.........",
+        "......KKKKKKKKKKKKKKKKKKKKKKKKKKKKK.........",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................"
+      ]
+    },
+    "nookWindow": {
+      "x": 0,
+      "y": 0,
+      "rows": [
+        "..................OOOOOOOO..................",
+        "...............OOOOOOOOOOOOOO...............",
+        ".............OOOOODDDDDDDDOOOOO.............",
+        "............OOODDDDDDOODDDDDDOOO............",
+        "...........OOODDDDDDDOODDDDDDDOOO...........",
+        "..........OODDDDCDDDDOODDDDDDDDDOO..........",
+        ".........OOODDDCCDDDDOODDDDDDDDDOOO.........",
+        "........OOODDDCCCDDDDOODDDDDDDDDDOOO........",
+        "........OODDDDCCCDDDDOODDDDDDDDDDDOO........",
+        "........OODDDDCCCDDDDOODDDDDCDDDDDOO........",
+        ".......OODDDDDCCCCDDDOODDDDCCCDDDDDOO.......",
+        ".......OODDDDDCCCCCDDOODDDDDCDDDDDDOO.......",
+        ".......OODDDDDDCCCCCCOODDDDDDDDDDDDOO.......",
+        ".......OODDDDDDDCCCCCOODDDDDDDDDDDDOO.......",
+        ".......OODDDDDDDDDDDDOODDDDDDDDDDDDOO.......",
+        ".......OODDDDDDDDDDDDOODDDDDDDDDDDDOO.......",
+        ".......OODDDDDDDDDDDDOODDDDDDDDDDDDOO.......",
+        ".......OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.......",
+        ".......OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.......",
+        ".......OODDDDDPDDDDDDOODDDDDDDDDDDDOO.......",
+        ".......OODDDDDDDDDDDDOODDDDDDDDDDDDOO.......",
+        ".......OODDDDDDDDDDDDOODDDDDDDDDDDDOO.......",
+        ".......OODDDDDDDDDDDDOODDDDDDDCDDDDOO.......",
+        ".......OODDDDDDDDDDDDOODDDDDDDDDDDDOO.......",
+        ".......OODDDDDDDDDDDDOODDDDDDDDDDDDOO.......",
+        ".......OODDDDDDDDDDDDOODDDDDDDDDDDDOO.......",
+        ".......OODDDDDDDDDDDDOODDDDDDDDDDDDOO.......",
+        ".......OODDDDDDDDDDDDOODDDDDDDDDDDDOO.......",
+        ".......OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.......",
+        ".....SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS.....",
+        ".....SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS.....",
+        ".....SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS....."
+      ]
+    },
+    "nookPlant": {
+      "x": 0,
+      "y": 0,
+      "rows": [
+        "...................AA.......................",
+        "..................AAAA......................",
+        "..................AAAA......................",
+        ".................AAAAAA.....................",
+        ".................AAAAAA.....................",
+        ".................AAAAAA.....................",
+        ".................AAAAAA.....................",
+        ".............AAAAAAAAAA.....................",
+        "...........AAAAAAAAAAAA.....................",
+        "..........AAAAAAAAAAAAA.....................",
+        "..........AAAAAAAAAAAAA.....................",
+        "...........AAAAAAAAAA.A..AAAAAA.............",
+        ".............AAAAAA...AAAAAAAAAAA...........",
+        "......................AAAAAAAAAAAA..........",
+        "......................AAAAAAAAAAAA..........",
+        "......................AAAAAAAAAAA...........",
+        "......................A..AAAAAA.............",
+        "......................A.....................",
+        "......................A.....................",
+        "......................A.....................",
+        "......................A.....................",
+        "......................A.....................",
+        "......................A.....................",
+        ".............CCCCCCCCCCCCCCCCCCC............",
+        ".............CCCCCCCCCCCCCCCCCCC............",
+        ".............CCCCCCCCCCCCCCCCCCC............",
+        "...............PPPPPPPPPPPPPPP..............",
+        "...............PPNNPPPPPPPPPPP..............",
+        "...............PPNNPPPPPPPPPPP..............",
+        "...............PPNNPPPPPPPPPPP..............",
+        "...............PPNNPPPPPPPPPPP..............",
+        "...............PPPPPPPPPPPPPPP.............."
+      ]
+    },
+    "boxBack": {
+      "x": 0,
+      "y": 0,
+      "rows": [
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "....KOOOOOOOOOOOOK........KCCCCCCCCCCCCK....",
+        "....KOOOOOOOOOOOOK........KCCCCCCCCCCCCK....",
+        "...KOOOOOOOOOOOOK..........KCCCCCCCCCCCCK...",
+        "...KOOOOOOOOOOOOK..........KCCCCCCCCCCCCK...",
+        "..KOOOOOOOOOOOOK............KCCCCCCCCCCCCK..",
+        "..KOOOOOOOOOOOOKKKKKKKKKKKKKKCCCCCCCCCCCCK..",
+        "....KSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSK....",
+        "....KSSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDSSK....",
+        "....KSSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDSSK....",
+        "....KSSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDSSK....",
+        "....KSSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDSSK....",
+        "....KSSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDSSK....",
+        "....KSSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDSSK....",
+        "....KSSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDSSK....",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................"
+      ]
+    },
+    "boxFront": {
+      "x": 0,
+      "y": 0,
+      "rows": [
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "............................................",
+        "....KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK....",
+        "....KSSSSOOOOOOOOOOOPCCCOOOOOOOOOOOSSSSK....",
+        "....KSSSSOOOOOOOOOOOPCCCOOOOOOOOOOOSSSSK....",
+        "....KSSSSOOOOOOOOOOOPCCCOOOOOOOOOOOSSSSK....",
+        "....KSSSSOOOOOOOOOOOPCCCOOOSCCCCSOOSSSSK....",
+        "....KSSSSOOOOOOOOOOOPCCCOOOSSSSSSOOSSSSK....",
+        "....KSSSSOOOOOOOOOOOPCCCOOOSSSSSSOOSSSSK....",
+        "....KSSSSOOOOOOOOOOOPCCCOOOOOOOOOOOSSSSK....",
+        "....KSSSSOOOOOOOOOOOPCCCOOOOOOOOOOOSSSSK....",
+        "....KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK...."
+      ]
+    },
+    "gameConsole": {
+      "x": 25,
+      "y": 22,
+      "rows": [
+        ".KKKKKKKKKKKKKKKK.",
+        "KCCCCCCCCCCCCCCCCK",
+        "KCKCCKAAAAAAKCPCCK",
+        "KKKKCKADAAAAKCCPCK",
+        "KCKCCKAAAAAAKCCCCK",
+        "KCCCCKKKKKKKKCCCCK",
+        ".KKKKKKKKKKKKKKKK."
+      ]
+    },
+    "gamePaws": {
+      "x": 25,
+      "y": 23,
+      "rows": [
+        ".KKK.........KKK..",
+        "KCCCK.......KCCCK.",
+        ".CCK.........KCC.."
+      ]
+    },
+    "toyGame": {
+      "x": 4,
+      "y": 8,
+      "rows": [
+        "..KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK..",
+        ".KCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCK.",
+        "KCCCCCCKKKKKKKKKKKKKKKKCCCCCCCCCCK",
+        "KCCCCCCKAAAAAAAAAAAAAAKCCCCCCCCCCK",
+        "KCCKCCCKAAAAAAAAAAAAAAKCCCCPCCCCCK",
+        "KCKKKCCKAAAACCCAAAAAAAKCCCCCCPCCCK",
+        "KCCKCCCKAAAACACAAAAAAAKCCCPCCCCCCK",
+        "KCCCCCCKAAAACCCAAAAAAAKCCCCCCCCCCK",
+        "KCCCCCCKAAAAAAAAAAAAAAKCCCCCCCCCCK",
+        "KCCCCCCKKKKKKKKKKKKKKKKCCCCCCCCCCK",
+        ".KCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCK.",
+        "..KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.."
+      ]
+    },
+    "roofTail": {
+      "x": 0,
+      "y": 9,
+      "rows": [
+        "..KKK.........",
+        ".KCCCK........",
+        ".KCCBK........",
+        "..KBBK........",
+        "..KBBBK.......",
+        "...KBBK.......",
+        "...KBBBK......",
+        "....KBBBK.....",
+        ".....KBBBK....",
+        "......KBBBK...",
+        ".......KBBBK..",
+        "........KBBBK.",
+        ".........KBBBK",
+        "..........KKK."
+      ]
+    },
+    "roofBody": {
+      "x": 10,
+      "y": 14,
+      "rows": [
+        ".....KKKKKKKKKKKK......",
+        "...KKBBBBBBBBBBBBKK....",
+        "..KBBBBBBBBBBBBBBBBKK..",
+        ".KBBBBBBBBBBBBBBBBBBK.",
+        "KBBBBBBBBBBBBBBBBBBBK.",
+        "KBBBBBBBBBBBBBBBBBBBBK",
+        "KBBBBBBBBBBBBBBBBBBBBK",
+        "KBBBBBBBBBBBBBBBBCCBBK",
+        "KBBBBBBBBBBBBBBBCCCCBK",
+        "KBBBBBBBBBBBBBBCCCCCK.",
+        ".KHHBBBBBBBBBBBCCCKK..",
+        "..KKHHHHHHHHHHHKKK....",
+        "....KKKKKKKKKKK......."
+      ]
+    },
+    "roofHead": {
+      "x": 24,
+      "y": 4,
+      "rows": [
+        ".....KKKKKKKKK......",
+        "...KKBBBBBBBBBKK....",
+        "..KBBBBBBBBBBBBBK...",
+        ".KHHKBBBBBBBBBKHKK..",
+        "KHHHHKBBBBBBBKHHHHK.",
+        "KHHHHKBBBBBBBKHHHHK.",
+        "KHHHHKBBBBBBBKHHHHK.",
+        "KHHHHKBBBBBBBKHHHHK.",
+        "KHHHHKBBBBBBBKHHHHK.",
+        ".KHHHKBBBBBBCCKHHHK.",
+        ".KHHKBBBBBCCCCCCKK..",
+        "..KKBBBBBCCCCCCCCCK.",
+        "...KBBBBCCCCCCCCCCK.",
+        "....KBBBCCCCCCCCCCK.",
+        ".....KBBBCCCCCCCCK..",
+        "......KKBBCCCCCKK...",
+        "........KKKKKKK....."
+      ]
+    },
+    "roofHind": {
+      "x": 12,
+      "y": 22,
+      "rows": [
+        ".KBBBBK",
+        "KBBBBBK",
+        "KBBBBK.",
+        "KBBBK..",
+        "KBBBK..",
+        "KBBBK..",
+        "KHBBK..",
+        "KCCCK..",
+        "KKKKK.."
+      ]
+    },
+    "roofFront": {
+      "x": 27,
+      "y": 22,
+      "rows": [
+        "KBBBBK",
+        "KBBBBK",
+        "KBBBBK",
+        "KBBBBK",
+        "KBBBK.",
+        "KBBBK.",
+        "KHBBK.",
+        "KCCCK.",
+        "KKKKK."
+      ]
+    },
+    "roofBackHind": {
+      "x": 20,
+      "y": 24,
+      "rows": [
+        "KHHHK",
+        "KHHHK",
+        "KHHK.",
+        "KHHK.",
+        "KHHK.",
+        "KCCK.",
+        "KKKK."
+      ]
+    },
+    "roofBackFront": {
+      "x": 31,
+      "y": 21,
+      "rows": [
+        "KHHK....",
+        ".KHHK...",
+        "..KHHK..",
+        "...KHHK.",
+        "...KHHK.",
+        "...KHHK.",
+        "...KCCK.",
+        "...KKKK."
+      ]
+    },
+    "roofEyes": {
+      "x": 28,
+      "y": 12,
+      "rows": [
+        "KKK......KKK",
+        "KCK......KCK",
+        "KKK......KKK"
+      ]
+    },
+    "roofClosed": {
+      "x": 28,
+      "y": 13,
+      "rows": [
+        "K.K......K.K",
+        ".K........K."
+      ]
+    },
+    "roofSleepEyes": {
+      "x": 28,
+      "y": 14,
+      "rows": [
+        "KKK......KKK"
+      ]
+    },
+    "roofNose": {
+      "x": 37,
+      "y": 16,
+      "rows": [
+        "KKKK",
+        "KDDK",
+        ".KK.",
+        "..K."
+      ]
+    },
+    "roofWhiskers": {
+      "x": 0,
+      "y": 0,
+      "rows": [
+        "."
+      ]
+    },
+    "roofSleepBody": {
+      "x": 10,
+      "y": 21,
+      "rows": [
+        ".....KKKKKKKKKKKKKKK.......",
+        "...KKBBBBBBBBBBBBBBBKK.....",
+        "..KBBBBBBBBBBBBBBBBBBBKK...",
+        ".KBBBBBBBBBBBBBBBBBBBBBBK..",
+        "KBBBBBBBBBBBBBBBBBBBBBBBBK.",
+        "KBBBBBBBBBBBBBBBBBBBBBBBBK",
+        "KBBBBBBBBBBBBBBBBBBBBBBBBK",
+        "KBBBBBBBBBBBBBBBBBBBBBBBBK",
+        ".KHHBBBBBBBBBBBBBBBBBBBKK.",
+        "..KKHHHHHHHHHHHHHHHHHHK...",
+        "....KKKKKKKKKKKKKKKKKK...."
+      ]
+    },
+    "roofSleepTail": {
+      "x": 10,
+      "y": 26,
+      "rows": [
+        "KKK.......................",
+        "KBBBK.....................",
+        ".KBBBKKKKKKKKKKKKK........",
+        "..KBBBBBBBBBBBBBBBK.......",
+        "...KKHHHHHHHHHHHCCK.......",
+        ".....KKKKKKKKKKKKK........"
+      ]
+    },
+    "roofBandana": {
+      "x": 27,
+      "y": 19,
+      "rows": [
+        "KAAAAAAK",
+        ".KAAAAK.",
+        "..KAA...",
+        "...KK..."
+      ]
+    },
+    "roofHoodie": {
+      "x": 10,
+      "y": 14,
+      "rows": [
+        ".....KKKKKKKKKKKK......",
+        "...KKAAAAAAAAAAAAKK....",
+        "..KAAAAAAAAAAAAAAAAKK..",
+        ".KAAAAAAAAAAAAAAAAAAK.",
+        "KAAAAAAAAAAAAAAAAAAAK.",
+        "KAAAAAAAAAAAAAAAAAAAAK",
+        "KAAAAAAAAAAAAAAAAAAAAK",
+        "KAAAAAAAAAKCCKAAAAAAAK",
+        "KAAAAAAAAAAKKAAAAAAAAK",
+        "KAAAAAAAAAAAAAAAAAAAK.",
+        ".KAAAAAAAAAAAAAAAAKK.."
+      ]
+    },
+    "roofShades": {
+      "x": 27,
+      "y": 11,
+      "rows": [
+        "KKKKKKKKKKKKKKK",
+        "KCDDDK...KCDDDK",
+        "KDDDDK...KDDDDK",
+        ".KKKK.....KKKK."
+      ]
+    },
+    "roofPaw": {
+      "x": 35,
+      "y": 18,
+      "rows": [
+        "..KKKK.",
+        ".KBBBCK",
+        "KBBBCCK",
+        "KBBBBK.",
+        ".KKKK.."
+      ]
+    },
+    "roofRaisedFront": {
+      "x": 28,
+      "y": 19,
+      "rows": [
+        ".......KKK...",
+        "......KBBBK..",
+        ".....KBBBK...",
+        "....KBBBK....",
+        "...KBBBK.....",
+        "..KBBBK......",
+        ".KBBBK.......",
+        "..KKK........"
+      ]
+    },
+    "roofSitBody": {
+      "x": 16,
+      "y": 15,
+      "rows": [
+        ".......KKKKKKKK...",
+        "......KBBBBBCCCK..",
+        ".....KBBBBBCCCCK..",
+        "....KBBBBBCCCCCK..",
+        "...KBBBBBBCCCCCK..",
+        "..KBBBBBBBCCCCCK..",
+        ".KBBBBBBBBCCCCCK..",
+        "KBBBBBBBBBBCCCCK..",
+        "KBBBBBBBBBBBCCCK..",
+        "KBBBBBBBBBBBBCCK..",
+        "KBBBBBBBBBBBBBBK..",
+        "KBBBBBBBBBBBBBBK..",
+        ".KBBBBBBBBBBBBBK..",
+        "..KHHHHBBBCCCCCK..",
+        "...KKHHHHCCCCCCK..",
+        ".....KKKKKKKKKK..."
+      ]
+    },
+    "roofSitTail": {
+      "x": 7,
+      "y": 25,
+      "rows": [
+        "..KKK...............",
+        ".KCCK...............",
+        "KCCBK...............",
+        "KBBBK...............",
+        ".KBBBKKKKKKKKK......",
+        "..KHHBBBBBBBBBK.....",
+        "....KKKKKKKKKK......"
+      ]
+    },
+    "roofSitFront": {
+      "x": 28,
+      "y": 23,
+      "rows": [
+        "KBBBBK",
+        "KBBBBK",
+        "KBBBBK",
+        "KHBBBK",
+        "KHBBBK",
+        "KCCCK.",
+        "KCCCK.",
+        "KKKKK."
+      ]
+    },
+    "roofSitHoodie": {
+      "x": 16,
+      "y": 15,
+      "rows": [
+        ".......KKKKKKKK...",
+        "......KAAAAAAAAK..",
+        ".....KAAAAAAAAAK..",
+        "....KAAAAAAAAAAK..",
+        "...KAAAAAAAAAAAK..",
+        "..KAAAAAAAAAAAAK..",
+        ".KAAAAAAAAAAAAAK..",
+        "KAAAAAAAKCCKAAAK..",
+        "KAAAAAAAAKKAAAAK..",
+        "KAAAAAAAAAAAAAAK..",
+        "KAAAAAAAAAAAAAAK..",
+        "KAAAAAAAAAAAAAAK..",
+        ".KAAAAAAAAAAAAAK..",
+        "..KAAAAAAAAAAAAK.."
+      ]
+    },
+    "roofLoafBody": {
+      "x": 13,
+      "y": 21,
+      "rows": [
+        "......KKKKKKKKKKKK......",
+        "....KKBBBBBBBBBBBBKK....",
+        "..KKBBBBBBBBBBBBBBBBK...",
+        ".KBBBBBBBBBBBBBBBBBBK...",
+        "KBBBBBBBBBBBBBBBBBBBBK..",
+        "KBBBBBBBBBBBBBBBBBBBBK.",
+        "KBBBBBBBBBBBBBBBBBBBBK.",
+        "KBBBBBBBBBBBBBBBBBBBBK.",
+        ".KHHBBBBBBBBBBBBBBBBK..",
+        "..KKHHHHHHHHHHHHHHKK...",
+        "....KKKKKKKKKKKKKK....."
+      ]
+    },
+    "roofChinPaws": {
+      "x": 27,
+      "y": 29,
+      "rows": [
+        ".KKKK..KKKK.",
+        "KCCCCKKCCCCK",
+        "KKKKKKKKKKKK"
+      ]
+    },
+    "roofTuckedTail": {
+      "x": 15,
+      "y": 26,
+      "rows": [
+        "KKK..................",
+        "KBBBK................",
+        ".KBBBKKKKKKKKKKKKK...",
+        "..KBBBBBBBBBBBBCCCK..",
+        "...KKHHHHHHHHHHCCCK..",
+        ".....KKKKKKKKKKKKK..."
+      ]
+    },
+    "roofStretchBody": {
+      "x": 11,
+      "y": 15,
+      "rows": [
+        "....KKKKKKKK...........",
+        "..KKBBBBBBBBKK.........",
+        ".KBBBBBBBBBBBBKK.......",
+        "KBBBBBBBBBBBBBBBKK.....",
+        "KBBBBBBBBBBBBBBBBBKK...",
+        "KBBBBBBBBBBBBBBBBBBBK..",
+        "KBBBBBBBBBBBBBBBBBBBK..",
+        "KBBBBBBBBBBBBBBBCCBBK..",
+        ".KBBBBBBBBBBBBBCCCCBK..",
+        "..KKHHBBBBBBBBCCCCCK...",
+        "....KKHHHHHHHHHHKKK....",
+        "......KKKKKKKKKK......."
+      ]
+    },
+    "roofStretchFront": {
+      "x": 28,
+      "y": 26,
+      "rows": [
+        "KBBBK.......",
+        "KBBBBKKKK...",
+        ".KBBBBBCCK..",
+        "..KBBBBCCCK.",
+        "...KKKKKKKK."
+      ]
+    },
+    "roofStretchHoodie": {
+      "x": 11,
+      "y": 15,
+      "rows": [
+        "....KKKKKKKK...........",
+        "..KKAAAAAAAAKK.........",
+        ".KAAAAAAAAAAAAKK.......",
+        "KAAAAAAAAAAAAAAAKK.....",
+        "KAAAAAAAAAAAAAAAAAKK...",
+        "KAAAAAAAAAAAAAAAAAAAK..",
+        "KAAAAAAAAAAAAAAAAAAAK..",
+        "KAAAAAAAAAKCCKAAAAAAK..",
+        ".KAAAAAAAAAKKAAAAAAAK..",
+        "..KKAAAAAAAAAAAAAAAK..."
+      ]
+    },
+    "roofYawnMouth": {
+      "x": 35,
+      "y": 17,
+      "rows": [
+        "KKK",
+        "KPK",
+        "KPK",
+        "KKK"
+      ]
+    },
+    "roofHeadTwitch": {
+      "x": 24,
+      "y": 4,
+      "rows": [
+        ".....KKKKKKKKK......",
+        "...KKBBBBBBBBBKK....",
+        "..KBBBBBBBBBBBBBK...",
+        ".KHHKBBBBBBBBBKHKK..",
+        "KHHHHKBBBBBBBKHHHHK.",
+        "KHHHHKBBBBBBBKHHHHK.",
+        "KHHHHKBBBBBBBKHHHHK.",
+        "KHHHHKBBBBBBBKHHHHK.",
+        "KHHHHKBBBBBBBKHHHHK.",
+        ".KHHHKBBBBBBCCKHHHK.",
+        ".KHHKBBBBBCCCCCCKK..",
+        "..KKBBBBBCCCCCCCCCK.",
+        "...KBBBBCCCCCCCCCCK.",
+        "....KBBBCCCCCCCCCCK.",
+        ".....KBBBCCCCCCCCK..",
+        "......KKBBCCCCCKK...",
+        "........KKKKKKK....."
+      ]
+    },
+    "roofGamePaws": {
+      "x": 25,
+      "y": 23,
+      "rows": [
+        ".KKK.........KKK..",
+        "KCCCK.......KCCCK.",
+        ".CCK.........KCC.."
+      ]
+    },
+    "rockBody": {
+      "x": 9,
+      "y": 14,
+      "rows": [
+        ".........KKKKKK..........",
+        "......KKKWWWWWGKK........",
+        "....KKWWWWGGGGGGGK.......",
+        "...KWWWWGGGGGGGGGGKK.....",
+        "..KWWWGGGGGGGGGGGGGGK....",
+        ".KWWGGGGGGGGGGGGGGGGGK...",
+        ".KWGGGGGGGGGGGGGGGGGGGK..",
+        "KWGGGGGGGGGGGGGGGGGGGGGK.",
+        "KGGGGGGGGGGGGGGGGGGGGGGK.",
+        "KGGGGGGGGGGGGGGGGGGGGGGK.",
+        "KGGGGGGGGGGGGGGGGGGGGGRK.",
+        "KRGGGGGGGGGGGGGGGGGGGRRK.",
+        ".KRGGGGGGGGGGGGGGGGRRRRK.",
+        ".KRRRGGGGGGGGGGGGRRRRRK..",
+        "..KRRRRRRRRRRRRRRRRRRK...",
+        "...KKRRRRRRRRRRRRRRKK....",
+        ".....KKKKKKKKKKKKKK......"
+      ]
+    },
+    "rockEyes": {
+      "x": 19,
+      "y": 19,
+      "rows": [
+        ".CCC....CCC.",
+        "CCCCK..CCCCK",
+        "CCDKK..CCDKK",
+        ".KKK....KKK."
+      ]
+    },
+    "rockBandana": {
+      "x": 12,
+      "y": 25,
+      "rows": [
+        "KAAAAAAAAAAAAAAAAAAK",
+        ".KAAAAAAAAAAAAAAAAK.",
+        "..KKKKKKKAAAKKKKKK..",
+        ".........KAK........",
+        "..........K........."
+      ]
+    },
+    "rockHoodie": {
+      "x": 14,
+      "y": 10,
+      "rows": [
+        "......KKKKKK......",
+        "....KKAAAAAAKK....",
+        "...KAAAAAAAAAAK...",
+        "..KAAAAAAAAAAACK..",
+        "..KAAAAAAAAAAACK..",
+        ".KKKKKKKKKKKKKKK..",
+        "KAAAAAAAAAAAAAAAAK",
+        ".KKKKKKKKKKKKKKKK."
+      ]
+    },
+    "rockShades": {
+      "x": 18,
+      "y": 19,
+      "rows": [
+        "KKKKKKKKKKKKK",
+        "KCDDDK.KCDDDK",
+        ".KKKK...KKKK."
+      ]
+    },
+    "toyBone": {
+      "x": 9,
+      "y": 9,
+      "rows": [
+        ".CC...................CC.",
+        "CCCC.................CCCC",
+        ".CCCCCCCCCCCCCCCCCCCCCCC.",
+        "..CCCCCCCCCCCCCCCCCCCCC..",
+        ".CCCCCCCCCCCCCCCCCCCCCCC.",
+        "CCCC.................CCCC",
+        ".CC...................CC."
+      ]
+    },
+    "toyStone": {
+      "x": 12,
+      "y": 15,
+      "rows": [
+        "......KKKKKKKK.....",
+        "...KKKWWWWGGGGKK...",
+        "..KWWWWGGGGGGGGGK..",
+        ".KWWGGGGGGGGGGGGGK.",
+        "KGGGGGGGGGGGGGGGGGK",
+        "KRGGGGGGGGGGGGGGGRK",
+        ".KRRRRRRRRRRRRRRRK.",
+        "..KKKKKKKKKKKKKKK.."
+      ]
+    },
+    "toyRinse": {
+      "x": 12,
+      "y": 7,
+      "rows": [
+        "...A....A....A....",
+        "...A....A....A....",
+        "..................",
+        "..................",
+        "..................",
+        "..................",
+        "..................",
+        "..................",
+        "......KKKKKKKK.....",
+        "...KKKWWWWGGGGKK...",
+        "..KWWWWGGGGGGGGGK..",
+        ".KWWGGGGGGGGGGGGGK.",
+        "KGGGGGGGGGGGGGGGGGK",
+        "KRGGGGGGGGGGGGGGGRK",
+        ".KRRRRRRRRRRRRRRRK.",
+        "..KKKKKKKKKKKKKKK.."
+      ]
+    },
+    "nookWindowDawn": {
+      "x": 0,
+      "y": 0,
+      "rows": [
+        "..................OOOOOOOO..................",
+        "...............OOOOOOOOOOOOOO...............",
+        ".............OOOOOddddddddOOOOO.............",
+        "............OOOddddddOOddddddOOO............",
+        "...........OOOdddddddOOdddddddOOO...........",
+        "..........OOdddddddddOOdddddddddOO..........",
+        ".........OOOdddddddddOOdddddddddOOO.........",
+        "........OOOddddddddddOOddddddddddOOO........",
+        "........OOdddddddddddOOdddddddddddOO........",
+        "........OOdddddddddddOOdddddddddddOO........",
+        ".......OOddddddddddddOOdddddCCCddddOO.......",
+        ".......OOddddddddddddOOddddCCCCCdddOO.......",
+        ".......OOddddddddddddOOdddCCCCCCCCdOO.......",
+        ".......OOddddddddddddOOddddddddddddOO.......",
+        ".......OOddddddddddddOOddddddddddddOO.......",
+        ".......OOddddddddddddOOddddddddddddOO.......",
+        ".......OOddddddddddddOOddddddddddddOO.......",
+        ".......OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.......",
+        ".......OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.......",
+        ".......OOddddddddddddOOddddddddddddOO.......",
+        ".......OOddddddddddddOOddddddddddddOO.......",
+        ".......OOdddddYYdddddOOddddddddddddOO.......",
+        ".......OOddddYYYYddddOOddddddddddddOO.......",
+        ".......OOdddYYYYYYdddOOddddddddddddOO.......",
+        ".......OOdddYYYYYYdddOOddddddddddddOO.......",
+        ".......OOddddYYYYddddOOddddddddddddOO.......",
+        ".......OOdddddYYdddddOOddddddddddddOO.......",
+        ".......OOddddddddddddOOddddddddddddOO.......",
+        ".......OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.......",
+        ".....SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS.....",
+        ".....SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS.....",
+        ".....SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS....."
+      ]
+    },
+    "nookWindowDay": {
+      "x": 0,
+      "y": 0,
+      "rows": [
+        "..................OOOOOOOO..................",
+        "...............OOOOOOOOOOOOOO...............",
+        ".............OOOOObbbbbbbbOOOOO.............",
+        "............OOObbbbbbOObbbbbbOOO............",
+        "...........OOObbbbbbbOObbbbbbbOOO...........",
+        "..........OObbbbbbbbbOObbbbbbbbbOO..........",
+        ".........OOObbbbbbbbbOObbbbbbbbbOOO.........",
+        "........OOObbbYYbbbbbOObbbbbbbbbbOOO........",
+        "........OObbbYYYYbbbbOObbbbbbbbbbbOO........",
+        "........OObbYYYYYYbbbOObbbbbbbbbbbOO........",
+        ".......OObbbYYYYYYbbbOObbbbbbbbbbbbOO.......",
+        ".......OObbbbYYYYbbbbOObbbbCCCbbbbbOO.......",
+        ".......OObbbbbYYbbbbbOObbbCCCCCbCbbOO.......",
+        ".......OObbbbbbbbbbbbOObbCCCCCCCCCbOO.......",
+        ".......OObbbbbbbbbbbbOObbbbbbbbbbbbOO.......",
+        ".......OObbbbbbbbbbbbOObbbbbbbbbbbbOO.......",
+        ".......OObbbbbbbbbbbbOObbbbbbbbbbbbOO.......",
+        ".......OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.......",
+        ".......OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.......",
+        ".......OObbbbbbbbbbbbOObbbbbbbbbbbbOO.......",
+        ".......OObbbbbbbbbbbbOObbbbbbbbbbbbOO.......",
+        ".......OObbbbbbbbbbbbOObbbbbbbbbbbbOO.......",
+        ".......OObbbbbbbbbbbbOObbbbbbbbbbbbOO.......",
+        ".......OObbbbbbbbbbbbOObbbbbbbbbbbbOO.......",
+        ".......OObbbbbbbbbbbbOObbbbbbbbbbbbOO.......",
+        ".......OObbbbbbbbbbbbOObbbbbbbbbbbbOO.......",
+        ".......OObbbbbbbbbbbbOObbbbbbbbbbbbOO.......",
+        ".......OObbbbbbbbbbbbOObbbbbbbbbbbbOO.......",
+        ".......OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.......",
+        ".....SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS.....",
+        ".....SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS.....",
+        ".....SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS....."
+      ]
+    },
+    "nookWindowDusk": {
+      "x": 0,
+      "y": 0,
+      "rows": [
+        "..................OOOOOOOO..................",
+        "...............OOOOOOOOOOOOOO...............",
+        ".............OOOOOeeeeeeeeOOOOO.............",
+        "............OOOeeeeeeOOeeeeeeOOO............",
+        "...........OOOeeeeeeeOOeeeeeeeOOO...........",
+        "..........OOeeeeeeeeeOOeeeeeeeeeOO..........",
+        ".........OOOeeeeeeeeeOOeeeeeeeeeOOO.........",
+        "........OOOeeeeeeeeeeOOeeeeeeeeeeOOO........",
+        "........OOeeeeeeeeeeeOOeeeeeeeeeeeOO........",
+        "........OOeeeeeeCeeeeOOeeeeeeeeeeeOO........",
+        ".......OOeeeeeeCCCeeeOOeeeeeeeeeeeeOO.......",
+        ".......OOeeeeeeeCeeeeOOeeeeeeeeeeeeOO.......",
+        ".......OOeeeeeeeeeeeeOOeeeeeeeeeeeeOO.......",
+        ".......OOeeeeeeeeeeeeOOeeeeeeeeeeeeOO.......",
+        ".......OOeeeeeeeeeeeeOOeeeeeeeeeeeeOO.......",
+        ".......OOeeeeeeeeeeeeOOeeeeeeeeeeeeOO.......",
+        ".......OOeeeeeeeeeeeeOOeeeeeeeeeeeeOO.......",
+        ".......OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.......",
+        ".......OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.......",
+        ".......OOeeeeeeeeeeeeOOeeeeeeeeeeeeOO.......",
+        ".......OOeeeeeeeeeeeeOOeeeeeeeeeeeeOO.......",
+        ".......OOeeeeeeeeeeeeOOeeeeeeYYeeeeOO.......",
+        ".......OOeeeeeeeeeeeeOOeeeeeYYYYeeeOO.......",
+        ".......OOeeeeeeeeeeeeOOeeeeYYYYYYeeOO.......",
+        ".......OOeeeeeeeeeeeeOOeeeeYYYYYYeeOO.......",
+        ".......OOeeeeeeeeeeeeOOeeeeeYYYYeeeOO.......",
+        ".......OOeeeeeeeeeeeeOOeeeeeeYYeeeeOO.......",
+        ".......OOeeeeeeeeeeeeOOeeeeeeeeeeeeOO.......",
+        ".......OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO.......",
+        ".....SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS.....",
+        ".....SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS.....",
+        ".....SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS....."
+      ]
+    },
+    "toyBowl": {
+      "x": 8,
+      "y": 10,
+      "rows": [
+        "..........HH..HH............",
+        ".......HHHBBHHBBHHH.........",
+        "......HBBHBBHBBHBBBH........",
+        "....HHBBHBBHBBHBBHBBHH......",
+        "...KKKKKKKKKKKKKKKKKKKK.....",
+        "..KCCCCCCCCCCCCCCCCCCCCK....",
+        "..KCAAAAAAAAAAAAAAAAAACK....",
+        "...KAAAAAAAAAAAAAAAAAAK.....",
+        "...KAAAAAAAACCCAAAAAAAK.....",
+        "....KAAAAAAACCCAAAAAAK......",
+        "....KAAAAAAAAAAAAAAAK.......",
+        ".....KAAAAAAAAAAAAAK........",
+        "......KKKKKKKKKKKKK........."
+      ]
+    },
+    "digPatch": {
+      "x": 24,
+      "y": 27,
+      "rows": [
+        ".....HHHHHHHHH......",
+        "...HHHBBBBBBBBHH....",
+        "..HHBBKKKKKKKBBBHH..",
+        ".HHBBKKKKKKKKKBBBBH.",
+        "..HHHHHHHHHHHHHHHH.."
+      ]
+    },
+    "digDirt": {
+      "x": 21,
+      "y": 23,
+      "rows": [
+        "..H.......",
+        ".....B....",
+        ".BB....H..",
+        ".........B",
+        "....H....."
+      ]
+    },
+    "toyDig": {
+      "x": 8,
+      "y": 11,
+      "rows": [
+        "....................CCC.....",
+        "...................CCCCC....",
+        "....................CCC.....",
+        "............................",
+        "....................CCC.....",
+        "...................CCCCC....",
+        "....H...............CCC.....",
+        ".......HHHHHHHHHH...........",
+        "....HHHBBBBBBBBBBHHH........",
+        "..HHHBBKKKKKKKKKBBBBHHH......",
+        ".HHBBBKKKKKKKKKKKKBBBBHH....",
+        "..HHHHBBBBBBBBBBBBBBHHH.....",
+        ".....HHHHHHHHHHHHHHH........"
+      ]
+    },
+    "sleepHoodie": {
+      "x": 10,
+      "y": 21,
+      "rows": [
+        ".....KKKKKKKKKKKKKKK.......",
+        "...KKAAAAAAAAAAAAAAAKK.....",
+        "..KAAAAAAAAAAAAAAAAAAAKK...",
+        ".KAAAAAAAAAAAAAAAAAAAAAAK..",
+        "KAAAAAAAAAAAAAAAAAAAAAAAAK.",
+        "KAAAAAAAAAAAAAAAAAAAAAAAAK",
+        "KAAAAAAAAAAAKCCKAAAAAAAAAK",
+        "KAAAAAAAAAAAAKKAAAAAAAAAAK",
+        ".KAAAAAAAAAAAAAAAAAAAAAKK."
+      ]
+    },
+    "roofSleepHoodie": {
+      "x": 10,
+      "y": 21,
+      "rows": [
+        ".....KKKKKKKKKKKKKKK.......",
+        "...KKAAAAAAAAAAAAAAAKK.....",
+        "..KAAAAAAAAAAAAAAAAAAAKK...",
+        ".KAAAAAAAAAAAAAAAAAAAAAAK..",
+        "KAAAAAAAAAAAAAAAAAAAAAAAAK.",
+        "KAAAAAAAAAAAAAAAAAAAAAAAAK",
+        "KAAAAAAAAAAAKCCKAAAAAAAAAK",
+        "KAAAAAAAAAAAAKKAAAAAAAAAAK",
+        ".KAAAAAAAAAAAAAAAAAAAAAKK."
+      ]
+    },
+    "loafHoodie": {
+      "x": 13,
+      "y": 21,
+      "rows": [
+        "......KKKKKKKKKKKK......",
+        "....KKAAAAAAAAAAAAKK....",
+        "..KKAAAAAAAAAAAAAAAAK...",
+        ".KAAAAAAAAAAAAAAAAAAK...",
+        "KAAAAAAAAAAAAAAAAAAAAK..",
+        "KAAAAAAAAAAAAAAAAAAAAK.",
+        "KAAAAAAAAAKCCKAAAAAAAK.",
+        "KAAAAAAAAAAKKAAAAAAAAK.",
+        ".KAAAAAAAAAAAAAAAAAAK.."
+      ]
+    },
+    "roofLoafHoodie": {
+      "x": 13,
+      "y": 21,
+      "rows": [
+        "......KKKKKKKKKKKK......",
+        "....KKAAAAAAAAAAAAKK....",
+        "..KKAAAAAAAAAAAAAAAAK...",
+        ".KAAAAAAAAAAAAAAAAAAK...",
+        "KAAAAAAAAAAAAAAAAAAAAK..",
+        "KAAAAAAAAAAAAAAAAAAAAK.",
+        "KAAAAAAAAAKCCKAAAAAAAK.",
+        "KAAAAAAAAAAKKAAAAAAAAK.",
+        ".KAAAAAAAAAAAAAAAAAAK.."
+      ]
+    },
+    "sitBandana": {
+      "x": 24,
+      "y": 20,
+      "rows": [
+        "KAAAAAAK",
+        ".KAAAAK.",
+        "..KAAK..",
+        "...KK..."
+      ]
+    },
+    "roofSitBandana": {
+      "x": 24,
+      "y": 20,
+      "rows": [
+        "KAAAAAAK",
+        ".KAAAAK.",
+        "..KAAK..",
+        "...KK..."
+      ]
+    },
+    "stretchBandana": {
+      "x": 26,
+      "y": 23,
+      "rows": [
+        "KAAAAAAK",
+        ".KAAAAK.",
+        "..KAAK..",
+        "........"
+      ]
+    },
+    "roofStretchBandana": {
+      "x": 26,
+      "y": 23,
+      "rows": [
+        "KAAAAAAK",
+        ".KAAAAK.",
+        "..KA....",
+        "........"
+      ]
+    },
+    "sleepBandana": {
+      "x": 23,
+      "y": 28,
+      "rows": [
+        "KAAAAAK",
+        ".KAAAK.",
+        "..KKK.."
+      ]
+    },
+    "roofSleepBandana": {
+      "x": 23,
+      "y": 28,
+      "rows": [
+        "KAAAAAK",
+        ".KAAAK.",
+        "..KKK.."
+      ]
+    },
+    "chinBandana": {
+      "x": 26,
+      "y": 28,
+      "rows": [
+        "KAAAAAK",
+        ".KAAAK.",
+        "..KKK.."
+      ]
+    },
+    "roofChinBandana": {
+      "x": 26,
+      "y": 28,
+      "rows": [
+        "KAAAAAK",
+        ".KAAAK.",
+        "..KKK.."
+      ]
+    },
+    "loafBandana": {
+      "x": 24,
+      "y": 25,
+      "rows": [
+        "KAAAAAAK",
+        ".KAAAAK.",
+        "..KAAK..",
+        "...KK..."
+      ]
+    },
+    "roofLoafBandana": {
+      "x": 24,
+      "y": 25,
+      "rows": [
+        "KAAAAAAK",
+        ".KAAAAK.",
+        "..KAAK..",
+        "...KK..."
+      ]
+    },
+    "perchBandana": {
+      "x": 24,
+      "y": 23,
+      "rows": [
+        "KAAAAAAK",
+        ".KAAAAK.",
+        "..KAAK..",
+        "...KK..."
+      ]
+    },
+    "roofPerchBandana": {
+      "x": 24,
+      "y": 23,
+      "rows": [
+        "KAAAAAAK",
+        ".KAAAAK.",
+        "..KAAK..",
+        "...KK..."
+      ]
+    },
+    "groomPaw": {
+      "x": 24,
+      "y": 19,
+      "rows": [
+        "....KKK.",
+        "...KCCCK",
+        "..KOCCCK",
+        ".KOOOCK.",
+        "KOOOOK..",
+        ".KKKK..."
+      ]
+    },
+    "roofGroomPaw": {
+      "x": 24,
+      "y": 19,
+      "rows": [
+        "....KKK.",
+        "...KCCCK",
+        "..KBCCCK",
+        ".KBBBCK.",
+        "KBBBBK..",
+        ".KKKK..."
+      ]
+    },
+    "groomTongue": {
+      "x": 32,
+      "y": 18,
+      "rows": [
+        "PP",
+        "PK"
+      ]
+    },
+    "groomSparkle": {
+      "x": 9,
+      "y": 9,
+      "rows": [
+        "..C.......................",
+        "..C.......................",
+        "CCCCC.....................",
+        "..C.......................",
+        "..C.......................",
+        "..........................",
+        ".......................C..",
+        ".......................C..",
+        ".....................CCCCC",
+        ".......................C..",
+        ".......................C.."
+      ]
+    },
+    "shakeMarks": {
+      "x": 7,
+      "y": 9,
+      "rows": [
+        "K..............................K",
+        "K..............................K",
+        ".K............................K.",
+        "................................",
+        ".K............................K.",
+        "K..............................K"
+      ]
+    },
+    "toyGroom": {
+      "x": 12,
+      "y": 7,
+      "rows": [
+        "......KKKKKKKK......",
+        "....KKCCCCCCCCKK....",
+        "...KCCCCCCCCCCCCK...",
+        "...KAAAAAAAAAAAAK...",
+        "....KKAAAAAAAAKK....",
+        "......KKKKKKKK......",
+        ".......KAAAK........",
+        ".......KAAAK........",
+        ".......KAAAK........",
+        ".......KAAAK........",
+        ".......KAAAK........",
+        "........KKK........."
+      ]
+    }
+  },
+  "gait": [
+    [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    [
+      [
+        1,
+        0
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    [
+      [
+        -1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        -1,
+        0
+      ]
+    ],
+    [
+      [
+        0,
+        -1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        -1
+      ]
+    ]
+  ],
+  "wardrobe": {
+    "standing": [
+      "bandana",
+      "hoodie"
+    ],
+    "sitting": [
+      "sitBandana",
+      "sitHoodie"
+    ],
+    "stretching": [
+      "stretchBandana",
+      "stretchHoodie"
+    ],
+    "curl": [
+      "sleepBandana",
+      "sleepHoodie"
+    ],
+    "chin": [
+      "chinBandana",
+      "sleepHoodie"
+    ],
+    "loaf": [
+      "loafBandana",
+      "loafHoodie"
+    ],
+    "perch": [
+      "perchBandana",
+      "sitHoodie"
+    ]
+  }
+}

@@ -1,0 +1,1059 @@
+{
+  "version": "0.6.10",
+  "source_commit": "8da9dc5b569925be3ab11b1e4d9e12e8d07797d4",
+  "source_tag": "v0.6.10",
+  "excluded": [
+    "AGENTS.md (at any depth)",
+    ".github/"
+  ],
+  "files": {
+    ".gitattributes": {
+      "sha256": "a444858f1a3eaf40aa11348e52cecaa00da6ccdd9d92deadb628b5a422f76c86",
+      "mode": "100644"
+    },
+    ".gitignore": {
+      "sha256": "677e335a41e71536494c25485c711893b78d2786283663c1e68d24145dd7db64",
+      "mode": "100644"
+    },
+    "Assets/Fixtures/media-playback-checks.js": {
+      "sha256": "50a9f1d36a2c38a181258e14bae10329f983932c8abdf891a367b502a795400d",
+      "mode": "100644"
+    },
+    "Assets/Fixtures/relay-setup-v1.json": {
+      "sha256": "0c64757a35d1e48616e28824f63feff33e4e15b66439b81f45df5449ad90516c",
+      "mode": "100644"
+    },
+    "Assets/Pet/Puke.json": {
+      "sha256": "b9f735d1f389124847f91ee5494a04d2eaec8a67b5c0880442d5235462dcc431",
+      "mode": "100644"
+    },
+    "Assets/Pet/Quotes.json": {
+      "sha256": "5d74c7956b4a0b57e00030680f6a21b64f8cb9655e1f9588624ded8b282d8ff8",
+      "mode": "100644"
+    },
+    "Assets/Relay-preview.png": {
+      "sha256": "84a6016a7a8924a1bfe63c80a8f06108e921bcf176df76acd53c0b26aecf26d3",
+      "mode": "100644"
+    },
+    "Assets/Relay-screenshot.png": {
+      "sha256": "ecbafe8feaa68de45f449d0386376d7bbf51ea34bf14ba9e801ab78e5cf24a34",
+      "mode": "100644"
+    },
+    "Assets/Relay-tray.ico": {
+      "sha256": "6ac8f1aab5ae22501b9b960dc19f0e6d6533e0fd0ad721b8a4707898a2aa2275",
+      "mode": "100644"
+    },
+    "Assets/Relay.ico": {
+      "sha256": "add5a26db2fe0adec3192447aa801e2091dfc8bc1fac895bf01af45a085b61ef",
+      "mode": "100644"
+    },
+    "Assets/ServiceIcons.xaml": {
+      "sha256": "d3e8fda11f72d98f0b5cbcc4030340c5e7527945d5cea6dc46cd63d9e80bc62c",
+      "mode": "100644"
+    },
+    "Assets/Services/LICENSE.txt": {
+      "sha256": "d2ff98b803f0c12f09825d4489cb8a4b14fd912ebbf6a3e8b23a77043a7dc043",
+      "mode": "100644"
+    },
+    "Assets/Services/discord.svg": {
+      "sha256": "21426324417b08dccc906a5407d6c00cffa076b30c6a195633255aa3be7b3802",
+      "mode": "100644"
+    },
+    "Assets/Services/gmail.svg": {
+      "sha256": "a537f5d85d9a27efa3a5d6086e8df6072ee93f76b4d176639a5e483f74b74b9f",
+      "mode": "100644"
+    },
+    "Assets/Services/googlecalendar.svg": {
+      "sha256": "39b434d3264d123629a12509e9f5bdf57bf9e5ed9a6eafffb714cff5f05f032f",
+      "mode": "100644"
+    },
+    "Assets/Services/googlekeep.svg": {
+      "sha256": "c2d5b3dd49027ecefee8d16b7f2c59690cd5976bf2054635bad85a1348cb83dc",
+      "mode": "100644"
+    },
+    "Assets/Services/googlemessages.svg": {
+      "sha256": "6491fd8977ad26f1a9fc906741bfa2e83241cfb4165b549e5a2f8d74d5196f41",
+      "mode": "100644"
+    },
+    "Assets/Services/messenger.svg": {
+      "sha256": "a52aadd9f7602aebfe4d01e2b249963e136fc996edfa2b78b037ad7e1a400e71",
+      "mode": "100644"
+    },
+    "Assets/Services/slack.svg": {
+      "sha256": "f23c317b279f53dcd2260a6cd2e279f7a696f87dcb3da259d6201f05bbc45b0d",
+      "mode": "100644"
+    },
+    "Assets/Services/telegram.svg": {
+      "sha256": "147fd8f8923e7e5f463fe98c0eb9913bead6b2ae59935728cda141002ec8a7c9",
+      "mode": "100644"
+    },
+    "Assets/Services/whatsapp.svg": {
+      "sha256": "8fb209a53a61618c3483594b3e070481a35575d6aaecbe00a6fe386670c8fb1c",
+      "mode": "100644"
+    },
+    "Assets/Terminal/LICENSE-addon-fit.txt": {
+      "sha256": "89d68aaa57fea28c5fb79d58ccd44e9d5ce71220abdf3362e1c1586bc8355d6d",
+      "mode": "100644"
+    },
+    "Assets/Terminal/LICENSE-xterm.txt": {
+      "sha256": "883674266227c392ea9abeaa8f69148fa7516d106caf1e34bfc2bcd5cb1e803b",
+      "mode": "100644"
+    },
+    "Assets/Terminal/addon-fit.js": {
+      "sha256": "c52cbdc6b10a0cea40e943a26ab7354656717149b543e8384c8402f965fbf36a",
+      "mode": "100644"
+    },
+    "Assets/Terminal/index.html": {
+      "sha256": "3d6d36fb1fdf6ceb813d0cc4c9d8cc852e0d0a05ecd99e0ecaa8d359305e6cd8",
+      "mode": "100644"
+    },
+    "Assets/Terminal/terminal.css": {
+      "sha256": "03771b94de3252baa61c9403fdc6b990b07095353c24a844f1a2335e7f671e99",
+      "mode": "100644"
+    },
+    "Assets/Terminal/terminal.js": {
+      "sha256": "8d72e4641c4de3dfab39ae1721ce83125cbd11d69b27ff4a7f662f0b7758720e",
+      "mode": "100644"
+    },
+    "Assets/Terminal/vendor.json": {
+      "sha256": "478247e76e5c78b460f12da3fa8c5191bb975cdddd097d11aaa58b65a268f01e",
+      "mode": "100644"
+    },
+    "Assets/Terminal/xterm.css": {
+      "sha256": "5901a7cb7707a6db1fc0dfe81f47423b6c0045e2dd194013d24fc899d23ec2af",
+      "mode": "100644"
+    },
+    "Assets/Terminal/xterm.js": {
+      "sha256": "050ce7f5ccb5f72b348346017dd2f35be97cab74d8dc6043766d5875b9bd7f5b",
+      "mode": "100644"
+    },
+    "Launch.cmd": {
+      "sha256": "9c16c89df155845a49a2ebf9228bfc21d10f29ad045be383b56e12ae267b09f7",
+      "mode": "100644"
+    },
+    "NuGet.Config": {
+      "sha256": "07d0c144b87fb7c9234dabfd4d3cfcc3699ec34880b081e1614f550e97f37a4e",
+      "mode": "100644"
+    },
+    "README.md": {
+      "sha256": "ae768475a1ca80af1ce184f618ce1d09c66b9bbf2e4b79650fc244b0e145cfcf",
+      "mode": "100644"
+    },
+    "Relay.csproj": {
+      "sha256": "08dccb2d86c78c5b778b4aadf72616a2d15ab12acff3cd48b9e71d5fede5ef11",
+      "mode": "100644"
+    },
+    "SECURITY.md": {
+      "sha256": "25bee7b4408d5a336eae2b7591218f00c078837e74731fd328956dc31d665242",
+      "mode": "100644"
+    },
+    "THIRD-PARTY-NOTICES.md": {
+      "sha256": "9607b5e88c4560e6981a9108a947bb913380649614e1d41a52c5545e7b64e312",
+      "mode": "100644"
+    },
+    "docs/bug-reports.md": {
+      "sha256": "6631ff8eb8915dddb755dab1713984319f1bec5cd3a99b4f2404f7eb0cad1610",
+      "mode": "100644"
+    },
+    "docs/chromium-macos.md": {
+      "sha256": "7040c1d22d5372ddf681da3572d7e8f865f745d6b01c18fab7b01725ff433453",
+      "mode": "100644"
+    },
+    "docs/development.md": {
+      "sha256": "6561ef3d5e403019efc925a2c19266f02e04e568069a2625c1151b2428ff33e8",
+      "mode": "100644"
+    },
+    "docs/greetings.md": {
+      "sha256": "3ddb56706d0bdec6099a9eaeae1ef6eb76a58a265379f798535f588990795668",
+      "mode": "100644"
+    },
+    "docs/macos.md": {
+      "sha256": "09efcc8a481fbc65d682d121b7e0d85362315566e0dd78c11baa04f0a8960f20",
+      "mode": "100644"
+    },
+    "docs/memory-soak-2026-09-12.md": {
+      "sha256": "6e8b5141382ccea9dc81197e7e9989ab7b2f246b063146c0ef2d6ab4271286a5",
+      "mode": "100644"
+    },
+    "docs/platform-parity.md": {
+      "sha256": "425326acf28bbcd393dd7a1d7b469e91caf617b058bad274b331efa7af4663ae",
+      "mode": "100644"
+    },
+    "docs/releases/0.5.0.md": {
+      "sha256": "2e173219e69ffc34cde6a69fd161cd333c333a89d6888dcb1e66e64ab2b721a6",
+      "mode": "100644"
+    },
+    "docs/releases/0.5.1.md": {
+      "sha256": "72b26ffba7a0554530d1df091c369341174f0e5051cf22561246cf420fd18d78",
+      "mode": "100644"
+    },
+    "docs/releases/0.6.0.md": {
+      "sha256": "8529e86feae1192342a48131fe920684fd8d41125b228f571d1f471dfa137d8d",
+      "mode": "100644"
+    },
+    "docs/releases/0.6.1.md": {
+      "sha256": "ed3dcbf3dde2434087d8f85bfe046109e27f76dace6c28dc602a23acd3b74fbc",
+      "mode": "100644"
+    },
+    "docs/releases/0.6.10.md": {
+      "sha256": "e68c642d7ff565a3d7c0e26cd1cb196bb4c998f76eba7973dc70ced89c4afe2f",
+      "mode": "100644"
+    },
+    "docs/releases/0.6.2.md": {
+      "sha256": "c3109c1967d7647a2ed08a30fe89f296a3455ad892770c0ee3a88d2336f117a8",
+      "mode": "100644"
+    },
+    "docs/releases/0.6.3.md": {
+      "sha256": "c4fcadd7e73f6e3d28181f7d497612e8a6ceba11d4a42ce07302812d25e72b86",
+      "mode": "100644"
+    },
+    "docs/releases/0.6.4.md": {
+      "sha256": "3cc194b164c7647e5df50d75763b09513410904de1961add07a557ec31ddcdf5",
+      "mode": "100644"
+    },
+    "docs/releases/0.6.5.md": {
+      "sha256": "44bd4b92cc741b116a1a5503cfacda887935d0de3a7989a13fbf38342c8fb04c",
+      "mode": "100644"
+    },
+    "docs/releases/0.6.6.md": {
+      "sha256": "3d76daf0b35a87cebc5e4546da96a4bec17a6e5e9f894836214ecf5198b00cbe",
+      "mode": "100644"
+    },
+    "docs/releases/0.6.7.md": {
+      "sha256": "9bb00d0d7211baf3550f810b60cd90ef3d5c4d93621e7ec53f79c0186ebb59b1",
+      "mode": "100644"
+    },
+    "docs/releases/0.6.8.md": {
+      "sha256": "2a1c4611788396a770c50db91f72fc58a05894ffb1ed75d7c45f39446ed19e38",
+      "mode": "100644"
+    },
+    "docs/releases/0.6.9.md": {
+      "sha256": "b0c2f9a3b28f2ec03067fa19d0e1a52706e5ce74d2b631987ddd55e058a6e3b4",
+      "mode": "100644"
+    },
+    "docs/releases/macos-0.1.0-2.md": {
+      "sha256": "d49f8da4097ce07c88867116e6dd763b1786413fc128be6af56389cb77419208",
+      "mode": "100644"
+    },
+    "docs/releases/macos-0.1.1-3.md": {
+      "sha256": "0e3f9c3c87d5c25fcb2fc07c2fd13b56fdc71080908123b256bc7f5c4221ee88",
+      "mode": "100644"
+    },
+    "docs/releases/macos-0.1.10-12.md": {
+      "sha256": "30ffe64e9e4872eb3a31fea6866cb04f651a22a2f58f272a612a59a0ea7509bd",
+      "mode": "100644"
+    },
+    "docs/releases/macos-0.1.11-13.md": {
+      "sha256": "9d74233f169d3e30599f7790da0733aab577db46c35963d021b8625793fd49d8",
+      "mode": "100644"
+    },
+    "docs/releases/macos-0.1.12-14.md": {
+      "sha256": "52161563385d9b5194f502c5970d292d7604935cf635f75e66603a1240b71834",
+      "mode": "100644"
+    },
+    "docs/releases/macos-0.1.13-15.md": {
+      "sha256": "12f388ee84da4ecba67be37ceff1589ed9dd374fff7dea1eee05e3669707bf69",
+      "mode": "100644"
+    },
+    "docs/releases/macos-0.1.2-4.md": {
+      "sha256": "702fea0c578a7f84fc04e47c7d554edca5f025698d90155ceca554d2d4609848",
+      "mode": "100644"
+    },
+    "docs/releases/macos-0.1.7-9.md": {
+      "sha256": "ac7b802ecf38f6946534a98669bcc63d1de969b84c277865651a61da83d71e7a",
+      "mode": "100644"
+    },
+    "docs/releases/macos-0.1.8-10.md": {
+      "sha256": "bcb80584ddcab341b0e343bb53402b37c0b3705cd05aee0dbf119d5e4339c8ee",
+      "mode": "100644"
+    },
+    "docs/releases/macos-0.1.9-11.md": {
+      "sha256": "9a80fbf455b8521231d2cbfe0bb5ff5b665419170d7a241af95661ad4ff5d9ad",
+      "mode": "100644"
+    },
+    "docs/usage.md": {
+      "sha256": "2a940783e744994c49a20128164a145ee6bfdb17ddaf0cdea1dfc8840640d53a",
+      "mode": "100644"
+    },
+    "global.json": {
+      "sha256": "6a8e9044030d136bd4c04fff9684111a3478b27559bfb6d19e4d380f0de91510",
+      "mode": "100644"
+    },
+    "installer/Relay.iss": {
+      "sha256": "3420ef8fa446d75c6d60aedbdd38eefafdee9fc2686df66f599acf9e2ad447b0",
+      "mode": "100644"
+    },
+    "macos/Assets/Relay-modern-v1.md": {
+      "sha256": "983b8e1de38fa23ffd269c067114eacd18a28f125d84de19230d547914e604b9",
+      "mode": "100644"
+    },
+    "macos/Assets/Relay-modern-v1.png": {
+      "sha256": "7f702dcd78d9f840777b0290e1c7a00e79c7c4bd6f388d02132344ab7c62b196",
+      "mode": "100644"
+    },
+    "macos/CEFProbe/LICENSE.txt": {
+      "sha256": "2e69c36a7eaa4fa153426eab635c607ea0356cbc7a68a70f42a49e8ab8eb8106",
+      "mode": "100644"
+    },
+    "macos/CEFProbe/prepare.py": {
+      "sha256": "b790fd3ed46232a3e0e8cba884ce13b4f50648fe80001d80222807ce7828110e",
+      "mode": "100644"
+    },
+    "macos/CEFProbe/run.py": {
+      "sha256": "82efc84a38f72b5da87142d78e2c79432101dadba7f66aed179ae433ee320eb6",
+      "mode": "100644"
+    },
+    "macos/ChromiumBridge/CMakeLists.txt": {
+      "sha256": "8fff474902215eb41cdc76c0e845d0e819116b1ea6a414be94a836fee46a1ac4",
+      "mode": "100644"
+    },
+    "macos/ChromiumBridge/RelayChromium.mm": {
+      "sha256": "6b62576cee27ae6e1799023dab7a0aca0b960b81c143b144d1f0c14555fe204d",
+      "mode": "100644"
+    },
+    "macos/Dependencies/Sparkle.json": {
+      "sha256": "c30119848a0e1af68e14c598c565fdf717e2739908f5b4e845e0e9d11cecf698",
+      "mode": "100644"
+    },
+    "macos/Info.plist": {
+      "sha256": "3dcec4b6f51a92767905c77768404f6de9ae17b4c56b91e464981ad39364bcdc",
+      "mode": "100644"
+    },
+    "macos/Licenses/Sparkle.txt": {
+      "sha256": "8bf42cb4f442e1fa5cb0196d743095ac6a4aef31fb93c28079176993e589a012",
+      "mode": "100644"
+    },
+    "macos/Package.swift": {
+      "sha256": "0b1166495bbf2291e3c158a06654b1621e68ef01bf1fd45bde752ab904074c87",
+      "mode": "100644"
+    },
+    "macos/QtProbe/probe.py": {
+      "sha256": "1611ed92632fc23b4e4bc5b5f5e70d48cc9f4995d32b11dc667991cb60b642b8",
+      "mode": "100644"
+    },
+    "macos/Relay.entitlements": {
+      "sha256": "63f2104fe6da7ad1d1cc6e3d4e6dd8f49af7a16afd169149ae12ef543d146daa",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/AccountDragSource.swift": {
+      "sha256": "e87b68676072e68f1c06f03f2305cce3906063d678d41c08ea21e3c7589e2699",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/AccountEditor.swift": {
+      "sha256": "6b68f1d66ef06111d4e4a5db6143b25773012e400b11ead498dae4315a5b3589",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/AccountReordering.swift": {
+      "sha256": "42c18d9ffb00c4166a0d3480bf1e6d54aa20e93edc8db16b99cc2bc7b8b9735b",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/AccountZoomControl.swift": {
+      "sha256": "696d0526ac5678f3d622a53d8cb8c6de0950ae0993f176ca9a55f63b118dc052",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/ActivityView.swift": {
+      "sha256": "90bf7dda4dee9e60aae7c61587f0e2a74ad496221d9a317ea75ac1c380803f0f",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/AddAccountButton.swift": {
+      "sha256": "596784f95d5bbb691db6da296668659b653db549023f11bf7a7af0b7191cddc2",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/AppIdentity.swift": {
+      "sha256": "1cabfcc7923028cc4f0f1d4faedc11c65c9a4494526cdb8bfdd78d5f6b587e5f",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/BrowserCaption.swift": {
+      "sha256": "ed3a88652908230b70450425d16361ba4e02b66c87a07a7f35315cbe6d7f7d71",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/BrowserDeck.swift": {
+      "sha256": "42e79bc234c3bf7b9723c47280dc8d32881e49f444d0a7258c0a6d3899608fc5",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/BrowserRules.swift": {
+      "sha256": "a3d06d7821bf6212b79024df59ee2eb916f64e0d7dd88686c4fcb5f5b2facd95",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/BrowserSession.swift": {
+      "sha256": "077e5fd9da693d1a14a821e7b3c577b7088c4747cfdf5726c8b39c45a8be7d94",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/BugReport.swift": {
+      "sha256": "15a2a8e911b7d7fb8de708dacdc38b090d8554877eefc626e76f06c0b1c3f9c0",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/BugReportView.swift": {
+      "sha256": "5b6a92a53dd66e5c4e02a3630b4d4e692a451162d725dec71d8198c513e96022",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/ChromiumSession.swift": {
+      "sha256": "ecca2260bcdfbb6ebeb275cc6b2aa6a368d238313c6c0ddc03f24cac92f7215f",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/DownloadDestination.swift": {
+      "sha256": "7479462b32380f17160314b7c1b2ae08cc7226f4837b90e0773f7d0e4e52f0f1",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/Downloads.swift": {
+      "sha256": "dac0e16f33c1c5d3a8187f23f9c4ade0c65fafd4c5e4ecd02aebc55982332678",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/DownloadsView.swift": {
+      "sha256": "b1d75dac7852cbf9424a73c0cde1b706f687f49409b36f6fa0fe9175d1787875",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/GeneralSettingsView.swift": {
+      "sha256": "7827e13cbbd34a3ebaeccb6e413891064b9227cb65c24a7ee6b1ccddabb5472f",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/GreetingView.swift": {
+      "sha256": "087be832961065e2a4d6de9dc088b069c4d0df23bae885da8fa458d2136edb50",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/MacPTY.swift": {
+      "sha256": "1223b7c42986af911bca83870be3eb914877a9afdf9229daf89eaf436a471741",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/MediaBridge.swift": {
+      "sha256": "dddaf3d91d4322f210dec46f72417be60478765f47af5f4b9eeb12a315859441",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/MediaCenter.swift": {
+      "sha256": "76418e12761da1d2e7a35039f2d6386beb57e11d9f2aed3e0ceb7c823ab4f880",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/MediaControlsView.swift": {
+      "sha256": "b5f2ea431bd299dbb5d3228db91cfb9382dfffaaf76f066636eae2df64cc0eaf",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/MenuBarIcon.swift": {
+      "sha256": "94315b4e518896987735b9119ebc5b71791ff8314d8848de598548e7ec73f9a1",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/MenuBarView.swift": {
+      "sha256": "e74892978b7f84ce28ccc6b90e35efb2bdae86ad0ac2028c2599f8d54cceda1a",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/MessengerChrome.swift": {
+      "sha256": "40e35ba792255a4a5069113db29414b1e00ed957cfe3342029bc5b134de1f75a",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/MessengerUnread.swift": {
+      "sha256": "ed3061bc54605d227569bba00bd911f5bd345e389e0456014feb8cc3eac0fb4f",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/Models.swift": {
+      "sha256": "1983d5c2c091722aa9995bd66811daca4ca88bc8a3967091b4745f1479ad68b9",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/Notifications.swift": {
+      "sha256": "9b6be2fe43fe532a16a7723b060902753411d9c48256465d563334fb2999355d",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/PageControls.swift": {
+      "sha256": "ba85f12c9b526073bd51e0fc585f3b56aeff9f007b180f8ad65d509a07622c31",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/PetArtwork.swift": {
+      "sha256": "7a02b4778c4b2f326391b496c65067aa87bdaff31e287f2f9e5195b4b48b9a7b",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/PetDaylight.swift": {
+      "sha256": "4cfc3d407870227588f745df490f91b0254b12d42061faf49c78fa0120227e27",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/PetMotion.swift": {
+      "sha256": "131c404475542e229834996314e37148b7c614a22c046a764649baad8ad02085",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/ProductivityModels.swift": {
+      "sha256": "2c6cdaa64beec03fa863593f3d1f7bf88a37ade9686ae1f8591798394ce7723b",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/ProductivityStore.swift": {
+      "sha256": "d456625caecbd233032197a840662464d90fd3ec19eee689e4722735df1c693e",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/ProductivityViews.swift": {
+      "sha256": "df4c7d5f3b93268f305a3c8a76802498475167fef5c19b872f1b9d7fa293cffa",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/ProfileStorage.swift": {
+      "sha256": "56db6691f259efc999356d558864cbbf48a9947ddf07460671ede66f943e1441",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/RelayApp.swift": {
+      "sha256": "d6b1cdfc9bcabe2fc0faf334b1951080a5baaf95f5f863be5db0e72788009694",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/RemovedAccountsView.swift": {
+      "sha256": "04157ef187d51c15dbb7f3daf5ea07e1ef6d9d18b1f7948b7093d104ae91bd12",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/ResourceMonitor.swift": {
+      "sha256": "bc1e1759d386558a6192fe56521060ed2e1f7a73e06ea5e454bc2074465c7add",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/ShellSettings.swift": {
+      "sha256": "d36e3e4cbfa58cb7fa4b9abe088ea4935b84cae630406d622a522e6d47ba4011",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/ShellTheme.swift": {
+      "sha256": "65cd5e7467ef74d59fa411ba37e04bd7291b16e9cdd043f03d7ffa4447d0b7d2",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/ShellView.swift": {
+      "sha256": "7c3c028875179f72eee4010a51859cb409b9d17cf9b9f3fd51e4636a554e0e55",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/SnapshotDelegate.swift": {
+      "sha256": "3face4c018280c4c7cc1d68ac96604b9a904642ed847b3ef86e4856baa14b9c5",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/TerminalProfile.swift": {
+      "sha256": "a9a9fc55f8492f6da755f74406ff189ddd1620d4ede72fbade3bb902e63b8e33",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/TerminalSession.swift": {
+      "sha256": "566a6874da3c9a1d56c2aab87a8212a8c2a7d934c728aec4f783f7caf8b677f9",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/TerminalWorkspace.swift": {
+      "sha256": "870e40bb8160ff9d5526c991a57cd326e584cd6cbf89a42b345c2258fe17f551",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/TitlebarPet.swift": {
+      "sha256": "963d92ea29e35df168515ff9c2414298b32d30f7be560d43fcbe20f36304251f",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/UnreadCenter.swift": {
+      "sha256": "ef526a6a4f1e94566f8aff5417d9960813a159374dce568e05b8b23cf73f27c2",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/UnreadModels.swift": {
+      "sha256": "58196209a5c0238fbb2c2e9e0590f4f48bc866fb71ecb0fec82bb1250c4ae073",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/Updates.swift": {
+      "sha256": "d2a70bd888356ac31e69549194a8a39fd9c3198137e77a291bea9df61bba3346",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/WhatsAppChrome.swift": {
+      "sha256": "9a8dc73e4cb253823b6f43ece3ff419dab71a204bdebe07ec582ad49a6c8e7bb",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayMac/WorkspacePicker.swift": {
+      "sha256": "8ad624d8e210f876d7404e431f10329a90f5b494553d30d0699ef877000e1add",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayPTY/RelayPTY.c": {
+      "sha256": "dbaa4cf2f099aec283cf418d611aca7fbd2658d6974b43cfe365ae0094e15f67",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayPTY/include/RelayPTY.h": {
+      "sha256": "51f155ccb0712282efc72670176a8a46277e51d218f54a50d72ba8ac300f47d1",
+      "mode": "100644"
+    },
+    "macos/Sources/RelayPTY/include/module.modulemap": {
+      "sha256": "9bcf542f612f9c891e9e350fcae30cdcf3e993b37a1b79397f34c907cbe62b8c",
+      "mode": "100644"
+    },
+    "macos/Tests/BrowserChecks/BrowserChecks.swift": {
+      "sha256": "6638690cebc3bc4ed5b882b82a112d6784e73c1cc8f7d841c02019fd7e7fc3a5",
+      "mode": "100644"
+    },
+    "macos/Tests/BrowserChecks/FileDropChecks.swift": {
+      "sha256": "06f20c0f9d554f8507d98245f883cb38561bf24e3140ce67574e12ff65887705",
+      "mode": "100644"
+    },
+    "macos/Tests/BrowserChecks/ProviderChromeChecks.swift": {
+      "sha256": "a2184f301f9ffcac54d0f9d15b2243e4850149b1426eb6f8f4f445970d2a361f",
+      "mode": "100644"
+    },
+    "macos/Tests/ChromiumChecks/ChromiumChecks.swift": {
+      "sha256": "3f492a370ccd1ab69359bea43e270eed4b05a85b5e3d745314bea39411e0e388",
+      "mode": "100644"
+    },
+    "macos/Tests/ChromiumChecks/run.py": {
+      "sha256": "2e4fa4ffcad5263c8876b7ff8f3c0f95850a5874ccdda20e8272414784ac0fc7",
+      "mode": "100644"
+    },
+    "macos/Tests/ControlChecks/ControlChecks.swift": {
+      "sha256": "de1b8693f9d8ed2f2a42964ca2c224fb9107dc34c148ae18740dd44ae3b2b679",
+      "mode": "100644"
+    },
+    "macos/Tests/RelayMacTests/RelayMacTests.swift": {
+      "sha256": "d2cebf73b02b90a0e7572e97fda1be2fb2b7700554eaaaeb55168aa429e6db0a",
+      "mode": "100644"
+    },
+    "macos/Tests/TerminalChecks/TerminalChecks.swift": {
+      "sha256": "357c3afcc81db378beca758fb2795e761650cd605a11f472c7d0f6a8d11c4d99",
+      "mode": "100644"
+    },
+    "macos/Tests/UpdateCheck.m": {
+      "sha256": "26111ba18a8913c92432a34dac58783432fd15c1d3706f07dbab56eb37e6d6a4",
+      "mode": "100644"
+    },
+    "macos/Updates.json": {
+      "sha256": "6f85e586c2fc88d75a159babe98130056e40b05875a0a7192c4cfd1b6e2a1e56",
+      "mode": "100644"
+    },
+    "packages.lock.json": {
+      "sha256": "b60033d1a045e3215356768934c0c1ff927cae8a199154b1342c8219c433a77c",
+      "mode": "100644"
+    },
+    "reporting.json": {
+      "sha256": "c049879d4b220aab3ee0bb94327626863fa925492e76d8387ccbc8414ddce8c1",
+      "mode": "100644"
+    },
+    "reporting/intake.py": {
+      "sha256": "1d147713825abc3b0c2f37610bf7a5aaad102b8884b01d2d5c1aeddd9d717ae1",
+      "mode": "100644"
+    },
+    "reporting/test_intake.py": {
+      "sha256": "6f50976fd31e37bac4afa6529b03ef3219dad31312fad36bf2c1a81131c51cec",
+      "mode": "100644"
+    },
+    "scripts/Apply-Update.ps1": {
+      "sha256": "7f6d2c770d025545ee6a1b25b283b554769b24615c9b24860544034f0e833f94",
+      "mode": "100644"
+    },
+    "scripts/Build-macOS.sh": {
+      "sha256": "532aae559c6c6ffe06b10cdde5016f1c5fdfd6e4138c169d0c96ded4ca22e13b",
+      "mode": "100644"
+    },
+    "scripts/Build.ps1": {
+      "sha256": "1cc34e18be73a382ae14566e45e95ae6c9bc30d0a4c89de48a6df6c435a9f5ff",
+      "mode": "100644"
+    },
+    "scripts/Bundle-macOS-Chromium.py": {
+      "sha256": "d13e3b5e54460558b4f87750f6bf0a3f1c688fc270c1b481b7f62ac0ecfe89d8",
+      "mode": "100644"
+    },
+    "scripts/Bundle-macOS-Sparkle.py": {
+      "sha256": "948aeb0000d373203f9176d11695a0e32fad9bad31fea6122246851012e6db10",
+      "mode": "100644"
+    },
+    "scripts/Configure-macOS-updates.py": {
+      "sha256": "9c68b80327fddde79a2f38f432a2ccf35c690689d6f17c91331f70839ce704ee",
+      "mode": "100644"
+    },
+    "scripts/Dev.ps1": {
+      "sha256": "e865b121e42c522536ba376f1d574c3d3dd9fa6d863f968560e6a7b7b2d2cb4d",
+      "mode": "100644"
+    },
+    "scripts/Ensure-WebView2.ps1": {
+      "sha256": "0392d9060dc67cf8b8bc94e6b35ef01e6db535eda28a99a9d7088875e947729d",
+      "mode": "100644"
+    },
+    "scripts/Export-macOS-app-icon.sh": {
+      "sha256": "908a8d517064afeb90bbd43fdd26ff996461b3e36c9f44dffe388a07a357a4ac",
+      "mode": "100644"
+    },
+    "scripts/Export-macOS-icons.swift": {
+      "sha256": "56925cf0b700c8679080bd4e70f04904f983488779148fe1a39b1ba725c45aea",
+      "mode": "100644"
+    },
+    "scripts/Fetch-macOS-dependencies.py": {
+      "sha256": "cbae190fd7b93e1d7d906b5c248793cb762423ebe4bb233f064304452717ef43",
+      "mode": "100644"
+    },
+    "scripts/Generate-pet-art.py": {
+      "sha256": "2a66f23846d4de44600693f74a988992bd26d728cd6627f9846596566b3d3a08",
+      "mode": "100644"
+    },
+    "scripts/Get-BuildTools.ps1": {
+      "sha256": "16ff48645ce55452559d1ad5bbba290477060af876aaf4fb2659bccb9ac9092c",
+      "mode": "100644"
+    },
+    "scripts/New-Icon.ps1": {
+      "sha256": "4537df57d88dd8f65c99299f37b029681b5086fbe5bf1093dbe5335ad1bb42a5",
+      "mode": "100644"
+    },
+    "scripts/Notarize-macOS.sh": {
+      "sha256": "b473a84a547f8ba3e18737c442b0cbb1b520e5d7488599fd3f54874e011f182f",
+      "mode": "100644"
+    },
+    "scripts/Package-macOS-update.py": {
+      "sha256": "51fc894e4e84310e3f0be6e0ead2560a2c94cad0b670c6a45f0d0d6445f1c3ed",
+      "mode": "100644"
+    },
+    "scripts/Publish-Release.py": {
+      "sha256": "a27266a190320ccae6891f5b959f6bfc7b1ff8405bd9cc814f2357e45ba304ff",
+      "mode": "100644"
+    },
+    "scripts/Publish-Releases.ps1": {
+      "sha256": "377ff3706bc084a48f829eb070a401a246cc8376dd7b49f9fdc960177118c99f",
+      "mode": "100644"
+    },
+    "scripts/Release.ps1": {
+      "sha256": "74a307bd465eb6d33b1bcf275e6c8b0289beb009189e5f83e12db91aa16037f8",
+      "mode": "100644"
+    },
+    "scripts/Setup-macOS-signing.sh": {
+      "sha256": "86fb0fcf48487be3cb8c4f39234ed9b5831d604ca7381340d0b6ebc6eb65d8df",
+      "mode": "100644"
+    },
+    "scripts/Soak.ps1": {
+      "sha256": "3f0dc16367a3bf2ce1d506f0434dd57ace44944b9ce1b8fa24801fec84ece5b3",
+      "mode": "100644"
+    },
+    "scripts/Test-Installer.ps1": {
+      "sha256": "da58109eadeb3886d2f42f3803ce83a7ebf2c4d5b9cc8422397324448c3dec43",
+      "mode": "100644"
+    },
+    "scripts/Test-Updater.ps1": {
+      "sha256": "51f106601054eb6e2836623dfda84da546d31f94b9379b250160857a47268605",
+      "mode": "100644"
+    },
+    "scripts/Test-macOS-browser.sh": {
+      "sha256": "4b7aeb0d0b482b2942d9343edbc745f07b8f4d36b54124ac8935e1c4c29dad60",
+      "mode": "100644"
+    },
+    "scripts/Test-macOS-build-config.py": {
+      "sha256": "a79c874e80dedae4d7aedb9f65f7b1d3116acdcfde6c0df0f9bb74777d371ca4",
+      "mode": "100644"
+    },
+    "scripts/Test-macOS-chromium.sh": {
+      "sha256": "7ec9450a95d83a21ceb5bdc3d4b0c6a5830e72e4fd6dabc50c8a494e8d45e54b",
+      "mode": "100644"
+    },
+    "scripts/Test-macOS-controls.sh": {
+      "sha256": "82c7e0f53ad8df5a15931fb494f46ca8a7d8c65e35ac47465ef848bd68540394",
+      "mode": "100644"
+    },
+    "scripts/Test-macOS-resume.sh": {
+      "sha256": "4a01d735baa5cfba3d0abbf6e587197abd7cfa8c34564d3ac2ff93778a55c176",
+      "mode": "100644"
+    },
+    "scripts/Test-macOS-shell.sh": {
+      "sha256": "7907f25361ed737442d649f0aa0a7aa59dde992483250cd283e0afeabdf1fb26",
+      "mode": "100644"
+    },
+    "scripts/Test-macOS-terminal.sh": {
+      "sha256": "1897da002a1578f8d7134c357275b3b0a1c1fa440b0625981723dfa241f83947",
+      "mode": "100644"
+    },
+    "scripts/Test-macOS-update.py": {
+      "sha256": "a8121e9ffc012daef2a1eb4058bcbd48ee124c17f50ea1d41d9fbeefccb05948",
+      "mode": "100644"
+    },
+    "scripts/Test-macOS.sh": {
+      "sha256": "e549b4975b3f2b45ae8d781f3a5b75eb1e1e3cac68e6cff717f98027e02b7cc8",
+      "mode": "100644"
+    },
+    "scripts/Test-platform-parity.py": {
+      "sha256": "5f097eee3640d9157ed99e05d9b1308a722889abec9f6b9cad1a2b42b266452e",
+      "mode": "100644"
+    },
+    "scripts/Test-release.py": {
+      "sha256": "db72037e96504d16ee4292a45b038ee407ff620bddebd2e406e8d5e5575ccdb8",
+      "mode": "100644"
+    },
+    "services.json": {
+      "sha256": "32ba40e8ca6d7d2265601b008b437e46b05d6ec7796ce528109cf7f949fed9bc",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/Accounts.cs": {
+      "sha256": "303cfe8eadda2ab01adf8992005d46e4d4f38ec2084cf912e1f5f532e8a22016",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/App.xaml": {
+      "sha256": "328573a0c0db00b9bc939189a2169942a3fee1444a8d47bf89d709d4c686d66f",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/App.xaml.cs": {
+      "sha256": "5af6911f4f880614c417920a71eb19c59cb7cd939f6a49ee2ff92a13880f58b6",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/Appearance.cs": {
+      "sha256": "5f0ef85997dd6faaa018c921f3b29311b7428727d889469d9767bbde93e66363",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/BugReport.cs": {
+      "sha256": "7b775de947651e1bc18192c0b4c64a5f3dfa3d117c86326324e8f86b5bb19936",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/BugReportUi.cs": {
+      "sha256": "ae6ce59f675a5cc4a19786270b9f7e59c41ebbffc9ee6322b47faada5eb06fcf",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/DownloadHistory.cs": {
+      "sha256": "90d77c2247870319b2463444d81252e776728e5013f95b2da0b9d40536b9d406",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/Downloads.cs": {
+      "sha256": "e823486aa3d8e29aaef99d0c97207ed6cfe21163c51af555cd2b42ef12a04e98",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/FloatingMedia.cs": {
+      "sha256": "f9ff93af3575f700e797f9dae77cfb249b92c59050bbce0239f35850f5330f58",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/Greetings.cs": {
+      "sha256": "8b497851706a52138171db97bfe20526d57896718a117fe8f624a8a7f55ba04a",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/LinkRouting.cs": {
+      "sha256": "e26f725531ea504a93403e69e60f682c9c4e0e6583b543b0fc63748042380fe5",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/MainWindow.xaml": {
+      "sha256": "41f35661f9a482f93d8f625d4b25339c8409c63594bed9285e34a4a17c68563e",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/MainWindow.xaml.cs": {
+      "sha256": "2dd7588dd33475782237e8f47843984ca005990ab8f19af6709925fa1fb1e945",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/MediaControls.cs": {
+      "sha256": "2f58796505e32644a876b6ffa37cbaeb0f4552be494388610f7e75c9a8076998",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/MessengerChrome.cs": {
+      "sha256": "4fa8fbf404d9e4d6da6453494f326b441175f89962aee3667b2b0ce8b62912b3",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/Models.cs": {
+      "sha256": "a8da4b8490f9afde973745b6683a246886dc196009ec04d4e480c50173dc6030",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/NativeChrome.cs": {
+      "sha256": "5cdf031d00de2e56107a6f0ebdce2198d95f23d20ef9446d9c91305dc601d41f",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/NativeMemory.cs": {
+      "sha256": "c3ea5f826679c10f3105e0576afa9e9358d6354137401a19fb46f61b85e511ba",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/PetArtwork.cs": {
+      "sha256": "82805ed6e1db3f4ca4923f1438ae039f104373259e68dd5e31079faab57302c0",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/PetDaylight.cs": {
+      "sha256": "d92818532e9d5b50d43dad079aa13f0965c461e23d11729ea491edac041e9e70",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/PetMotion.cs": {
+      "sha256": "5b1883f871ae54d8af66a6a924d986e7da552e98662f8e8fa440ffe0bb1a257d",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/ProductivityModels.cs": {
+      "sha256": "d69695892e2c7d12094c04493d2bf3475f94fe99399ced4c70a47c8469df7904",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/ProductivityUi.cs": {
+      "sha256": "976eae4f3ca3a2bf1066ba11d0e315a0bdbfd2e5077e2120718e8256e797e338",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/PseudoTerminal.cs": {
+      "sha256": "1963377a2d42a99f0048e9b2cd8106b6943520229e953f99e823ca81ffee75f5",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/Recovery.cs": {
+      "sha256": "34512ae2f9e9de48239d7496bf663a133d5cbc4a5842ead69fb7198dbc6934e1",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/ReleaseUpdates.cs": {
+      "sha256": "c849e7633f22aea83ed6a2c3b4af0cdba56f81e8d33fb224d3a756a862142544",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/ResourceConsumers.cs": {
+      "sha256": "a6af9b8dda77b5167eb4a591966d838b5f1b43d22c5d197228ac47b7494c6fb7",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/ResourceSidebar.cs": {
+      "sha256": "66d427be7de2a2e9e51f81356bbbca11b6766b672b99be1d4a1d9ee0ef10e754",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/ResourceUsage.cs": {
+      "sha256": "11ba1cece485d25f927a9001e54b10435a32377e0b4d3074732fe21de21a686d",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/RollingLog.cs": {
+      "sha256": "080861e9c648338b1f5d1078fe559c62edb3be5469dbdc5fd4bb274d3374a084",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/SavedPlacesUi.cs": {
+      "sha256": "959253f485516217c745f39ac043688d7811f1abcabc7d6d6eacaa2797d11f00",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/ServiceCaption.cs": {
+      "sha256": "f032ae5cd0fa8c19e611b8aa21a0081936366bf04f6c3c9d2c2dae54c8eec31c",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/ServicePopups.cs": {
+      "sha256": "1ed960ef8d290799acdc0ddc1c3fd95b2890cbb4a6e6bd882756cb7683255a34",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/ServiceSettings.cs": {
+      "sha256": "f40f95f3931cf5fd3114c3d1d78696c13333fa8a8ac1a666bc4ec3d1c22018f1",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/ServiceShortcuts.cs": {
+      "sha256": "1f06ea5cd3906b743f613e1f283701e9b0da119019d2026e68a3534e3c372316",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/ServiceWindows.cs": {
+      "sha256": "f9df13c803bda8b7fc0ed318333808f259ad78b19c1e6712c0d516047899160e",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/SettingsUi.cs": {
+      "sha256": "201fc7843c03160ce38b02450f1ffcae6370cf68bb2976b679dee757a7e071cf",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/SetupTransfer.cs": {
+      "sha256": "ea34ef0723170f429f817cc80e3f3d5f8ca36cd103a81e88dd9c3773a7fcea65",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/ShellUi.cs": {
+      "sha256": "56adedf2e51a530ae1c469f72ef5bdc654a066b874a402e0de0b48be627d9e83",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/ShortcutDragging.cs": {
+      "sha256": "2bba5b7d1f40caad5913f7be0d810ffa38c14e8229ae6ba1b6fee7de18043fca",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/Sidebar.cs": {
+      "sha256": "ad36da66ac501a83dbab08de596792972e9e72156d6df77bdebdabbf5a09a08d",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/StartupRegistration.cs": {
+      "sha256": "3513c1fc72376f28f6be74cf9e83e4f53c23e22854742260a640bdfb6496fea5",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/TerminalService.cs": {
+      "sha256": "8b2431e8362014e5d4ed97049c050f8e52a072946a45680466b15ce7d630c1ff",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/TerminalWorkspace.cs": {
+      "sha256": "58ee0d70d93ff1e1169fafcd798e88b2d9f2f2e947dbd371ba6279fc2f07df4a",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/TitlebarPet.cs": {
+      "sha256": "5a026456bf7ecae9c44a099973b45e0e62a936d4cac20b73921feb5e100f9384",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/UnreadDetection.cs": {
+      "sha256": "54e9433428af7223f8abcc379b6a96ffe8e15d920e22b21146494ebc0bf4d018",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/UpdaterUi.cs": {
+      "sha256": "df1099423a0961e95cb583dd84d62ae5478baaabf34a0858be497c82133ce849",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/WhatsAppChrome.cs": {
+      "sha256": "b8964d9aada495a3b5cd467eba2fd96afbea6a332c65c341c8ee6e38ac217db3",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/WindowTheme.cs": {
+      "sha256": "6ee25bef2bc725cf66b1ad09c140b851997bf4f673ccc2532cd8b9ffb08e4a13",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/WorkspaceLayout.cs": {
+      "sha256": "c8350bd94efba3028a6c045fd09a8ec571f4c71987f1285cd8a2ef7d781831ab",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/WorkspaceMotion.cs": {
+      "sha256": "69dc429e0d17baf8f3e46462ef99724aa818cc4842d2ce57d74a7767881e334a",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/WorkspacePanes.cs": {
+      "sha256": "45ee5420446adbf785f813bbc535ad8d27c88ae3075fc8b6ea6bfa77cb712aed",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/WorkspacePicker.cs": {
+      "sha256": "32c8995acea7a6d930ca9649a86c50e259c92b38ecae3dbeb6b98c494dd3a403",
+      "mode": "100644"
+    },
+    "windows/Sources/Relay/ZoomUi.cs": {
+      "sha256": "e45512f8585cbc80a03712366d978c28a9e1dbb4e44eaa4124b248df42308915",
+      "mode": "100644"
+    },
+    "windows/Tests/RelayChecks/FeatureChecks.cs": {
+      "sha256": "cb27bf7502503a1da9b2f047d304c15373494c56bde8091f35186c7ee88eedf3",
+      "mode": "100644"
+    },
+    "windows/Tests/RelayChecks/FixChecks.cs": {
+      "sha256": "fe9a34b584b50dc8e2bfe1324ef1a553facfd588371632179bd9cf00fa4c9b98",
+      "mode": "100644"
+    },
+    "windows/Tests/RelayChecks/FixFixtures.cs": {
+      "sha256": "78b2d5204d4afbc31ec427184bc4d576f78149ad479b534199b70efa48c7019e",
+      "mode": "100644"
+    },
+    "windows/Tests/RelayChecks/FollowupChecks.cs": {
+      "sha256": "d4ee24b9c7d836300e1c8889bb77d226692e110aabda86959ce97240a95704b3",
+      "mode": "100644"
+    },
+    "windows/Tests/RelayChecks/LinkChecks.cs": {
+      "sha256": "728a7aaefe8671529b431da50c6f0126c41f033ef09c31a6a15007283e9c7544",
+      "mode": "100644"
+    },
+    "windows/Tests/RelayChecks/LogChecks.cs": {
+      "sha256": "b14f4dc2b017f87122bd74d5aa38994ee3ad85bd8f84e1dd62f1f08c1b2e6827",
+      "mode": "100644"
+    },
+    "windows/Tests/RelayChecks/MediaTerminalChecks.cs": {
+      "sha256": "8c7d7d0b415db78ea0a8a8b82dd765a13e7256c0ce68bbb252b3fcc8b32d690e",
+      "mode": "100644"
+    },
+    "windows/Tests/RelayChecks/MemorySoak.cs": {
+      "sha256": "4c1615c09ed67415c60f50f8563e3a815a5c2ed8a6cc865eb1b732e73b3496a5",
+      "mode": "100644"
+    },
+    "windows/Tests/RelayChecks/PetChecks.cs": {
+      "sha256": "d3495869479e9b76f56cbcea6ede5c0ecf3c91f98d5f37760a271fbe00c2999b",
+      "mode": "100644"
+    },
+    "windows/Tests/RelayChecks/PetWardrobeChecks.cs": {
+      "sha256": "6cc96201f190358a6cba41c673c95d7ab02712ff890def37d48ffaeea1010b47",
+      "mode": "100644"
+    },
+    "windows/Tests/RelayChecks/ProductivityChecks.cs": {
+      "sha256": "96e0c4c6406cf44daa47f035989c753aec7275725e849ac4f7e6d0a5e4e652f2",
+      "mode": "100644"
+    },
+    "windows/Tests/RelayChecks/ProductivityUiChecks.cs": {
+      "sha256": "e2106d1e29a96690f77fe463798a7daa452f6470286748a4827d50918fcfaf5f",
+      "mode": "100644"
+    },
+    "windows/Tests/RelayChecks/ProviderChromeChecks.cs": {
+      "sha256": "f75e6032d4a506042d11bac71b7b098e2a41118dd6b58606331bc4e1aef80d03",
+      "mode": "100644"
+    },
+    "windows/Tests/RelayChecks/RailUnreadChecks.cs": {
+      "sha256": "f380d5a60024eace3f60124820d148d5657af60b79706379033e0acb256c7f0a",
+      "mode": "100644"
+    },
+    "windows/Tests/RelayChecks/ReportChecks.cs": {
+      "sha256": "6857cfa036920f140ce4567c23166caed623aff86593e2806c6c296d7c5e171c",
+      "mode": "100644"
+    },
+    "windows/Tests/RelayChecks/ResizeChecks.cs": {
+      "sha256": "4d20be50cd5290c8adaafd4d8d6839f2fc25342c2f07a11d0cd2946cfd12193b",
+      "mode": "100644"
+    },
+    "windows/Tests/RelayChecks/SuspensionChecks.cs": {
+      "sha256": "d0308ebf4c0c7a9ff9d9168a30057339ae0048edf78afcd0104446a452c2af27",
+      "mode": "100644"
+    },
+    "windows/Tests/RelayChecks/ThemeSurfaceChecks.cs": {
+      "sha256": "6345629f0ac818aa89bd6567ec66a170ef80495adc1608fc8876eb13f8a2ea22",
+      "mode": "100644"
+    },
+    "windows/Tests/RelayChecks/UpdateMusicChecks.cs": {
+      "sha256": "d8e05840c65eab7ff523a28725c7a62101bb434299842d941ae7a89c1889e355",
+      "mode": "100644"
+    },
+    "windows/Tests/RelayChecks/WorkspaceChecks.cs": {
+      "sha256": "66b96ddd4faef9cb14e9fa6629fcc02d43a193c268f2e12e24667c89523c8ebd",
+      "mode": "100644"
+    },
+    "windows/app.manifest": {
+      "sha256": "447f24d614e007df6600e9212d9ad27f27bfb3d03cc05636cf129e6db3575b68",
+      "mode": "100644"
+    }
+  }
+}

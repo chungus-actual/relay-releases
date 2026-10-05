@@ -1,0 +1,99 @@
+{
+  "description": "Original cat philosophy mixed with short, attributed passages from public-domain philosophical works. Source URLs are editorial references; the app uses the bundled text offline.",
+  "quotes": [
+    {
+      "text": "The bowl is full. The void remains.",
+      "author": "Puke",
+      "work": "Original Relay cat philosophy"
+    },
+    {
+      "text": "I chased the red dot. It was never mine.",
+      "author": "Puke",
+      "work": "Original Relay cat philosophy"
+    },
+    {
+      "text": "Even the sunbeam leaves without saying goodbye.",
+      "author": "Puke",
+      "work": "Original Relay cat philosophy"
+    },
+    {
+      "text": "One day, the box will outlast us.",
+      "author": "Puke",
+      "work": "Original Relay cat philosophy"
+    },
+    {
+      "text": "I nap, therefore I postpone.",
+      "author": "Puke",
+      "work": "Original Relay cat philosophy"
+    },
+    {
+      "text": "The universe expands. My territory does not.",
+      "author": "Puke",
+      "work": "Original Relay cat philosophy"
+    },
+    {
+      "text": "The eternal silence of these infinite spaces frightens me.",
+      "author": "Blaise Pascal",
+      "work": "Pens\u00e9es, 206; W. F. Trotter translation",
+      "source": "https://www.gutenberg.org/files/18269/18269-h/18269-h.htm"
+    },
+    {
+      "text": "While we are postponing, life speeds by.",
+      "author": "Seneca",
+      "work": "Moral Letters to Lucilius, I.2; Richard M. Gummere translation",
+      "source": "https://pages.pomona.edu/~cmc24747/sources/seneca/sen_ep_1.htm"
+    },
+    {
+      "text": "Of a truth, need and boredom are the two poles of human life.",
+      "author": "Arthur Schopenhauer",
+      "work": "Studies in Pessimism, On the Sufferings of the World; T. Bailey Saunders translation",
+      "source": "https://www.gutenberg.org/cache/epub/10732/pg10732.html"
+    },
+    {
+      "text": "Smoke and ash and a tale, or not even a tale.",
+      "author": "Marcus Aurelius",
+      "work": "Meditations, XII.27; George Long translation",
+      "source": "https://www.gutenberg.org/cache/epub/6920/pg6920-images.html"
+    },
+    {
+      "text": "Every goodbye is forever. Until you come back.",
+      "author": "Roof",
+      "work": "Original Relay companion philosophy"
+    },
+    {
+      "text": "I brought the ball. It did not answer my questions.",
+      "author": "Roof",
+      "work": "Original Relay companion philosophy"
+    },
+    {
+      "text": "The doorbell tolls for all of us.",
+      "author": "Roof",
+      "work": "Original Relay companion philosophy"
+    },
+    {
+      "text": "You are my whole world. It is a small, wonderful world.",
+      "author": "Roof",
+      "work": "Original Relay companion philosophy"
+    },
+    {
+      "text": "I have been in this position before.",
+      "author": "Rock",
+      "work": "Original Relay companion philosophy"
+    },
+    {
+      "text": "Change is inevitable. Give me a million years.",
+      "author": "Rock",
+      "work": "Original Relay companion philosophy"
+    },
+    {
+      "text": "I contain multitudes. Mostly minerals.",
+      "author": "Rock",
+      "work": "Original Relay companion philosophy"
+    },
+    {
+      "text": "I used to be a mountain. We all make compromises.",
+      "author": "Rock",
+      "work": "Original Relay companion philosophy"
+    }
+  ]
+}

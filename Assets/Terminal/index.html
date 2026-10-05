@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'none'; img-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Terminal</title><link rel="stylesheet" href="xterm.css"><link rel="stylesheet" href="terminal.css"></head>
+<body>
+<header>
+  <nav id="tabs" role="tablist" aria-label="Terminal sessions"></nav>
+  <div class="tools" role="toolbar" aria-label="Terminal actions">
+    <select id="profile" aria-label="Import terminal profile" title="Import font, colors, cursor and scrollback from a detected terminal profile" hidden></select>
+    <button id="new" data-icon="new" aria-label="New tab" title="New tab · Ctrl+B, C"></button>
+    <button id="split" data-icon="columns" aria-label="Split right" title="Split right · Ctrl+B, %"></button>
+    <button id="split-rows" data-icon="rows" aria-label="Split below" title='Split below · Ctrl+B, &quot;'></button>
+    <button id="zoom" data-icon="zoom" aria-label="Expand pane" title="Expand / restore pane · Ctrl+B, Z"></button>
+    <button id="restart" data-icon="restart" aria-label="Restart shell" title="Restart shell"></button>
+    <button id="close-view" data-icon="closeView" aria-label="Close terminal view" title="Close terminal view · Sessions keep running"></button>
+  </div>
+</header>
+<div id="notice" role="status" hidden></div>
+<main id="workspace" aria-label="Terminal panes"></main>
+<div id="parked" hidden></div>
+<div id="empty" hidden><span>No open sessions</span><button id="empty-new">New tab</button></div>
+<script src="xterm.js"></script><script src="addon-fit.js"></script><script src="terminal.js"></script>
+</body></html>

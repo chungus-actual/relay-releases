@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "mode": "Dark",
+  "surface": "Ocean",
+  "accent": "Sky",
+  "compact": false,
+  "topTabs": false,
+  "hidePaletteButton": true,
+  "companionEnabled": true,
+  "companion": "roof",
+  "captureLinks": false,
+  "quiet": false,
+  "accounts": [
+    { "id": "personal", "provider": "whatsapp", "name": "Personal", "color": "Mint", "visible": true, "keepLive": true, "notifications": true, "audioMuted": false, "gmailAllUnread": false, "zoom": 1 },
+    { "id": "work", "provider": "whatsapp", "name": "Work", "color": "Sky", "visible": false, "keepLive": false, "notifications": false, "audioMuted": true, "gmailAllUnread": false, "zoom": 1.25 }
+  ],
+  "workspaces": [
+    { "id": "daily", "name": "Daily catch-up", "layout": { "panes": ["personal", "work"], "arrangement": "columns", "primary": 0.5, "cuts": [0.6] }, "focused": "work" }
+  ],
+  "bookmarks": [
+    { "id": "work-chats", "accountId": "work", "name": "Work chats", "url": "https://web.whatsapp.com/" }
+  ]
+}
