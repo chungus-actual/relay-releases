@@ -46,7 +46,7 @@ public partial class MainWindow
         Check(await messenger.Core.ExecuteScriptAsync("document.querySelector('[role=navigation]').getBoundingClientRect().top===56 && Math.abs(document.querySelector('.thread').getBoundingClientRect().bottom-(innerHeight-3))<2 && document.querySelector('.thread').style.boxSizing==='content-box'") == "true", "Leaving Messenger restores original nested pane sizing including site padding");
         Check(await messenger.Core.ExecuteScriptAsync("getComputedStyle(document.documentElement).overflowY==='scroll' && document.body.style.overflowY===''") == "true", "Leaving Messenger restores Facebook's document scrolling");
         Width = 1280; Height = 820;
-        messenger.Core.Navigate("https://relay.test/"); await Until(() => messenger.Unread == 3 && messenger.Status == "Live");
+        messenger.Core.Navigate("https://relay.test/"); await Until(() => messenger.Unread == null && messenger.Status == "Live");
 
         var calendar = services.Single(s => s.Definition.Id == "calendar");
         await SelectService(calendar);

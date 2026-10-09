@@ -36,6 +36,8 @@ Run `bash scripts/Test-macOS-terminal.sh` for real PTY input/output, native keyb
 
 Run `python scripts/Test-platform-parity.py` on either platform to compare the embedded Messenger layout/unread, Gmail unread, and media scripts. Both CI workflows run it; it supplements the existing Swift script comparisons and native browser suites. See [platform parity](platform-parity.md) for the latest local validation and engine differences.
 
+Run `bash scripts/Test-macOS-browser.sh --unread` on a Mac for account unread/dismissal checks and the shared Messenger notification-filtering fixtures. Windows smoke and experimental Chromium checks consume the same `Assets/Fixtures/messenger-unread-checks.js` fixture.
+
 Shell scripts use LF line endings on both platforms. On macOS, run `bash scripts/Test-macOS-shell.sh` after building to check settings changes and retained sessions; macOS CI runs this against its development app. Windows can run the portable Python checks, but native Mac checks require the macOS toolchain and frameworks.
 
 | Area | Coverage |

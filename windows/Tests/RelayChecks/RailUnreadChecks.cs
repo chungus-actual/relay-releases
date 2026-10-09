@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -117,8 +118,13 @@ public partial class MainWindow
         await Task.Delay(300);
         Check(await messenger.Core.ExecuteScriptAsync("window.refreshes===0 && pane.scrollTop===window.expectedTop") == "true", "Display refresh ignores stale activation after leaving Messenger");
         await messenger.Core.ExecuteScriptAsync("history.pushState({},'', '/messages/unread-fixture')");
+        var unreadFixture = File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "Assets", "Fixtures", "messenger-unread-checks.js"));
+        string unreadResult = await messenger.Core.ExecuteScriptAsync(unreadFixture + "((document, location) => " + MessengerUnreadScript + ")");
+        File.WriteAllText(Path.Combine(output, "messenger-unread-browser.json"), unreadResult);
+        using (var result = JsonDocument.Parse(unreadResult))
+            Check(result.RootElement.GetProperty("failures").GetArrayLength() == 0, "Messenger unread regressions: " + unreadResult);
         await messenger.Core.ExecuteScriptAsync("""
-            document.title='(987) Facebook';
+            document.title='(987) Messenger';
             document.body.innerHTML='<nav><a id="total" aria-label="Messenger, 4 unread messages"></a></nav><div role="grid"><div role="row"><a href="/messages/t/fixture"><span aria-label="Unread"></span></a></div></div>';
             """);
         await ReadProviderUnread(messenger);
@@ -130,6 +136,7 @@ public partial class MainWindow
         activity.Add(new(other, "Keep", "", DateTimeOffset.Now, null));
         var dismiss = railButtons[messenger.Definition.Id].ContextMenu.Items.OfType<System.Windows.Controls.MenuItem>().Single(item => Equals(item.Header, "Dismiss"));
         dismiss.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.MenuItem.ClickEvent));
+        await messenger.Core.ExecuteScriptAsync("document.title='(988) Messenger'");
         await ReadProviderUnread(messenger);
         Check(messenger.Badge == "" && !activity.Any(a => a.Service == messenger) && activity.Any(a => a.Service == other),
             "Per-service dismissal clears its badge and activity without touching other accounts or returning on the next poll");
@@ -147,7 +154,19 @@ public partial class MainWindow
         Check(messenger.Badge == "", "Read chats and the Mark as unread action do not create a false unread badge");
         await messenger.Core.ExecuteScriptAsync("document.title='(12+) Messenger'");
         await ReadProviderUnread(messenger);
-        await Until(() => messenger.Unread == 12);
+        await Until(() => messenger.Unread == null && messenger.Badge == "");
+        Check(messenger.Badge == "", "Facebook titles named Messenger must not restore phantom notification badges");
+        await messenger.Core.ExecuteScriptAsync("document.querySelector('nav').innerHTML='<button aria-label=\"Messenger, 2 unread messages\"></button>'");
+        await ReadProviderUnread(messenger);
+        await Until(() => messenger.Unread == 2);
+        await messenger.Core.ExecuteScriptAsync("history.pushState({},'', '/notifications/')");
+        await ReadProviderUnread(messenger);
+        Check(messenger.Unread == null && messenger.Badge == "", "Leaving messages clears the prior count even without a title change");
+        await messenger.Core.ExecuteScriptAsync("document.title='(29) Facebook'");
+        await Until(() => messenger.PageTitle == "(29) Facebook");
+        TitleUnreadChanged(messenger);
+        Check(messenger.Unread == null && messenger.Badge == "", "Leaving messages must not fall back to Facebook notification titles");
+        Check(!MessengerPage("https://www.facebook.com/messages-fake"), "Lookalike message routes are excluded");
         Check(ServiceState.CountFromTitle("(99+) Messenger") == 99, "Unread titles accept capped counts");
         var gmail = services.Single(s => s.Definition.Id == "gmail");
         gmail.Options.GmailAllUnread = true;
@@ -181,6 +200,6 @@ public partial class MainWindow
         await SelectService(messenger);
         activity.Clear(); activity.AddRange(savedActivity);
         messenger.Core.Navigate("https://relay.test/");
-        await Until(() => messenger.Unread == 3 && messenger.Status == "Live");
+        await Until(() => messenger.Unread == null && messenger.Status == "Live");
     }
 }

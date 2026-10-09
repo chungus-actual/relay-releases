@@ -103,7 +103,7 @@ public partial class MainWindow
         await Task.Delay(200);
         Check(await messenger.Core.ExecuteScriptAsync("getComputedStyle(document.querySelector('[role=banner]')).display === 'none' && document.querySelector('[role=main]').getBoundingClientRect().top === 0") == "true", "Returning to Messenger through SPA navigation reapplies the trim");
         messenger.Core.Navigate("https://relay.test/");
-        await Until(() => messenger.Unread == 3 && messenger.Status == "Live");
+        await Until(() => messenger.Unread == null && messenger.Status == "Live");
 
         var gmail = services.Single(s => s.Definition.Id == "gmail");
         settings.CaptureLinks = false;

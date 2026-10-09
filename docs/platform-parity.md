@@ -1,5 +1,15 @@
 # Platform parity — September 18, 2026
 
+## Messenger notification badge filtering — October 8, 2026 (unreleased)
+
+Messenger extraction now ignores Facebook page-title totals even when the title says “Messenger” or “Messages.” Only explicit messaging totals in navigation and unread markers on same-origin conversation links qualify. General notification labels and actions such as “Mark as unread” are excluded; encrypted conversation links are supported. Dedicated messenger.com title counts remain available. Windows no longer falls back to generic title counts outside message routes, and Windows polling and experimental Chromium now clear prior unread readings when leaving those routes, matching WebKit.
+
+The shared fixture at `Assets/Fixtures/messenger-unread-checks.js` runs through the production extractor with native DOMs in each browser harness. It covers the reported Meta Accounts announcement, misleading notification labels, genuine totals and markers, duplicate/reordered rows, unrelated title changes, explicit zero with stale rows, clearing the last unread chat, and invalid thread links. Native account checks also cover dismissal and leaving/returning to message routes. The existing Swift and Python script comparisons cover the complete updated extractor. macOS CI runs the targeted `--unread` browser checks; its existing `windows/**` and `Assets/**` path filters include all affected scripts and fixtures.
+
+Validation on Windows: the Release build and full isolated WebView2 smoke suite passed, including all 48 shared Messenger DOM assertions. All 11 portable parity checks and five macOS build-configuration checks passed. Evidence: `artifacts/messenger-unread-browser.json` and `artifacts/smoke-test.txt`. An initial smoke run stopped on a legacy reconnect fixture that expected a Messenger title count on an unrelated page; the fixture now checks the corrected behavior.
+
+`bash scripts/Test-macOS.sh` could not run because `swiftc` is unavailable. The WebKit `--unread` runner could not start because `clang` is unavailable; the experimental Chromium runner lacks its Mac SDK/tools. No macOS build or runtime parity is claimed. There is no intentional platform difference in this filtering. Live signed-in behavior and localized provider labels still need verification; the screenshot alone does not expose the reporter's actual DOM. Facebook layouts without a supported messaging total or conversation marker may show no badge. Published releases and update feeds were not changed.
+
 ## Relay 0.6.8 publication — September 21, 2026
 
 Published [Relay 0.6.8](https://github.com/chungus-actual/relay-releases/releases/tag/v0.6.8) from annotated tag `v0.6.8` at `498e14c`. [Windows tag CI](https://github.com/chungus-actual/relay/actions/runs/35664926093) passed build/smoke, updater replacement/rollback, installer lifecycle, and direct package publication. [macOS tag CI](https://github.com/chungus-actual/relay/actions/runs/35664926088) passed model/parity, native controls, WebKit viewport/theme checks, release validation, and the arm64 build/signature checks.

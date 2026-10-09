@@ -578,7 +578,8 @@ public partial class MainWindow : Window
             Check(chromePopup.WindowStyle == WindowStyle.None && System.Windows.Shell.WindowChrome.GetWindowChrome(chromePopup).CaptionHeight == 36, "Popup uses themed chrome");
             chromePopup.Close(); popupFixture.Dispose();
             await SelectService(services[0]);
-            await Until(() => services[0].Unread == 3);
+            await Until(() => services[0].Status == "Live" && services[0].PageTitle == "(3) Test messages");
+            Check(services[0].Unread == null, "Messenger ignores title counts outside its message pages");
             Check(services[0].View!.CoreWebView2.Profile.ProfileName == "messenger", "Isolated Messenger profile");
             await CheckBugReports(output);
             await CheckServiceCaption(output);

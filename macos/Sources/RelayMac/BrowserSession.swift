@@ -416,7 +416,8 @@ final class BrowserSession: NSObject, ObservableObject, WKNavigationDelegate, WK
             guard ["messenger", "gmail"].contains(service.id) else {
                 onUnread?(UnreadRules.titleReading(state.title, service: service, url: state.url)); return
             }
-            guard let address = state.url, (service.id == "gmail" ? GmailUnread.page(address) : UnreadRules.messengerPage(address)), !unreadReadingInProgress else { return }
+            guard let address = state.url, (service.id == "gmail" ? GmailUnread.page(address) : UnreadRules.messengerPage(address)) else { onUnread?(.unknown); return }
+            guard !unreadReadingInProgress else { return }
             unreadReadingInProgress = true
             defer { unreadReadingInProgress = false }
             let generation = unreadGeneration

@@ -40,7 +40,7 @@ public partial class MainWindow
             {
                 state.Options.KeepLive = true;
                 await SelectService(state);
-                await Until(() => state.Unread == 3);
+                await Until(() => state.Status == "Live" && state.Unread == (state.Definition.IconId == "messenger" ? (int?)null : 3));
             }
             ShowActivity();
             clock.Restart();
@@ -116,7 +116,7 @@ public partial class MainWindow
         }
         retiredViews.Add(RetireForSoak(state));
         await SelectService(state);
-        await Until(() => state.Unread == 3);
+        await Until(() => state.Status == "Live" && state.Unread == (state.Definition.IconId == "messenger" ? (int?)null : 3));
     }
 
     [MethodImpl(MethodImplOptions.NoInlining)]

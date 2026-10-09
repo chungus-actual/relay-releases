@@ -1,8 +1,8 @@
 {
   "hash_format": "sha256 of raw Git blob content (before checkout/archive line-ending conversion)",
-  "version": "0.6.11",
-  "source_commit": "96c7af8d4699b9a4401192d2c3a0ea0eba6fe057",
-  "source_tag": "v0.6.11",
+  "version": "0.6.12",
+  "source_commit": "5bf9ae631fcb486eb6560fe8a0fd65831fef646f",
+  "source_tag": "v0.6.12",
   "excluded": [
     "AGENTS.md (at any depth)",
     ".github/"
@@ -18,6 +18,10 @@
     },
     "Assets/Fixtures/media-playback-checks.js": {
       "sha256": "71cc48f45fc865d452c9d8cabe0699aeea69a997fa40bdce23dcb82d9d2cab56",
+      "mode": "100644"
+    },
+    "Assets/Fixtures/messenger-unread-checks.js": {
+      "sha256": "525208689906f91ad24079117ebd27723af9a4f0ceaf35f40673afa40bc27235",
       "mode": "100644"
     },
     "Assets/Fixtures/relay-setup-v1.json": {
@@ -38,10 +42,6 @@
     },
     "Assets/Relay-preview.png": {
       "sha256": "84a6016a7a8924a1bfe63c80a8f06108e921bcf176df76acd53c0b26aecf26d3",
-      "mode": "100644"
-    },
-    "Assets/Relay-screenshot.png": {
-      "sha256": "ecbafe8feaa68de45f449d0386376d7bbf51ea34bf14ba9e801ab78e5cf24a34",
       "mode": "100644"
     },
     "Assets/Relay-tray.ico": {
@@ -141,11 +141,11 @@
       "mode": "100644"
     },
     "README.md": {
-      "sha256": "9cf4b504048bdbc3bf0e34f54adc1398006dabcc6054c89da1c0e26e1115be06",
+      "sha256": "077da1245f09cdf5fc7f4728c0f590eaaf50e43d4f9d0611735c66e4cafc4508",
       "mode": "100644"
     },
     "Relay.csproj": {
-      "sha256": "f2e906a4811ad59cc673dc6401f18302124f85ac4c0b80fb34344ce916f9d69c",
+      "sha256": "21dfc8287c309a4a9229e2b4bd9db0d57a530b45fb111a0d10da0c87b46a3c70",
       "mode": "100644"
     },
     "SECURITY.md": {
@@ -165,7 +165,7 @@
       "mode": "100644"
     },
     "docs/development.md": {
-      "sha256": "0760c11945b5d82ed26b0bc4f4fae80e380e1c3fcfa432307ac133e875aaa61a",
+      "sha256": "f5add5eeec071cfefa845d46e8a665b6b9644bcd723b72e11fa9294cfa8310f4",
       "mode": "100644"
     },
     "docs/greetings.md": {
@@ -173,7 +173,7 @@
       "mode": "100644"
     },
     "docs/macos.md": {
-      "sha256": "3bcd3dcc968feaf2a81a6148c46ff340d8584ea934f776873f40a5de346e1d5a",
+      "sha256": "0df083b1e28c210413873f7084ac9fcf809bfa29f3a874fac774a036d6a937d7",
       "mode": "100644"
     },
     "docs/memory-soak-2026-09-12.md": {
@@ -181,7 +181,7 @@
       "mode": "100644"
     },
     "docs/platform-parity.md": {
-      "sha256": "a7bbc351074888b2e1bcf0ecda5140368732cb97d84b68891bbbf651730b0ee3",
+      "sha256": "3e4d6c837d1dcf4e2dd36a2219550ad5152e9e5ae7691b86ae3e5c5d2c40c537",
       "mode": "100644"
     },
     "docs/releases/0.5.0.md": {
@@ -210,6 +210,14 @@
     },
     "docs/releases/0.6.11.md": {
       "sha256": "cf7bca785f05c95110fc42d91745a56ecc4bc4d2c16641285e8752f7547077c1",
+      "mode": "100644"
+    },
+    "docs/releases/0.6.12-handoff.md": {
+      "sha256": "5b7a9fa22db990c290bef26ed30a0cf37e79ab249f2dad0252bed05175d8ce54",
+      "mode": "100644"
+    },
+    "docs/releases/0.6.12.md": {
+      "sha256": "f613a154835520d6f62eaaff85b18d0f1f45c24309c39673743b0dd447bf88ef",
       "mode": "100644"
     },
     "docs/releases/0.6.2.md": {
@@ -284,6 +292,34 @@
       "sha256": "2a2d02451abd13e9863b61c1bb5d130bfdcbcc4e9efd073f917133ad4f2d7547",
       "mode": "100644"
     },
+    "docs/screenshots/activity.png": {
+      "sha256": "74a4be3948e7b379b0a04fabd730ccacc2988e1db723e0d5ea30bf34ea92d447",
+      "mode": "100644"
+    },
+    "docs/screenshots/companion.png": {
+      "sha256": "2e10c767893cabd56572bb241ee63584b55f77acebfa043b8fd31445daa50fa6",
+      "mode": "100644"
+    },
+    "docs/screenshots/hero.png": {
+      "sha256": "90de3bf046db42986177a1903e337abe2995756d7511f60caa64b50f933e8817",
+      "mode": "100644"
+    },
+    "docs/screenshots/layouts.png": {
+      "sha256": "6d97d3a3ff95ab00bdd3c11b1201c0813f939b99ba5f73cd8050f942a899dc6d",
+      "mode": "100644"
+    },
+    "docs/screenshots/palette.png": {
+      "sha256": "050dd2e5f24763d7dacb331d848c44cac93fd9ae96aed7a751767e01af84b8fc",
+      "mode": "100644"
+    },
+    "docs/screenshots/terminal.png": {
+      "sha256": "33ad88f8c70c1c99d9ad733eafec4eef2f53c96f44f43cc44c80912fe65c0300",
+      "mode": "100644"
+    },
+    "docs/screenshots/themes.png": {
+      "sha256": "1fa6ec4865428a66b57d13b0b97737aebc747f06e437f5273b9ff708300aaab8",
+      "mode": "100644"
+    },
     "docs/usage.md": {
       "sha256": "dbd8b9ded085423bfbfddbf2c0688bbeb034d3d730603928655a007aa041b03c",
       "mode": "100644"
@@ -329,7 +365,7 @@
       "mode": "100644"
     },
     "macos/Info.plist": {
-      "sha256": "1406f7c0f15703a8e8ffb304e1ca238224adf3c84908f6b3e3056e2c3cb90d53",
+      "sha256": "e192a22598a3c089fe423a4ce655d6b5c4c7e5f1047566831b325325af33eccb",
       "mode": "100644"
     },
     "macos/Licenses/Sparkle.txt": {
@@ -389,7 +425,7 @@
       "mode": "100644"
     },
     "macos/Sources/RelayMac/BrowserSession.swift": {
-      "sha256": "7689d81d83a8d2e63efea07f35653522b2edf70c5ca858fc9eb1e18cbbbc28c3",
+      "sha256": "9959cf5285f4d6345e3ff905d5095173fda47a3f5dd59631c59bc0066fafe376",
       "mode": "100644"
     },
     "macos/Sources/RelayMac/BugReport.swift": {
@@ -453,7 +489,7 @@
       "mode": "100644"
     },
     "macos/Sources/RelayMac/MessengerUnread.swift": {
-      "sha256": "1ad42cb4f93871522618f465b0b0784225433f4ea14b1d9ea7384bcbe713145f",
+      "sha256": "36125a62a300b396bc6b300ae9d1379642a296c06c5a23a89ad858504fafb801",
       "mode": "100644"
     },
     "macos/Sources/RelayMac/Models.swift": {
@@ -573,7 +609,7 @@
       "mode": "100644"
     },
     "macos/Tests/BrowserChecks/BrowserChecks.swift": {
-      "sha256": "5f715e76be42f7c8ca9bbf4a72c10278687306bd22472b4be4ad6434642fc28e",
+      "sha256": "3703cf3d4d3bc8fbdcb2109fe96f029a70269426d25e701c0564c73bcf15673b",
       "mode": "100644"
     },
     "macos/Tests/BrowserChecks/FileDropChecks.swift": {
@@ -585,7 +621,7 @@
       "mode": "100644"
     },
     "macos/Tests/ChromiumChecks/ChromiumChecks.swift": {
-      "sha256": "96f237b03d06b7dfa6f2cf6c884887fc1c847f5681541e01ca91608c183664e8",
+      "sha256": "c022a8877129a9f4986313867ca96d6719a95d10df6c677423d2e5571c948eee",
       "mode": "100644"
     },
     "macos/Tests/ChromiumChecks/run.py": {
@@ -597,7 +633,7 @@
       "mode": "100644"
     },
     "macos/Tests/RelayMacTests/RelayMacTests.swift": {
-      "sha256": "54e3a3350fc834879d8978b82eb8d1418abe4a009e54253e6f3df68814a9a4d3",
+      "sha256": "b4dfae6f7ce3e9540623ef881871ee521a8e727957bcaae06953cfcc8a443caf",
       "mode": "100644"
     },
     "macos/Tests/TerminalChecks/TerminalChecks.swift": {
@@ -821,7 +857,7 @@
       "mode": "100644"
     },
     "windows/Sources/Relay/MainWindow.xaml.cs": {
-      "sha256": "0cf3d165ef6a40b2105912a30eecbb8144a4606a2605712e736401a816053097",
+      "sha256": "deb7aca5ce17ca0aea42dfd69305f74f330d77dea08b74cfae6470c5753d7605",
       "mode": "100644"
     },
     "windows/Sources/Relay/MediaControls.cs": {
@@ -897,7 +933,7 @@
       "mode": "100644"
     },
     "windows/Sources/Relay/ServiceCaption.cs": {
-      "sha256": "9f2cfd40ae0f4c53c5c15f9efdb36f1cad52682303132dbe6fb8a0975f1b3978",
+      "sha256": "7a4ec8c66b4346a98c9a75bcbab4c76908dbfa8805ca7fd9f2c4fa3a706c0106",
       "mode": "100644"
     },
     "windows/Sources/Relay/ServicePopups.cs": {
@@ -957,7 +993,7 @@
       "mode": "100644"
     },
     "windows/Sources/Relay/UnreadDetection.cs": {
-      "sha256": "f719f2269210abf52cd80b1c11b4f6a78588dd8e8f3746d7746dbc755595e19a",
+      "sha256": "bfe72cb03c4aa7ea106eb8aa662c3c0fda1651e9ed57cfc2504600c3e8002f7e",
       "mode": "100644"
     },
     "windows/Sources/Relay/UpdaterUi.cs": {
@@ -993,11 +1029,11 @@
       "mode": "100644"
     },
     "windows/Tests/RelayChecks/FeatureChecks.cs": {
-      "sha256": "8a69f3e5383ccc8a62f810f273cad7f8aac570d3521e335d59252dd6777c4f4f",
+      "sha256": "ece46001cbf96171e1086261faf219934c5bb3e5760c6ecc4c1bd17048d9df93",
       "mode": "100644"
     },
     "windows/Tests/RelayChecks/FixChecks.cs": {
-      "sha256": "ba621883c3a702150d50575fc11e7e75106918e3ce792a6e37b7e3b29b0f3542",
+      "sha256": "cd6be23396493afb4710300d5bedebbf064e51067609e5ac0f721d3d0c56b94b",
       "mode": "100644"
     },
     "windows/Tests/RelayChecks/FixFixtures.cs": {
@@ -1005,7 +1041,7 @@
       "mode": "100644"
     },
     "windows/Tests/RelayChecks/FollowupChecks.cs": {
-      "sha256": "5805c4b1d3095e8aaa18acad8461c71ba9f169d10303876ace1d795e9fe43832",
+      "sha256": "66b36132f6c464ec86a12ad8ab4fba81980527e060509e2c4007abba0d6d1055",
       "mode": "100644"
     },
     "windows/Tests/RelayChecks/LinkChecks.cs": {
@@ -1021,7 +1057,7 @@
       "mode": "100644"
     },
     "windows/Tests/RelayChecks/MemorySoak.cs": {
-      "sha256": "bbd4334291fccb4cb13018526f983a7da342e95a42d232d5428bd316c13e6477",
+      "sha256": "2939c84588982bc67830cd1a6a098da942c6c1e290e2701a93d81822a1a8388f",
       "mode": "100644"
     },
     "windows/Tests/RelayChecks/PetChecks.cs": {
@@ -1037,7 +1073,7 @@
       "mode": "100644"
     },
     "windows/Tests/RelayChecks/ProductivityUiChecks.cs": {
-      "sha256": "0e994546d440ab81cd3d0724ea875dd80b90dc12f8c8e3be0f0f8ea78b700e79",
+      "sha256": "6c3422411b5d059d020ab389000affdc0c244f0551180385164ef07b38dfcdbc",
       "mode": "100644"
     },
     "windows/Tests/RelayChecks/ProviderChromeChecks.cs": {
@@ -1045,7 +1081,7 @@
       "mode": "100644"
     },
     "windows/Tests/RelayChecks/RailUnreadChecks.cs": {
-      "sha256": "08e7adafe00b2c03d62da77937a84b52f99170a01ee6778ac587713a054c5622",
+      "sha256": "220b5c7fd3f7df683911949148d234f5570997e5f79a47ed5d5d0394e16b64e0",
       "mode": "100644"
     },
     "windows/Tests/RelayChecks/ReportChecks.cs": {

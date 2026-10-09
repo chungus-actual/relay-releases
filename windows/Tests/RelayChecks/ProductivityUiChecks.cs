@@ -20,7 +20,7 @@ public partial class MainWindow
         string report = Path.Combine(output, "productivity-ui-checks.txt"); File.WriteAllText(report, "RUNNING");
         try
         {
-            foreach (var state in services.Take(2)) { await SelectService(state); await Until(() => state.Status == "Live" && state.Unread == 3); }
+            foreach (var state in services.Take(2)) { await SelectService(state); await Until(() => state.Status == "Live" && state.Unread == (state.Definition.IconId == "messenger" ? (int?)null : 3)); }
             CheckPetWardrobeAndGrooming();
             await CheckProductivity(output);
             Check(!File.Exists(Path.Combine(App.DataPath, "errors.log")), "No runtime errors during productivity checks");

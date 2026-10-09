@@ -105,7 +105,7 @@ public partial class MainWindow
         await messenger.View.CoreWebView2.ExecuteScriptAsync("history.pushState({}, '', '/settings/')"); await Task.Delay(200);
         Check(await messenger.View.CoreWebView2.ExecuteScriptAsync("getComputedStyle(document.querySelector('[role=banner]')).display !== 'none' && document.querySelector('[role=main]').getBoundingClientRect().top === 56") == "true", "Facebook navigation is restored outside Messenger routes");
         Check(CaptionDomain("https://www.facebook.com/messages/") == "facebook.com" && CaptionDomain("https://messages.google.com/web/") == "google.com" && CaptionDomain("https://facebook.com.attacker.test/") == "facebook.com.attacker.test", "Caption shortens known service domains without disguising unrelated hosts");
-        messenger.View.CoreWebView2.Navigate("https://relay.test/"); await Until(() => messenger.Unread == 3 && messenger.Status == "Live");
+        messenger.View.CoreWebView2.Navigate("https://relay.test/"); await Until(() => messenger.Unread == null && messenger.Status == "Live");
         await CheckServiceFixes(output);
         ShowActivity(); await Dispatcher.InvokeAsync(() => { }, DispatcherPriority.ApplicationIdle);
     }

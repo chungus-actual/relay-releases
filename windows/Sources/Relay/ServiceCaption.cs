@@ -186,7 +186,7 @@ public partial class MainWindow
         Check((string)((MenuItem)reconnectMenu.Items[0]).Header == "Load", "Unloaded shortcut offers load");
         reconnectMenu.IsOpen = false;
         await ToggleServiceConnection(connectedService);
-        await Until(() => connectedService.Unread == 3);
+        await Until(() => connectedService.Status == "Live" && connectedService.Unread == (connectedService.Definition.IconId == "messenger" ? (int?)null : 3));
         Check(await connectedService.View!.CoreWebView2.ExecuteScriptAsync("localStorage.getItem('reconnect-check')") == "\"still-here\"", "Reconnect preserves browser storage");
         ShowActivity();
         await Dispatcher.InvokeAsync(() => { }, DispatcherPriority.ApplicationIdle);

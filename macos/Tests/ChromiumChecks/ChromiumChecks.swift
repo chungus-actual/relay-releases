@@ -93,6 +93,9 @@ final class Checks: NSObject, NSApplicationDelegate {
             let first = sessions[0]
             let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
             let mediaFixture = try String(contentsOf: root.appendingPathComponent("Assets/Fixtures/media-playback-checks.js"), encoding: .utf8)
+            let unreadFixture = try String(contentsOf: root.appendingPathComponent("Assets/Fixtures/messenger-unread-checks.js"), encoding: .utf8)
+            let unreadResult = try await first.evaluate("return " + unreadFixture + "((document, location) => " + MessengerUnread.script + ")") as? [String: Any]
+            try require((unreadResult?["failures"] as? [String]) == [], "Shared Chromium Messenger unread regressions: \(String(describing: unreadResult))")
             let mediaResult = try await first.evaluate("return " + mediaFixture) as? [String: Any]
             try require((mediaResult?["failures"] as? [String]) == [], "Shared Chromium media regressions: \(String(describing: mediaResult))")
             _ = try await first.evaluate("window.savedMediaBridge=window.__relayMedia;window.__relayMedia={read:()=>({playing:true}),act:async action=>{window.floatingAction=action;return true;}};return true;")

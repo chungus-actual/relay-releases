@@ -1074,6 +1074,10 @@ struct RelayMacTests {
         check(state.receive(UnreadReading(count: 120, attention: false, key: "title:120")))
         check(state.badge == "99+")
         check(UnreadRules.messengerPage(URL(string: "https://www.facebook.com/messages/t/123")!))
+        for path in ["/messages/", "/notifications/", "/messages-fake"] {
+            check(UnreadRules.titleReading("(28) Messenger", service: service, url: URL(string: "https://www.facebook.com" + path)) == .unknown,
+                  "Facebook notification totals must never bypass Messenger extraction")
+        }
         for address in ["https://www.facebook.com/", "https://www.facebook.com/messages-fake", "https://messenger.com.evil.test", "http://messenger.com"] {
             check(!UnreadRules.messengerPage(URL(string: address)!))
         }

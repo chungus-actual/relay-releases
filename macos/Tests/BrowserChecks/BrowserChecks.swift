@@ -31,6 +31,11 @@ struct BrowserChecks {
                     try await messengerVisibilityChecks()
                     exit(0)
                 }
+                if ProcessInfo.processInfo.arguments.contains("--unread") {
+                    try await unreadChecks()
+                    print("PASS: unread detection, Facebook notification exclusions, dismissal, and clearing")
+                    exit(0)
+                }
                 if ProcessInfo.processInfo.arguments.contains("--engine-fallback") {
                     try await engineFallbackChecks()
                     exit(0)
@@ -1288,10 +1293,14 @@ struct BrowserChecks {
         messenger.onUnread = { center.receive($0, for: messengerID) }
         defer { messenger.close() }
         messenger.webView.loadHTMLString("""
-            <html><head><meta http-equiv='Content-Security-Policy' content="default-src 'none'"><title>(28) Facebook</title></head>
+            <html><head><meta http-equiv='Content-Security-Policy' content="default-src 'none'"><title>(28) Messenger</title></head>
             <body><nav><button aria-label="Messenger, 3 unread messages"></button></nav></body></html>
             """, baseURL: messengerService.url)
         try await waitFor("Messenger-specific total") { center.badge(for: messengerID) == "3" }
+        let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+        let fixture = try String(contentsOf: root.appendingPathComponent("Assets/Fixtures/messenger-unread-checks.js"), encoding: .utf8)
+        let result = try await messenger.webView.evaluateJavaScript(fixture + "((document, location) => " + MessengerUnread.script + ")", in: nil, contentWorld: .defaultClient) as? [String: Any]
+        try require((result?["failures"] as? [String]) == [], "Shared WebKit Messenger unread regressions: \(String(describing: result))")
         _ = try await messenger.webView.evaluateJavaScript("document.querySelector('nav').remove();")
         try await waitFor("ignore Facebook notification count") { center.badge(for: messengerID).isEmpty }
         _ = try await messenger.webView.evaluateJavaScript("""
@@ -1299,11 +1308,26 @@ struct BrowserChecks {
             """)
         try await waitFor("Messenger DOM polling") { center.badge(for: messengerID) == "•" }
         center.dismiss(messengerID)
+        _ = try await messenger.webView.evaluateJavaScript("document.title = '(30) Messenger'")
         await messenger.refreshUnread()
         try require(center.badge(for: messengerID).isEmpty, "Unchanged row restored dismissed unread marker")
         _ = try await messenger.webView.evaluateJavaScript("document.querySelector('a').href = '/messages/t/456';")
         try await waitFor("new unread row after dismissal") { center.badge(for: messengerID) == "•" }
         try require(center.states[messengerID]?.current.count == nil, "Virtualized rows must not become a fabricated total")
+        let messageActivity = center.activity.count
+        _ = try await messenger.webView.evaluateJavaScript("document.title = '(29) Messenger'")
+        await messenger.refreshUnread()
+        try require(center.badge(for: messengerID) == "•" && center.activity.count == messageActivity, "Facebook title changes must not inflate message badges or activity")
+        _ = try await messenger.webView.evaluateJavaScript("document.querySelector('[aria-label]').remove()")
+        try await waitFor("read conversation with unrelated Facebook notifications") { center.badge(for: messengerID).isEmpty }
+        _ = try await messenger.webView.evaluateJavaScript("document.querySelector('a').setAttribute('aria-label', 'Unread messages')")
+        try await waitFor("restore unread fixture") { center.badge(for: messengerID) == "•" }
+        _ = try await messenger.webView.evaluateJavaScript("history.pushState({}, '', '/notifications/')")
+        await messenger.refreshUnread()
+        try await waitFor("leaving messages clears stale unread without a title change") { center.badge(for: messengerID).isEmpty }
+        _ = try await messenger.webView.evaluateJavaScript("history.pushState({}, '', '/messages/')")
+        await messenger.refreshUnread()
+        try await waitFor("returning to messages restores real unread evidence") { center.badge(for: messengerID) == "•" }
 
         let beforeClose = center.activity.count
         center.dismiss(messengerID)
