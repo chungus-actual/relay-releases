@@ -57,10 +57,13 @@ def tree_files(root, ref):
     return files, modes
 
 
-def export(root, version):
+def export(root, version, source_tag=None):
     if not re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+', version):
         raise ValueError('Invalid release version')
-    commit = git(root, 'rev-parse', '--verify', 'refs/tags/v' + version + '^{commit}').strip()
+    source_tag = source_tag or 'v' + version
+    if source_tag != 'v' + version and not re.fullmatch(r'macos-' + re.escape(version) + r'-[1-9][0-9]*', source_tag):
+        raise ValueError('Invalid source tag')
+    commit = git(root, 'rev-parse', '--verify', 'refs/tags/' + source_tag + '^{commit}').strip()
     files, modes = tree_files(root, commit)
     for name in list(files):
         if excluded(name):
@@ -70,12 +73,15 @@ def export(root, version):
             raise ValueError('Unsupported source entry: ' + name)
     if ET.fromstring(files['Relay.csproj']).findtext('./PropertyGroup/Version') != version:
         raise ValueError('Source tag has a different Windows version')
-    if plistlib.loads(files['macos/Info.plist'])['CFBundleShortVersionString'] != version:
+    mac_info = plistlib.loads(files['macos/Info.plist'])
+    if mac_info['CFBundleShortVersionString'] != version:
         raise ValueError('Source tag has a different macOS version')
+    if source_tag.startswith('macos-') and mac_info.get('CFBundleVersion') != source_tag.rsplit('-', 1)[1]:
+        raise ValueError('Source tag has a different macOS build')
     for name in files:
         if any(part in {'.tools', '.test-data', '.build', 'bin', 'obj', 'dist', 'artifacts'} for part in pathlib.PurePosixPath(name).parts) or pathlib.PurePosixPath(name).suffix.lower() in {'.pfx', '.p12', '.key'} or pathlib.PurePosixPath(name).name.startswith('.env'):
             raise ValueError('Local-only file tracked in source: ' + name)
-    manifest = dict(hash_format='sha256 of raw Git blob content (before checkout/archive line-ending conversion)', version=version, source_commit=commit, source_tag='v' + version,
+    manifest = dict(hash_format='sha256 of raw Git blob content (before checkout/archive line-ending conversion)', version=version, source_commit=commit, source_tag=source_tag,
                     excluded=['AGENTS.md (at any depth)', '.github/'],
                     files={name: dict(sha256=hashlib.sha256(data).hexdigest(), mode=modes[name])
                            for name, data in sorted(files.items())})
@@ -125,12 +131,12 @@ def verify(checkout, ref, files, manifest):
             raise ValueError('Public source differs from release: ' + name)
 
 
-def publish(root, version, work, repo):
-    files, modes, manifest = export(root, version)
+def publish(root, version, work, repo, source_tag=None):
+    files, modes, manifest = export(root, version, source_tag)
     checkout = pathlib.Path(tempfile.mkdtemp(prefix='public-source-', dir=work))
     subprocess.run(['git', 'clone', '--depth', '1', '--single-branch', '--no-tags',
                     'https://github.com/' + repo + '.git', str(checkout)], check=True)
-    tag = 'source-v' + version
+    tag = 'source-' + manifest['source_tag']
     existing = git(checkout, 'ls-remote', '--tags', 'origin', 'refs/tags/' + tag).strip()
     if existing:
         git(checkout, 'fetch', 'origin', 'tag', tag)

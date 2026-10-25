@@ -71,7 +71,8 @@ final class BrowserSession: NSObject, ObservableObject, WKNavigationDelegate, WK
 
     init(account: Account, service: Service, downloads: DownloadCenter,
          dataStore: WKWebsiteDataStore? = nil, loadImmediately: Bool = true, chromiumTesting: Bool = false,
-         inlinePredictionsEnabled: Bool = false, terminalAssets: URL? = nil, terminalShell: String? = nil, terminalHome: String = NSHomeDirectory()) {
+         inlinePredictionsEnabled: Bool = false, mediaControlsEnabled: Bool = true,
+         terminalAssets: URL? = nil, terminalShell: String? = nil, terminalHome: String = NSHomeDirectory()) {
         self.service = service
         self.accountID = account.id
         self.accountName = account.name
@@ -111,7 +112,7 @@ final class BrowserSession: NSObject, ObservableObject, WKNavigationDelegate, WK
                 injectionTime: .atDocumentStart, forMainFrameOnly: true))
         }
         if MediaBridge.supports(service.id) {
-            configuration.userContentController.addUserScript(WKUserScript(source: MediaBridge.script(for: service.id),
+            configuration.userContentController.addUserScript(WKUserScript(source: MediaBridge.script(for: service.id, controlsEnabled: mediaControlsEnabled),
                 injectionTime: .atDocumentStart, forMainFrameOnly: false))
         }
         pageControls.muted = account.audioMuted == true
@@ -121,7 +122,7 @@ final class BrowserSession: NSObject, ObservableObject, WKNavigationDelegate, WK
         pageControls.session = self
         if useChromium && dataStore == nil {
             do {
-                let engine = try ChromiumSession(account: account, service: service, testing: chromiumTesting)
+                let engine = try ChromiumSession(account: account, service: service, testing: chromiumTesting, mediaControlsEnabled: mediaControlsEnabled)
                 chromium = engine
                 engine.notificationsAllowed = { [weak self] in self?.pageControls.notificationsAllowed?() == true }
                 engine.onNotification = { [weak self] id, title, body in

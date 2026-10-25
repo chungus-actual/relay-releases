@@ -1,8 +1,8 @@
 {
   "hash_format": "sha256 of raw Git blob content (before checkout/archive line-ending conversion)",
   "version": "0.6.12",
-  "source_commit": "5bf9ae631fcb486eb6560fe8a0fd65831fef646f",
-  "source_tag": "v0.6.12",
+  "source_commit": "d2ed900137113a0080e493f7a1911b8168c00561",
+  "source_tag": "macos-0.6.12-29",
   "excluded": [
     "AGENTS.md (at any depth)",
     ".github/"
@@ -141,7 +141,7 @@
       "mode": "100644"
     },
     "README.md": {
-      "sha256": "077da1245f09cdf5fc7f4728c0f590eaaf50e43d4f9d0611735c66e4cafc4508",
+      "sha256": "0295400121da9cdba714be8ae157f7bcf1d6eae77b7deb170a04993a0c40c341",
       "mode": "100644"
     },
     "Relay.csproj": {
@@ -161,11 +161,11 @@
       "mode": "100644"
     },
     "docs/chromium-macos.md": {
-      "sha256": "24e1563c4d99e04dc88a703dc8e1000cfffeb839fb5579dacb16336945d19021",
+      "sha256": "614d0a275ed86e3e2300a134a071da00d2c727517b13e48a28732a8f04d87fc8",
       "mode": "100644"
     },
     "docs/development.md": {
-      "sha256": "f5add5eeec071cfefa845d46e8a665b6b9644bcd723b72e11fa9294cfa8310f4",
+      "sha256": "4e699743f8db92e470ba15c6e6c373108361faeb3a82e0b17753a86c68c27c55",
       "mode": "100644"
     },
     "docs/greetings.md": {
@@ -173,7 +173,7 @@
       "mode": "100644"
     },
     "docs/macos.md": {
-      "sha256": "0df083b1e28c210413873f7084ac9fcf809bfa29f3a874fac774a036d6a937d7",
+      "sha256": "50d6d7a2a5129d9ec4f3ef77d44e388c3afd0f94ad0153474462e669a9e1a6fc",
       "mode": "100644"
     },
     "docs/memory-soak-2026-09-12.md": {
@@ -181,7 +181,7 @@
       "mode": "100644"
     },
     "docs/platform-parity.md": {
-      "sha256": "3e4d6c837d1dcf4e2dd36a2219550ad5152e9e5ae7691b86ae3e5c5d2c40c537",
+      "sha256": "23e5d271e63f63d30993cd48f43c3c8c5cac0903f76caa87ad5f9d4a4485ae96",
       "mode": "100644"
     },
     "docs/releases/0.5.0.md": {
@@ -292,6 +292,10 @@
       "sha256": "2a2d02451abd13e9863b61c1bb5d130bfdcbcc4e9efd073f917133ad4f2d7547",
       "mode": "100644"
     },
+    "docs/releases/macos-0.6.12-29.md": {
+      "sha256": "ec574b9feb6a04a955170eb6d34ccdd033c94cb9014157d4e29331340dd3d23f",
+      "mode": "100644"
+    },
     "docs/screenshots/activity.png": {
       "sha256": "74a4be3948e7b379b0a04fabd730ccacc2988e1db723e0d5ea30bf34ea92d447",
       "mode": "100644"
@@ -321,7 +325,7 @@
       "mode": "100644"
     },
     "docs/usage.md": {
-      "sha256": "dbd8b9ded085423bfbfddbf2c0688bbeb034d3d730603928655a007aa041b03c",
+      "sha256": "ae4e58e5447db7503a64c471a41dc72e21e0d58313b540b6cf8372cca1c8dfab",
       "mode": "100644"
     },
     "global.json": {
@@ -357,7 +361,7 @@
       "mode": "100644"
     },
     "macos/ChromiumBridge/RelayChromium.mm": {
-      "sha256": "45bde6b9d8c7fd4355cfa9d94a02b9d4f60ff37d5a06b62137e175d678ecea21",
+      "sha256": "bdf6ce8beb5eb330f748dce8a5998606d54c9211e0f9f2b50e91fe1671eb13a7",
       "mode": "100644"
     },
     "macos/Dependencies/Sparkle.json": {
@@ -365,7 +369,7 @@
       "mode": "100644"
     },
     "macos/Info.plist": {
-      "sha256": "e192a22598a3c089fe423a4ce655d6b5c4c7e5f1047566831b325325af33eccb",
+      "sha256": "6d41b0e5fcb1658315f3e6fb84e50f638713677d9fa5168632b6a66e950228d1",
       "mode": "100644"
     },
     "macos/Licenses/Sparkle.txt": {
@@ -425,7 +429,7 @@
       "mode": "100644"
     },
     "macos/Sources/RelayMac/BrowserSession.swift": {
-      "sha256": "9959cf5285f4d6345e3ff905d5095173fda47a3f5dd59631c59bc0066fafe376",
+      "sha256": "256dcd6ef5f0eec22d68bbe8dfc6aa225a939099dfc5524405c4f4d5b050203a",
       "mode": "100644"
     },
     "macos/Sources/RelayMac/BugReport.swift": {
@@ -437,7 +441,7 @@
       "mode": "100644"
     },
     "macos/Sources/RelayMac/ChromiumSession.swift": {
-      "sha256": "056b8f7d32cdf52b44a5e172170c772cea77e115aa052d66930afdfb7bdb4335",
+      "sha256": "ddd22a3cf537e9dc24a4ac0170bca930d543588c5a21a7de866f6061d0f35f0f",
       "mode": "100644"
     },
     "macos/Sources/RelayMac/DownloadDestination.swift": {
@@ -453,7 +457,7 @@
       "mode": "100644"
     },
     "macos/Sources/RelayMac/GeneralSettingsView.swift": {
-      "sha256": "983b628ac04650f669c6356b22aade2acdceaf65b37b8c4b684bfbb157486467",
+      "sha256": "2258a7fab1525589eff8e2348ee82d70775d33f8dfc6d7bdc199c60a6ef202d0",
       "mode": "100644"
     },
     "macos/Sources/RelayMac/GreetingView.swift": {
@@ -465,7 +469,7 @@
       "mode": "100644"
     },
     "macos/Sources/RelayMac/MediaBridge.swift": {
-      "sha256": "5dfa11c10bafb61004b8d365eac96bd11211e4a63a41aaefb93540680bcb0d2d",
+      "sha256": "cd758f305c77d8f37ff39d438a8042374265e015ff303cc4287ccfb29d2e8141",
       "mode": "100644"
     },
     "macos/Sources/RelayMac/MediaCenter.swift": {
@@ -493,7 +497,7 @@
       "mode": "100644"
     },
     "macos/Sources/RelayMac/Models.swift": {
-      "sha256": "20a5197e6a3953f6e0766820e9df40a4ed67d0d5cd56246ff3acd80cd3df934e",
+      "sha256": "ea8ec80adb6c9b3157c552b4a90bffbe08e3e3971788d948986d9408cae5b80e",
       "mode": "100644"
     },
     "macos/Sources/RelayMac/Notifications.swift": {
@@ -533,7 +537,7 @@
       "mode": "100644"
     },
     "macos/Sources/RelayMac/RelayApp.swift": {
-      "sha256": "5abf9a308ee749686703978256d4e40702da04531dc05c11d0fa47e3ac444744",
+      "sha256": "a8bc0d16570d8593dbaf4db6dbcec20f8b22c8db58c695943f75da4b6f69cb98",
       "mode": "100644"
     },
     "macos/Sources/RelayMac/RemovedAccountsView.swift": {
@@ -545,7 +549,7 @@
       "mode": "100644"
     },
     "macos/Sources/RelayMac/ShellSettings.swift": {
-      "sha256": "c1972e2f3b2e2de9f56cc23f501942967b79b6ca00d8285e63df5fe55ed2de67",
+      "sha256": "e42899164bb45377fbd2686c5c9607e1cd0dd7ee7a06f21924a9a3764b428e47",
       "mode": "100644"
     },
     "macos/Sources/RelayMac/ShellTheme.swift": {
@@ -609,7 +613,7 @@
       "mode": "100644"
     },
     "macos/Tests/BrowserChecks/BrowserChecks.swift": {
-      "sha256": "3703cf3d4d3bc8fbdcb2109fe96f029a70269426d25e701c0564c73bcf15673b",
+      "sha256": "5434e105ea89d167dd75875f94c63d4045424ae3152d2f931a0d6c15e0a4f190",
       "mode": "100644"
     },
     "macos/Tests/BrowserChecks/FileDropChecks.swift": {
@@ -621,19 +625,27 @@
       "mode": "100644"
     },
     "macos/Tests/ChromiumChecks/ChromiumChecks.swift": {
-      "sha256": "c022a8877129a9f4986313867ca96d6719a95d10df6c677423d2e5571c948eee",
+      "sha256": "e14832ea665326573551fa206a9157a4caea48416576f479a0978a749d26cb5d",
       "mode": "100644"
     },
     "macos/Tests/ChromiumChecks/run.py": {
-      "sha256": "e2a0922bd31970e736054d676c986e96ab9fff72e8d03d59cfc90d1f48289a48",
+      "sha256": "b3ee8a97c4ca4c19528447185d759ec69d89e20bf05d6370d5ed0578b746f079",
       "mode": "100644"
     },
     "macos/Tests/ControlChecks/ControlChecks.swift": {
       "sha256": "10533173bd61fa67c99f56583951ee76c66a7308a505b5278b214df29ef652fd",
       "mode": "100644"
     },
+    "macos/Tests/Fixtures/media-controls-disabled-checks.js": {
+      "sha256": "191f654699848b75f3fd2fdbf4ffac2aa94284339ff459c82c39615742aac184",
+      "mode": "100644"
+    },
+    "macos/Tests/Fixtures/media-playback-checks.js": {
+      "sha256": "dca8f352334d06cdfb4fc9980c5a1831653e7f82876fcbcdb3d608c97d770a8f",
+      "mode": "100644"
+    },
     "macos/Tests/RelayMacTests/RelayMacTests.swift": {
-      "sha256": "b4dfae6f7ce3e9540623ef881871ee521a8e727957bcaae06953cfcc8a443caf",
+      "sha256": "00407986ac29828f89d962c19a836e6a473bdaf65807478224fdfb121aa679bb",
       "mode": "100644"
     },
     "macos/Tests/TerminalChecks/TerminalChecks.swift": {
@@ -725,11 +737,11 @@
       "mode": "100644"
     },
     "scripts/Package-macOS-update.py": {
-      "sha256": "b38092184e1f0d57fe9b4641e90810dc2f2a115ef769336b93c07d22d81dd9ab",
+      "sha256": "3f2a6ced6292ffab3cb964e759212d44ff6a0059cea8e8220e5e6b9e70182884",
       "mode": "100644"
     },
     "scripts/Publish-Release.py": {
-      "sha256": "2e11917ac5dee77199adc0677521511c836bdd2d440bfb5e3a9a5604fb438eee",
+      "sha256": "883fdeeb431c0f9dd3bf3660018f4ff4c6e0073b3490f5c9863fb39c5a2597c4",
       "mode": "100644"
     },
     "scripts/Publish-Releases.ps1": {
@@ -765,7 +777,7 @@
       "mode": "100644"
     },
     "scripts/Test-macOS-chromium.sh": {
-      "sha256": "7ec9450a95d83a21ceb5bdc3d4b0c6a5830e72e4fd6dabc50c8a494e8d45e54b",
+      "sha256": "4148c38efa26b1c51e2e9942d07d45e954898dba07873dbcc8b9d97156b87709",
       "mode": "100644"
     },
     "scripts/Test-macOS-controls.sh": {
@@ -797,11 +809,11 @@
       "mode": "100644"
     },
     "scripts/Test-release.py": {
-      "sha256": "9d84d056fa618e96ae3457585e491efd35739a65d113c91148a1298282bd0076",
+      "sha256": "974bfdfd97a3ab03d5a6f79d9372457ca6f2115c25e40afd7297f14502944833",
       "mode": "100644"
     },
     "scripts/release_source.py": {
-      "sha256": "7f5667b67f4575f981938b12c3245cd4b85d53dd7b54e2130aca6ad9fed3a9c7",
+      "sha256": "e341fd163acae62fd7d492ccdab1baa475a57767dabfd343ebeff3530d51d674",
       "mode": "100644"
     },
     "services.json": {

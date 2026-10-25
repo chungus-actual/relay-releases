@@ -1,7 +1,8 @@
 """Publish one verified Windows/macOS release, then advance the signed Sparkle feed.
 
 Run on the signing Mac after verified Windows packages are published to the private
-source release and the Mac update is notarized and packaged. Does not replace
+source release and the Mac update is notarized and packaged. --macos-only publishes
+a separate Mac build without changing Windows or GitHub Latest. Does not replace
 existing releases or change historical feed entries.
 """
 import argparse
@@ -63,23 +64,32 @@ def enclosures(data):
     return result
 
 
+def check_macos_only_source(root, tag, windows_tag):
+    if not re.fullmatch(r'v[0-9]+\.[0-9]+\.[0-9]+', windows_tag):
+        raise ValueError('Windows Latest must remain a shared version release')
+    changed = release_source.git(root, 'diff', '--name-only', windows_tag + '^{commit}', tag + '^{commit}',
+        '--', 'windows', 'Assets', 'Relay.csproj', 'services.json', 'reporting.json').strip()
+    if changed:
+        raise ValueError('Mac-only release changes Windows source or shared runtime assets: ' + changed)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--version', required=True)
-    parser.add_argument('--windows-dir', type=pathlib.Path, required=True)
+    parser.add_argument('--windows-dir', type=pathlib.Path)
+    parser.add_argument('--macos-only', action='store_true', help='Publish a new Mac build; preserve Windows and GitHub Latest')
     parser.add_argument('--macos-dir', type=pathlib.Path, default=ROOT / 'dist/macos/updates')
     parser.add_argument('--validate-only', action='store_true')
     args = parser.parse_args()
+    if not args.macos_only and args.windows_dir is None:
+        parser.error('--windows-dir is required for a shared release')
+    if args.macos_only and args.windows_dir is not None:
+        parser.error('--windows-dir cannot be used with --macos-only')
     version = args.version
     if not re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+', version):
         raise ValueError('Invalid version')
     if version != ET.parse(ROOT / 'Relay.csproj').findtext('./PropertyGroup/Version'):
         raise ValueError('Version differs from source project')
-    tag = 'v' + version
-    release_source.export(ROOT, version) # Validate the tagged source before any publication.
-    notes = ROOT / 'docs/releases' / (version + '.md')
-    if not notes.is_file():
-        raise ValueError('Missing release notes')
     baseline = api(REPO, 'contents/macos/appcast.xml')
     old_latest = api(REPO, 'releases/latest')['tag_name']
     feed = args.macos_dir / 'appcast.xml'
@@ -88,6 +98,13 @@ def main():
     build = item.findtext(NS + 'version')
     if not build or not re.fullmatch(r'[1-9][0-9]*', build) or item.findtext(NS + 'shortVersionString') != version:
         raise ValueError('Mac feed version differs from shared release')
+    tag = f'macos-{version}-{build}' if args.macos_only else 'v' + version
+    release_source.export(ROOT, version, tag) # Validate the tagged source before any publication.
+    if args.macos_only:
+        check_macos_only_source(ROOT, tag, old_latest)
+    notes = ROOT / 'docs/releases' / ((tag if args.macos_only else version) + '.md')
+    if not notes.is_file():
+        raise ValueError('Missing release notes')
     archive = args.macos_dir / ('Relay-' + build + '.zip')
     expected_url = f'https://github.com/{REPO}/releases/download/{tag}/{archive.name}'
     fresh = enclosures(feed_data)
@@ -110,28 +127,33 @@ def main():
         run('codesign', '--verify', '--deep', '--strict', app)
         run('xcrun', 'stapler', 'validate', app)
         run('spctl', '--assess', '--type', 'execute', app)
-    windows = [args.windows_dir / name for name in [f'Relay-{version}-Setup-x64.exe', f'Relay-{version}-win-x64.zip']]
-    windows_checksums = args.windows_dir / 'SHA256SUMS.txt'
-    check_manifest(windows_checksums, windows)
-    source = api(SOURCE, 'releases/tags/' + tag)
-    if source['draft']:
-        raise ValueError('Verified Windows source release is not published')
-    for asset in windows + [windows_checksums]:
-        matches = [entry for entry in source['assets'] if entry['name'] == asset.name]
-        if len(matches) != 1 or matches[0].get('digest') != 'sha256:' + digest(asset):
-            raise ValueError('Windows asset differs from verified source release: ' + asset.name)
+    windows_assets = []
+    if not args.macos_only:
+        windows = [args.windows_dir / name for name in [f'Relay-{version}-Setup-x64.exe', f'Relay-{version}-win-x64.zip']]
+        windows_checksums = args.windows_dir / 'SHA256SUMS.txt'
+        check_manifest(windows_checksums, windows)
+        source = api(SOURCE, 'releases/tags/' + tag)
+        if source['draft']:
+            raise ValueError('Verified Windows source release is not published')
+        windows_assets = windows + [windows_checksums]
+        for asset in windows_assets:
+            matches = [entry for entry in source['assets'] if entry['name'] == asset.name]
+            if len(matches) != 1 or matches[0].get('digest') != 'sha256:' + digest(asset):
+                raise ValueError('Windows asset differs from verified source release: ' + asset.name)
     mac_checksums = args.macos_dir / 'SHA256SUMS-macos.txt'
     check_manifest(mac_checksums, [archive, feed])
-    assets = windows + [windows_checksums, archive, feed, mac_checksums]
+    assets = windows_assets + [archive, feed, mac_checksums]
     if args.validate_only:
-        print('Verified Windows source release assets, notarized macOS archive, signed feed, and historical downloads')
+        print('Verified source, notarized macOS archive, signed feed, historical downloads, and ' +
+              ('unchanged Windows source' if args.macos_only else 'Windows source release assets'))
         return
     work = ROOT / 'macos/.build' / ('publish-' + tag)
     work.mkdir(exist_ok=True)
     (work / 'feed-before.json').write_text(json.dumps(baseline))
-    public_source = release_source.publish(ROOT, version, work, REPO)
+    public_source = release_source.publish(ROOT, version, work, REPO, tag)
+    title = f'Relay macOS {version} (build {build})' if args.macos_only else 'Relay ' + version
     run('gh', 'release', 'create', tag, '--repo', REPO, '--draft', '--latest=false',
-        '--title', 'Relay ' + version, '--notes-file', notes, '--target', public_source, *assets)
+        '--title', title, '--notes-file', notes, '--target', public_source, *assets)
     with tempfile.TemporaryDirectory(dir=work) as directory:
         run('gh', 'release', 'download', tag, '--repo', REPO, '--dir', directory)
         for asset in assets:
@@ -139,21 +161,24 @@ def main():
                 raise ValueError('Uploaded bytes differ: ' + asset.name)
     if api(REPO, 'contents/macos/appcast.xml')['sha'] != baseline['sha'] or api(REPO, 'releases/latest')['tag_name'] != old_latest:
         raise ValueError('Public release state changed; draft retained for review')
-    run('gh', 'release', 'edit', tag, '--repo', REPO, '--draft=false', '--prerelease=false', '--latest')
+    run('gh', 'release', 'edit', tag, '--repo', REPO, '--draft=false', '--prerelease=false',
+        '--latest=false' if args.macos_only else '--latest')
     with urllib.request.urlopen(expected_url, timeout=60) as response:
         if hashlib.sha256(response.read()).hexdigest() != digest(archive):
             raise ValueError('Public Mac download differs; feed not advanced')
     request = work / 'feed-update.json'
-    request.write_text(json.dumps(dict(message=f'Publish shared Relay {version} signed macOS update feed',
+    request.write_text(json.dumps(dict(message=f'Publish Relay {tag} signed macOS update feed',
         sha=baseline['sha'], branch='main', content=base64.b64encode(feed_data).decode())))
     run('gh', 'api', '--method', 'PUT', f'repos/{REPO}/contents/macos/appcast.xml', '--input', request)
     if base64.b64decode(api(REPO, 'contents/macos/appcast.xml')['content']) != feed_data:
         raise ValueError('Published signed feed differs')
-    latest = api(REPO, 'releases/latest')
-    if latest['tag_name'] != tag or latest['draft'] or latest['prerelease'] or {a['name'] for a in latest['assets']} != {a.name for a in assets}:
-        raise ValueError('Shared latest release metadata differs')
-    (work / 'published.json').write_text(json.dumps(dict(version=version, build=build, url=latest['html_url']), indent=2)+'\n')
-    print('Published ' + latest['html_url'] + ' and verified both updater feeds')
+    released = api(REPO, 'releases/tags/' + tag)
+    if released['draft'] or released['prerelease'] or {a['name'] for a in released['assets']} != {a.name for a in assets}:
+        raise ValueError('Published release metadata differs')
+    if api(REPO, 'releases/latest')['tag_name'] != (old_latest if args.macos_only else tag):
+        raise ValueError('Unexpected GitHub Latest release')
+    (work / 'published.json').write_text(json.dumps(dict(version=version, build=build, url=released['html_url']), indent=2)+'\n')
+    print('Published ' + released['html_url'] + ' and verified both updater feeds')
 
 
 if __name__ == '__main__':

@@ -40,11 +40,17 @@ threading.Thread(target=server.serve_forever, daemon=True).start()
 environment = os.environ.copy()
 # Test-only flags avoid touching a developer's browser/keychain state. Sandbox stays enabled.
 environment['QTWEBENGINE_CHROMIUM_FLAGS'] = '--disable-background-networking --disable-component-update --password-store=basic --use-mock-keychain'
+# Qt's environment override replaces --webEngineArgs. Include the selected
+# production policy alongside the fixture-only isolation switches.
+if '--media-controls-off' in sys.argv[2:]:
+    environment['QTWEBENGINE_CHROMIUM_FLAGS'] += ' --disable-features=HardwareMediaKeyHandling,MediaSessionService'
 with tempfile.TemporaryDirectory(prefix='relay-chromium-check-') as temporary:
     interactive = '--interactive' in sys.argv[2:]
     arguments = [sys.argv[1], f'http://127.0.0.1:{server.server_port}', str(Path(temporary) / 'fixture.bin')]
     if interactive:
         arguments.append('--interactive')
+    if '--media-controls-off' in sys.argv[2:]:
+        arguments.append('--media-controls-off')
     child = subprocess.Popen(arguments, env=environment, start_new_session=True)
     try:
         result = child.wait(timeout=None if interactive else 35)

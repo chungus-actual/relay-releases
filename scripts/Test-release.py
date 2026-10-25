@@ -119,6 +119,38 @@ class PublicSourceChecks(unittest.TestCase):
             with self.subTest(name=name), self.assertRaises(ValueError):
                 release_source.safe_path(name)
 
+    def test_macos_hotfix_exports_exact_build_and_rejects_windows_changes(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = pathlib.Path(directory)
+            self.fixture(root)
+            info = root / 'macos/Info.plist'
+            info.write_bytes(plistlib.dumps({'CFBundleShortVersionString': '1.2.3', 'CFBundleVersion': '29'}))
+            self.commit(root)
+            release_source.git(root, 'tag', 'macos-1.2.3-29')
+            files, _, manifest = release_source.export(root, '1.2.3', 'macos-1.2.3-29')
+            self.assertEqual(manifest['source_tag'], 'macos-1.2.3-29')
+            self.assertEqual(plistlib.loads(files['macos/Info.plist'])['CFBundleVersion'], '29')
+            publish.check_macos_only_source(root, 'macos-1.2.3-29', 'v1.2.3')
+            release_source.git(root, 'tag', 'macos-1.2.3-30')
+            with self.assertRaisesRegex(ValueError, 'different macOS build'):
+                release_source.export(root, '1.2.3', 'macos-1.2.3-30')
+            with self.assertRaisesRegex(ValueError, 'Invalid source tag'):
+                release_source.export(root, '1.2.3', '../untrusted')
+            for name in ['windows/Sources/App.cs', 'Assets/Fixtures/shared.js', 'Relay.csproj', 'services.json']:
+                with self.subTest(path=name):
+                    path = root / name
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    original = path.read_bytes() if path.exists() else None
+                    path.write_text('changed Windows input')
+                    self.commit(root)
+                    with self.assertRaisesRegex(ValueError, 'changes Windows source'):
+                        publish.check_macos_only_source(root, 'HEAD', 'v1.2.3')
+                    if original is None:
+                        path.unlink()
+                    else:
+                        path.write_bytes(original)
+                    self.commit(root)
+
 
 if __name__ == '__main__':
     unittest.main()

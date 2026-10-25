@@ -91,7 +91,7 @@ def main():
         subprocess.run([str(ROOT / 'macos/.build/dependencies/sparkle-bin/sign_update'),
                         '--account', config.ACCOUNT, str(feed)], check=True)
     print('Staged signed update in ' + str(output))
-    print('Release tag: ' + tag + ' (publish together with the verified Windows assets)')
+    print('Release asset location: ' + prefix)
     print('Publish the archive first, then the unchanged signed feed to macos/appcast.xml on main in ' + config.HOSTING['repository'])
 
 

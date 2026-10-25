@@ -57,6 +57,8 @@ The native bridge lives under `macos/ChromiumBridge`; the Swift adapter now live
 
 ## Reproduce the Qt bridge checks
 
+The **Media controls** preference is read at application startup. Turning it off disables `HardwareMediaKeyHandling` and `MediaSessionService` before Chromium initializes, as well as the shared Relay media integration. Qt's `QTWEBENGINE_CHROMIUM_FLAGS` environment variable overrides `--webEngineArgs`; developers using that override must include the same feature switches. The fixture runner does so for its separate `--media-controls-off` process, alongside its existing test isolation flags.
+
 From the repository root, install isolated build tools and the official SDK into ignored `.build` directories:
 
 ```sh

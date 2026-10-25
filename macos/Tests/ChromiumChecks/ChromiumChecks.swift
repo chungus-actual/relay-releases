@@ -12,6 +12,7 @@ final class Checks: NSObject, NSApplicationDelegate {
     var downloadURL: URL!
     var failure: String?
     let interactive = CommandLine.arguments.contains("--interactive")
+    let mediaControlsOff = CommandLine.arguments.contains("--media-controls-off")
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { true }
     func applicationWillTerminate(_ notification: Notification) {
@@ -24,13 +25,14 @@ final class Checks: NSObject, NSApplicationDelegate {
         window.title = "Relay Chromium bridge checks"
         window.isReleasedWhenClosed = false
         do {
+            ChromiumRuntime.mediaControlsEnabled = !mediaControlsOff
             let base = URL(string: CommandLine.arguments[1])!
             downloadURL = URL(fileURLWithPath: CommandLine.arguments[2])
             downloads.destinationForTesting = { [weak self] _ in self?.downloadURL }
             for index in 0..<2 {
                 let service = Service(id: "fixture", name: "Fixture", url: base, glyph: "", hosts: ["127.0.0.1"])
                 let account = Account(id: UUID(), serviceID: service.id, name: "Fixture \(index)", pageZoom: index == 0 ? 1.25 : 1, audioMuted: index == 0, browserEngine: "chromium")
-                let browser = BrowserSession(account: account, service: service, downloads: downloads, loadImmediately: false, chromiumTesting: true)
+                let browser = BrowserSession(account: account, service: service, downloads: downloads, loadImmediately: false, chromiumTesting: true, mediaControlsEnabled: !mediaControlsOff)
                 browsers.append(browser)
                 guard let session = browser.chromium else { throw ChromiumSession.Failure(message: browser.error ?? "Chromium missing") }
                 sessions.append(session)
@@ -64,6 +66,16 @@ final class Checks: NSObject, NSApplicationDelegate {
                 try await Task.sleep(nanoseconds: 100_000_000)
             }
             try require(loaded.count == 2 && notifications.count == 4, "Missing page/worker notifications: \(notifications)")
+            if mediaControlsOff {
+                let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+                let fixture = try String(contentsOf: root.appendingPathComponent("macos/Tests/Fixtures/media-controls-disabled-checks.js"), encoding: .utf8)
+                for session in sessions {
+                    let result = try await session.evaluate("return " + fixture) as? [String: Any]
+                    try require(result?["failures"] as? [String] == [], "Chromium opt-out: \(String(describing: result))")
+                }
+                print("PASS: Chromium opt-out preserves playback and suppresses website media state")
+                browsers.forEach { $0.close() }; sessions.removeAll(); fflush(stdout); exit(0)
+            }
             for (index, session) in sessions.enumerated() {
                 session.command("state")
                 let state = session.pages[0]!
@@ -92,9 +104,9 @@ final class Checks: NSObject, NSApplicationDelegate {
             }
             let first = sessions[0]
             let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
-            let mediaFixture = try String(contentsOf: root.appendingPathComponent("Assets/Fixtures/media-playback-checks.js"), encoding: .utf8)
+            let mediaFixture = try String(contentsOf: root.appendingPathComponent("macos/Tests/Fixtures/media-playback-checks.js"), encoding: .utf8)
             let unreadFixture = try String(contentsOf: root.appendingPathComponent("Assets/Fixtures/messenger-unread-checks.js"), encoding: .utf8)
-            let unreadResult = try await first.evaluate("return " + unreadFixture + "((document, location) => " + MessengerUnread.script + ")") as? [String: Any]
+            let unreadResult = try await first.evaluate("return (" + unreadFixture + ")((document, location) => " + MessengerUnread.script + ")") as? [String: Any]
             try require((unreadResult?["failures"] as? [String]) == [], "Shared Chromium Messenger unread regressions: \(String(describing: unreadResult))")
             let mediaResult = try await first.evaluate("return " + mediaFixture) as? [String: Any]
             try require((mediaResult?["failures"] as? [String]) == [], "Shared Chromium media regressions: \(String(describing: mediaResult))")

@@ -14,6 +14,16 @@ struct GeneralSettingsView: View {
             Text("General").font(.system(size: 15, weight: .semibold))
             Toggle("Capture links", isOn: $store.captureLinks).toggleStyle(.checkbox)
             VStack(alignment: .leading, spacing: 4) {
+                Toggle("Media controls", isOn: $store.mediaControlsEnabled).toggleStyle(.checkbox)
+                Text("Show Relay playback controls and allow websites to publish media commands.")
+                    .font(.system(size: 11)).foregroundStyle(theme.muted)
+                Text("When off, audio still plays. macOS may still send media keys to playing audio or video in WebKit.")
+                    .font(.system(size: 11)).foregroundStyle(theme.muted)
+                if store.mediaControlsRestartRequired {
+                    Text("Restart Relay to apply.").font(.system(size: 11)).foregroundStyle(theme.muted)
+                }
+            }
+            VStack(alignment: .leading, spacing: 4) {
                 Toggle("Inline predictive text", isOn: $store.inlinePredictionsEnabled).toggleStyle(.checkbox)
                 Text("Allow macOS typing suggestions in Relay services. Uses your macOS keyboard setting.")
                     .font(.system(size: 11)).foregroundStyle(theme.muted)

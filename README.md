@@ -2,7 +2,7 @@
   <img src="Assets/Relay-preview.png" alt="Relay logo" width="88" />
   <h1>Relay</h1>
   <p><strong>Chats, mail and music in one window.</strong><br />For Windows and macOS.</p>
-  <p><a href="https://github.com/chungus-actual/relay-releases/releases/latest"><strong>Download Relay</strong></a></p>
+  <p><a href="https://github.com/chungus-actual/relay-releases/releases/latest"><strong>Download for Windows</strong></a> · <a href="https://github.com/chungus-actual/relay-releases/releases/tag/macos-0.6.12-29"><strong>Download for macOS</strong></a></p>
 </div>
 
 ![Relay with Bandcamp, YouTube Music and a terminal side by side, unread counts on the left rail and playback controls in the title bar](docs/screenshots/hero.png)
@@ -40,7 +40,7 @@ Relay runs the web versions of Messenger, WhatsApp, Telegram, Gmail, Slack, Disc
 
 ## Download
 
-Get the [latest release](https://github.com/chungus-actual/relay-releases/releases/latest).
+Get [Relay for Windows](https://github.com/chungus-actual/relay-releases/releases/latest) or [Relay for macOS](https://github.com/chungus-actual/relay-releases/releases/tag/macos-0.6.12-29).
 
 | | Windows | macOS |
 | --- | --- | --- |
@@ -56,8 +56,8 @@ There's no Relay account, server or telemetry. Each service is the real website,
 
 ## Source
 
-This repository has the Windows and macOS source for every release. Each `source-v<VERSION>` tag is a release snapshot, and `.release-source.json` records its original commit and file hashes. To build it, see [Development](docs/development.md).
+This repository has the Windows and macOS source for every release. Each `source-v<VERSION>` or `source-macos-<VERSION>-<BUILD>` tag is a release snapshot, and `.release-source.json` records its original commit and file hashes. To build it, see [Development](docs/development.md).
 
-[Download the 0.6.11 source](https://github.com/chungus-actual/relay-releases/archive/refs/tags/source-v0.6.11.zip). Release tags point to their matching public source snapshot.
+[Download the current Mac source](https://github.com/chungus-actual/relay-releases/archive/refs/tags/source-macos-0.6.12-29.zip) or [Windows 0.6.12 source](https://github.com/chungus-actual/relay-releases/archive/refs/tags/source-v0.6.12.zip). Release tags point to their matching public source snapshot.
 
 [Controls](docs/usage.md) · [macOS](docs/macos.md) · [Development](docs/development.md) · [Security](SECURITY.md) · [Credits](THIRD-PARTY-NOTICES.md)

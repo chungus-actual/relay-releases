@@ -5,13 +5,15 @@ import Darwin
 @MainActor
 final class ChromiumRuntime {
     typealias Callback = @convention(c) (UnsafeMutableRawPointer?, UnsafePointer<CChar>?, UnsafePointer<CChar>?) -> Int32
-    typealias Initialize = @convention(c) (UnsafePointer<CChar>) -> Int32
+    typealias Initialize = @convention(c) (UnsafePointer<CChar>, Int32) -> Int32
     typealias Create = @convention(c) (UnsafePointer<CChar>, UnsafeMutableRawPointer, UnsafeMutableRawPointer, Callback) -> UnsafeMutableRawPointer?
     typealias Command = @convention(c) (UnsafeMutableRawPointer, UnsafePointer<CChar>, UnsafePointer<CChar>) -> Void
     typealias Destroy = @convention(c) (UnsafeMutableRawPointer) -> Void
     typealias Processes = @convention(c) () -> UnsafeMutablePointer<CChar>?
     typealias Free = @convention(c) (UnsafeMutablePointer<CChar>) -> Void
     static let shared = ChromiumRuntime()
+    // Chromium reads feature switches once, before any account or popup exists.
+    static var mediaControlsEnabled = true
     static var isBundled: Bool { FileManager.default.fileExists(atPath: Bundle.main.bundleURL.appendingPathComponent("Contents/Frameworks/libRelayChromium.dylib").path) }
     static var isEnabled: Bool { Bundle.main.object(forInfoDictionaryKey: "RelayExperimentalChromium") as? Bool == true && isBundled }
     private var library: UnsafeMutableRawPointer?
@@ -30,12 +32,12 @@ final class ChromiumRuntime {
         guard let library = dlopen(path, RTLD_NOW | RTLD_LOCAL) else { failure = dlerror().map { String(cString: $0) }; return }
         self.library = library
         func symbol<T>(_ name: String, _ type: T.Type) -> T? { dlsym(library, name).map { unsafeBitCast($0, to: type) } }
-        guard let initialize = symbol("relay_chromium_initialize", Initialize.self),
+        guard let initialize = symbol("relay_chromium_initialize_v2", Initialize.self),
               let create = symbol("relay_chromium_create", Create.self),
               let command = symbol("relay_chromium_command", Command.self),
               let destroy = symbol("relay_chromium_destroy", Destroy.self) else { failure = "Chromium bridge is incomplete."; return }
         let plugins = Bundle.main.bundleURL.appendingPathComponent("Contents/PlugIns").path
-        guard initialize(plugins) == 1 else { failure = "Chromium could not start."; return }
+        guard initialize(plugins, Self.mediaControlsEnabled ? 1 : 0) == 1 else { failure = "Chromium could not start."; return }
         self.create = create; commandFunction = command; destroyFunction = destroy
         processesFunction = symbol("relay_chromium_processes", Processes.self)
         freeFunction = symbol("relay_chromium_free", Free.self)
@@ -107,7 +109,7 @@ final class ChromiumSession {
     private var evaluations: [String: (Int, CheckedContinuation<Any, Error>)] = [:]
     private let testing: Bool
 
-    init(account: Account, service: Service, testing: Bool = false) throws {
+    init(account: Account, service: Service, testing: Bool = false, mediaControlsEnabled: Bool = true) throws {
         self.account = account; self.service = service; self.testing = testing
         let runtime = ChromiumRuntime.shared
         guard let create = runtime.create else { throw Failure(message: runtime.failure ?? "Chromium is not bundled in this build.") }
@@ -124,7 +126,7 @@ final class ChromiumSession {
         guard handle != nil else { throw Failure(message: "Chromium could not create this account.") }
         command("mute", ["value": account.audioMuted == true]); command("zoom", ["value": account.zoom])
         command("awake", ["value": account.staysAwake])
-        if MediaBridge.supports(service.id) { command("script", ["name": "RelayMedia", "source": MediaBridge.script(for: service.id)]) }
+        if MediaBridge.supports(service.id) { command("script", ["name": "RelayMedia", "source": MediaBridge.script(for: service.id, controlsEnabled: mediaControlsEnabled)]) }
         if service.id == "messenger" { command("script", ["name": "RelayMessenger", "source": MessengerChrome.script]) }
         if service.id == "whatsapp" { command("script", ["name": "RelayWhatsApp", "source": WhatsAppChrome.script]) }
     }

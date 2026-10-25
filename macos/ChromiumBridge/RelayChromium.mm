@@ -169,11 +169,15 @@ void Page::javaScriptConsoleMessage(JavaScriptConsoleMessageLevel,const QString&
     owner->emitEvent("evaluation",{{"id",id},{"result",document.object().value("value")},{"error",document.object().value("error")}});
 }
 extern "C" {
-__attribute__((visibility("default"))) int relay_chromium_initialize(const char* plugins) {
+__attribute__((visibility("default"))) int relay_chromium_initialize_v2(const char* plugins, int mediaControlsEnabled) {
     if(qApp)return 1;
     QCoreApplication::setAttribute(Qt::AA_PluginApplication);
     QCoreApplication::addLibraryPath(QString::fromUtf8(plugins));
-    static int argc=1;static char name[]="Relay";static char* argv[]={name,nullptr};
+    static int argc=mediaControlsEnabled ? 1 : 3;
+    static char name[]="Relay", engineArgs[]="--webEngineArgs";
+    static char mediaFlags[]="--disable-features=HardwareMediaKeyHandling,MediaSessionService";
+    static char* argv[]={name,engineArgs,mediaFlags,nullptr};
+    if(mediaControlsEnabled) argv[1]=nullptr;
     new QApplication(argc,argv);QApplication::setQuitOnLastWindowClosed(false);
     QCoreApplication::setApplicationName("Relay");
     qInfo("Relay Chromium: Qt %s, Chromium %s, security patches %s", qVersion(), qWebEngineChromiumVersion(), qWebEngineChromiumSecurityPatchVersion());

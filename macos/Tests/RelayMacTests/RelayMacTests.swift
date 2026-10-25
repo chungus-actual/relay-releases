@@ -32,6 +32,7 @@ struct RelayMacTests {
         try tests.testLoadedAccounts()
         try tests.testNotificationPreferences()
         try tests.testInlinePredictionPreferences()
+        try tests.testMediaControlPreferences()
         try tests.testMediaScriptParity()
         try tests.testDownloadDestination()
         tests.testBrowserRules()
@@ -314,6 +315,24 @@ struct RelayMacTests {
         }
     }
 
+    func testMediaControlPreferences() throws {
+        let directory = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: directory) }
+        let file = PreferencesFile(url: directory.appendingPathComponent("settings.json"))
+        var preferences = try JSONDecoder().decode(Preferences.self, from: Data("{\"accounts\":[],\"captureLinks\":true}".utf8))
+        check(preferences.mediaControlsEnabled != false, "Existing profiles retain media controls")
+        let account = Account(id: UUID(), serviceID: "messenger", name: "Saved account", enabled: true)
+        preferences.accounts = [account]; preferences.selected = account.id
+        for enabled in [false, true, false] {
+            preferences.mediaControlsEnabled = enabled
+            try file.save(preferences)
+            let restored = try file.load()
+            check(restored.mediaControlsEnabled == enabled, "Media-control choice survives restart")
+            check(restored.accounts == [account] && restored.selected == account.id && restored.captureLinks == true,
+                  "Opt-out preserves accounts and other settings")
+        }
+    }
+
     func testNotificationPreferences() throws {
         let account = Account(id: UUID(), serviceID: "fixture", name: "Fixture")
         var settings = Preferences(accounts: [account])
@@ -364,6 +383,8 @@ struct RelayMacTests {
         check(MediaBridge.script(for: "youtube").contains("const provider = \"youtube\""))
         check(MediaBridge.script(for: "whatsapp").contains("const provider = \"whatsapp\""))
         check(MediaBridge.script(for: "spotify").contains("const provider = \"spotify\""))
+        check(MediaBridge.script(for: "messenger").contains("const controlsEnabled = true;"))
+        check(MediaBridge.script(for: "messenger", controlsEnabled: false).contains("const controlsEnabled = false;"))
     }
 
     func testRendererRecovery() {

@@ -24,10 +24,108 @@ enum MediaAction: String { case play, pause, float, dock, previous = "previoustr
 
 enum MediaBridge {
     static func supports(_ serviceID: String) -> Bool { !serviceID.isEmpty && serviceID != "terminal" }
-    static func script(for serviceID: String) -> String {
+    static func script(for serviceID: String, controlsEnabled: Bool = true) -> String {
         guard supports(serviceID) else { return "" }
-        return template.replacingOccurrences(of: "__RELAY_PROVIDER__", with: serviceID)
+        // Keep the Windows bridge unchanged for this Mac-only hotfix. The common
+        // template still has exact parity; these two blocks apply Mac media policy.
+        var script = template
+        let notifications = script.range(of: "  if (!musicProvider) {")!.lowerBound
+        let eligibility = script.range(of: "  const eligible = item => {")!.lowerBound
+        script.replaceSubrange(notifications..<eligibility, with: macOSNotificationCleanup + "\n")
+        let session = script.range(of: "  if (session) {")!.lowerBound
+        let media = script.range(of: "  const media = () => {")!.lowerBound
+        script.replaceSubrange(session..<media, with: macOSMediaSession + "\n")
+        return script
+            .replacingOccurrences(of: "__RELAY_PROVIDER__", with: serviceID)
+            .replacingOccurrences(of: "  const musicProvider =", with: "  const controlsEnabled = \(controlsEnabled ? "true" : "false");\n  const musicProvider =")
+            .replacingOccurrences(of: "    read() {", with: "    read() {\n      if (!controlsEnabled) return {playing: false, available: false, video: false, previous: false, next: false, title: '', artist: ''};")
+            .replacingOccurrences(of: "      if (action === 'float') {", with: "      if (action === 'float') {\n        if (!controlsEnabled) return false;")
     }
+
+    private static let macOSNotificationCleanup = #"""
+  if (!musicProvider) {
+    const saved = new WeakMap(), observed = new WeakSet(), parkedMute = new WeakMap();
+    const proto = HTMLMediaElement.prototype, play = proto.play, load = proto.load;
+    const mute = Object.getOwnPropertyDescriptor(proto, 'muted');
+    // WebKit retains Now Playing even after a stopped sound's source is unloaded.
+    // Make only that idle sound natively inaudible, preserving the provider's
+    // mute value (and Relay's later mute wrapper) until its next playback.
+    Object.defineProperty(proto, 'muted', {...mute,
+      get() { return parkedMute.has(this) ? parkedMute.get(this) : mute.get.call(this); },
+      set(value) { if (parkedMute.has(this)) parkedMute.set(this, !!value); else mute.set.call(this, value); }
+    });
+    const restoreMute = item => {
+      if (!parkedMute.has(item)) return;
+      const value = parkedMute.get(item); parkedMute.delete(item); mute.set.call(item, value);
+    };
+    const sources = item => [...item.querySelectorAll('source')];
+    const release = (item, ended) => {
+      // A queued event from an earlier play must not unload a new notification.
+      // Only detached sounds are discarded on pause: inline recordings must
+      // remain resumable even when they use custom controls.
+      if (!item.paused || (ended ? !item.ended : (item.isConnected || item.ended))
+          || item.tagName !== 'AUDIO' || item.controls || item.loop || item.srcObject
+          || !(item.duration > 0 && item.duration < 10) || (controlsEnabled && navigator.mediaSession?.metadata)) return;
+      const children = sources(item), src = item.getAttribute('src');
+      const urls = children.map(child => child.getAttribute('src'));
+      if (src === null && urls.every(value => value === null)) return;
+      saved.set(item, {src, children, urls});
+      if (!parkedMute.has(item)) parkedMute.set(item, mute.get.call(item));
+      mute.set.call(item, true);
+      item.removeAttribute('src');
+      children.forEach(child => child.removeAttribute('src'));
+      load.call(item);
+    };
+    const observe = item => {
+      if (observed.has(item)) return;
+      observed.add(item);
+      item.addEventListener('play', () => { if (!item.paused) restoreMute(item); });
+      item.addEventListener('ended', () => release(item, true));
+      item.addEventListener('pause', () => release(item, false));
+    };
+    proto.play = function(...args) {
+      observe(this); userPlay(this);
+      const previous = saved.get(this);
+      saved.delete(this);
+      if (previous && !this.hasAttribute('src') && !this.srcObject) {
+        const children = sources(this);
+        // Respect replacement sources, including a newly inserted <source>.
+        if (children.length === previous.children.length && children.every((child, i) =>
+            child === previous.children[i] && !child.hasAttribute('src'))) {
+          if (previous.src !== null) this.setAttribute('src', previous.src);
+          children.forEach((child, i) => { if (previous.urls[i] !== null) child.setAttribute('src', previous.urls[i]); });
+          if (previous.src === null) load.call(this);
+        }
+      }
+      restoreMute(this);
+      return play.apply(this, args);
+    };
+    proto.load = function(...args) { saved.delete(this); return load.apply(this, args); };
+    document.addEventListener('play', event => { if (event.target instanceof HTMLMediaElement) { observe(event.target); userPlay(event.target); } }, true);
+  }
+"""#
+
+    private static let macOSMediaSession = #"""
+  if (session) {
+    const set = session.setActionHandler.bind(session);
+    session.setActionHandler = (action, handler) => {
+      set(action, controlsEnabled ? handler : null);
+      if (handler) handlers.set(action, handler); else handlers.delete(action);
+    };
+    if (!controlsEnabled) {
+      // Keep provider-facing values usable without publishing them to the OS.
+      // WebKit can still register ordinary HTML media independently of this API.
+      for (const [name, empty] of [['metadata', null], ['playbackState', 'none']]) {
+        let value = session[name];
+        session[name] = empty;
+        Object.defineProperty(session, name, {configurable: true, get: () => value, set: next => { value = next; }});
+      }
+      session.setPositionState?.();
+      session.setPositionState = () => {};
+    }
+  }
+"""#
+
     static let template = #"""
 (() => {
   if (window.__relayMedia) return;

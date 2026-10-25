@@ -33,3 +33,4 @@ PY
 # Ad-hoc signing is confined to this disposable fixture app.
 codesign --force --deep --sign - "$APP"
 python3 "$ROOT/macos/Tests/ChromiumChecks/run.py" "$APP/Contents/MacOS/RelayChromiumCheck" 2>&1 | tee "$ROOT/macos/.build/chromium-check/output.txt"
+python3 "$ROOT/macos/Tests/ChromiumChecks/run.py" "$APP/Contents/MacOS/RelayChromiumCheck" --media-controls-off 2>&1 | tee "$ROOT/macos/.build/chromium-check/media-controls-off.txt"

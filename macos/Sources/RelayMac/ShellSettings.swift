@@ -9,7 +9,7 @@ struct ShellSettings: View {
     private var filteredAccounts: [Account] { store.preferences.accounts.filter { Productivity.matches(query, $0.name, $0.serviceID, "services accounts load sleep awake notifications mute identity color zoom gmail unread") } }
     private var hasMatches: Bool {
         !filteredAccounts.isEmpty || ["appearance mode system dark light surface graphite ocean dune accent mint sky iris rose amber top tabs command palette button companion pet puke roof rock",
-            "general capture links inline predictive text typing suggestions restart keep running window closes menu bar login startup",
+            "general capture links media controls audio playback keys spotify inline predictive text typing suggestions restart keep running window closes menu bar login startup",
             "notifications alerts permission sound quiet focus do not disturb snooze resume", "navigation workspaces bookmarks command palette search shortcuts",
             "settings export import backup restore transfer setup", "support help report problem bug",
             "removed accounts restore delete saved data"].contains(where: matches)
@@ -46,7 +46,7 @@ struct ShellSettings: View {
             }.padding(20).shellCard(theme)
             }
 
-            if matches("general capture links inline predictive text typing suggestions restart keep running window closes menu bar login startup") {
+            if matches("general capture links media controls audio playback keys spotify inline predictive text typing suggestions restart keep running window closes menu bar login startup") {
             GeneralSettingsView(store: store, theme: theme)
             }
 

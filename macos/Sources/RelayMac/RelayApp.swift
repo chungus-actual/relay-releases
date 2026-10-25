@@ -34,6 +34,7 @@ final class RelayStore: ObservableObject {
     // WebKit copies this setting when a view is created. Keep every account and
     // popup on the launch value until restart, preserving open documents/drafts.
     private var launchedInlinePredictionsEnabled = false
+    private var launchedMediaControlsEnabled = true
     let accountDragScope = AccountDragScope()
     var openMainWindow: (() -> Void)?
     private var shellCheckStarted = false
@@ -58,6 +59,8 @@ final class RelayStore: ObservableObject {
             preferences = try file.load()
             downloads.configureHistory(URL.applicationSupportDirectory.appending(path: "Relay/macOS/downloads.json"))
             launchedInlinePredictionsEnabled = preferences.inlinePredictionsEnabled == true
+            launchedMediaControlsEnabled = preferences.mediaControlsEnabled != false
+            ChromiumRuntime.mediaControlsEnabled = launchedMediaControlsEnabled
             preferences.initializeCatalog(services)
             var layout = preferences.workspace ?? WorkspaceLayout()
             layout.normalize(available: preferences.accounts.filter { $0.enabled == true }.map(\.id))
@@ -129,6 +132,7 @@ final class RelayStore: ObservableObject {
             let observation = objectWillChange.sink { publications += 1 }
             menuBarEnabled = menuBarEnabled
             inlinePredictionsEnabled = inlinePredictionsEnabled
+            mediaControlsEnabled = mediaControlsEnabled
             appearance = appearance
             observation.cancel()
             guard publications == 0 else { stage("FAIL: unchanged settings republished state"); exit(1) }
@@ -186,6 +190,17 @@ final class RelayStore: ObservableObject {
                 stage("FAIL: reverting prediction choice did not clear pending restart"); exit(1)
             }
             stage("PASS: prediction changes wait for restart and preserve live sessions")
+            mediaControlsEnabled = false
+            mediaControlsEnabled = false
+            guard mediaControlsRestartRequired, sessions[account.id] === retained,
+                  retained.webView.configuration.userContentController.userScripts.contains(where: { $0.source.contains("const controlsEnabled = true;") }) else {
+                stage("FAIL: pending media opt-out changed a live session"); exit(1)
+            }
+            mediaControlsEnabled = true
+            guard !mediaControlsRestartRequired, sessions[account.id] === retained else {
+                stage("FAIL: reverting media controls did not clear pending restart"); exit(1)
+            }
+            stage("PASS: media-control changes wait for restart and preserve live sessions")
             guard let messenger = preferences.accounts.first(where: { $0.serviceID == "messenger" }),
                   let other = preferences.accounts.first(where: { $0.serviceID != "messenger" }) else {
                 stage("FAIL: Messenger workspace fixtures missing"); exit(1)
@@ -340,6 +355,11 @@ final class RelayStore: ObservableObject {
     var inlinePredictionsRestartRequired: Bool {
         inlinePredictionsEnabled != launchedInlinePredictionsEnabled
     }
+    var mediaControlsEnabled: Bool {
+        get { preferences.mediaControlsEnabled != false }
+        set { if mediaControlsEnabled != newValue { _ = change { $0.mediaControlsEnabled = newValue } } }
+    }
+    var mediaControlsRestartRequired: Bool { mediaControlsEnabled != launchedMediaControlsEnabled }
 
     var quiet: Bool {
         get { preferences.quiet == true }
@@ -665,6 +685,7 @@ final class RelayStore: ObservableObject {
                                      dataStore: snapshot && !chromiumCheck ? .nonPersistent() : nil,
                                      loadImmediately: !snapshot, chromiumTesting: chromiumCheck,
                                      inlinePredictionsEnabled: launchedInlinePredictionsEnabled,
+                                     mediaControlsEnabled: launchedMediaControlsEnabled,
                                      terminalShell: shellCheck ? "/bin/sh" : nil,
                                      terminalHome: shellCheckTerminalHome?.path ?? NSHomeDirectory())
         session.captureLinks = captureLinks

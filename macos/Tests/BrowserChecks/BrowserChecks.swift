@@ -55,7 +55,13 @@ struct BrowserChecks {
                 if ProcessInfo.processInfo.arguments.contains("--media") {
                     try await mediaChecks()
                     try await mediaPlaybackRegressionChecks()
+                    try await mediaNativeRegistrationChecks()
+                    try await mediaControlsDisabledChecks()
                     print("PASS: media routing, floating/docking, audio state, and notification replay regressions")
+                    exit(0)
+                }
+                if ProcessInfo.processInfo.arguments.contains("--native-media") {
+                    try await mediaNativeRegistrationChecks()
                     exit(0)
                 }
                 try await inlinePredictionChecks()
@@ -65,6 +71,8 @@ struct BrowserChecks {
                 try await dragPayloadChecks()
                 try await mediaChecks()
                 try await mediaPlaybackRegressionChecks()
+                try await mediaNativeRegistrationChecks()
+                try await mediaControlsDisabledChecks()
                 try await youtubeChecks()
                 try await workspacePaneChecks()
                 try await navigationChecks()
@@ -965,6 +973,115 @@ struct BrowserChecks {
         stage("provider checks passed")
     }
 
+    @MainActor static func mediaControlsDisabledChecks() async throws {
+        print("Media: opt-out main page, popup, subframe and navigation"); fflush(stdout)
+        let service = Service(id: "messenger", name: "Opt-out fixture", url: URL(string: "https://relay.test")!, glyph: "M", hosts: ["relay.test"])
+        let session = BrowserSession(account: Account(id: UUID(), serviceID: service.id, name: "Opt-out"),
+            service: service, downloads: DownloadCenter(), dataStore: .nonPersistent(), loadImmediately: false, mediaControlsEnabled: false)
+        let center = MediaCenter()
+        let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 600, height: 400), styleMask: [.borderless], backing: .buffered, defer: false)
+        window.isReleasedWhenClosed = false; window.contentView = session.webView; window.orderFrontRegardless()
+        defer { center.unregister(session.accountID); session.close(); window.close() }
+        session.webView.loadHTMLString("<html><body>Opt-out fixture</body></html>", baseURL: service.url)
+        try await waitFor("opt-out fixture") { !session.webView.isLoading && session.webView.url != nil }
+        let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+        let script = try String(contentsOf: root.appendingPathComponent("macos/Tests/Fixtures/media-controls-disabled-checks.js"), encoding: .utf8)
+        let result = try await session.webView.callAsyncJavaScript("return await " + script, arguments: [:], in: nil, contentWorld: .page) as? [String: Any]
+        try require(result?["failures"] as? [String] == [], "Opt-out regressions: \(String(describing: result))")
+        center.register(session); await center.refresh()
+        try require(center.active == nil, "Opt-out left caption media controls")
+        _ = try await session.webView.evaluateJavaScript("void window.open('about:blank', 'relay-opt-out')")
+        try await waitFor("opt-out popup") { session.browserViews.count == 2 }
+        let popup = session.browserViews[1]
+        popup.loadHTMLString("<html><body>Popup</body></html>", baseURL: service.url)
+        try await waitFor("opt-out popup loaded") { !popup.isLoading && popup.url?.host == service.url.host }
+        let popupResult = try await popup.callAsyncJavaScript("return await " + script, arguments: [:], in: nil, contentWorld: .page) as? [String: Any]
+        try require(popupResult?["failures"] as? [String] == [], "Popup lost opt-out: \(String(describing: popupResult))")
+        _ = try await session.webView.callAsyncJavaScript("""
+            const frame=document.createElement('iframe');
+            const url=URL.createObjectURL(new Blob(['<html><body>Frame</body></html>'],{type:'text/html'}));frame.src=url;
+            const ready=new Promise(resolve=>frame.onload=resolve);document.body.append(frame);
+            await Promise.race([ready,new Promise((_,reject)=>setTimeout(()=>reject(new Error('Opt-out frame timed out')),4000))]);
+            const s=frame.contentWindow.navigator.mediaSession;s.metadata=new frame.contentWindow.MediaMetadata({title:'Frame track'});s.playbackState='playing';
+            window.frameOptOut=!frame.contentWindow.__relayMedia.read().available && Object.getOwnPropertyDescriptor(Object.getPrototypeOf(s),'metadata').get.call(s)===null;
+            URL.revokeObjectURL(url);
+            """, arguments: [:], in: nil, contentWorld: .page)
+        let frameOptOut = try await session.webView.evaluateJavaScript("window.frameOptOut") as? Bool
+        try require(frameOptOut == true, "Subframe lost opt-out")
+        session.webView.loadHTMLString("<html><body>New document</body></html>", baseURL: service.url)
+        try await waitFor("opt-out navigation") { !session.webView.isLoading }
+        let afterNavigation = try await session.webView.callAsyncJavaScript("return await " + script, arguments: [:], in: nil, contentWorld: .page) as? [String: Any]
+        try require(afterNavigation?["failures"] as? [String] == [], "Navigation lost opt-out")
+        print("PASS: media opt-out preserves playback and covers main pages, popups, subframes and navigation")
+    }
+
+    @MainActor static func mediaNativeRegistrationChecks() async throws {
+        func stage(_ text: String) { print("Media native: \(text)"); fflush(stdout) }
+        stage("loading")
+        let service = Service(id: "messenger", name: "Media registration fixture", url: URL(string: "https://relay.test")!, glyph: "M", hosts: ["relay.test"])
+        let session = BrowserSession(account: Account(id: UUID(), serviceID: service.id, name: "Media registration"),
+            service: service, downloads: DownloadCenter(), dataStore: .nonPersistent(), loadImmediately: false)
+        let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 600, height: 400), styleMask: [.borderless], backing: .buffered, defer: false)
+        window.isReleasedWhenClosed = false; window.contentView = session.webView; window.orderFrontRegardless()
+        defer { session.close(); window.close() }
+        // Read-only WebKit SPI is confined to this test. Toolbar state alone
+        // cannot prove that the engine released its native Now Playing session.
+        let selector = NSSelectorFromString("_requestActiveNowPlayingSessionInfo:")
+        guard session.webView.responds(to: selector) else {
+            print("SKIP: this WebKit does not expose native Now Playing test state"); return
+        }
+        typealias Reply = @convention(block) (Bool, Bool, NSString, Double, Double, Int, UInt) -> Void
+        func registered() async -> Bool {
+            await withCheckedContinuation { continuation in
+                let reply: Reply = { _, registered, _, _, _, _, _ in continuation.resume(returning: registered) }
+                session.webView.perform(selector, with: reply as AnyObject)
+            }
+        }
+        func waitForRegistration(_ expected: Bool) async throws {
+            for _ in 0..<100 {
+                if await registered() == expected { return }
+                try await Task.sleep(for: .milliseconds(50))
+            }
+            throw Failure(message: "Native Now Playing registration did not become \(expected)")
+        }
+        session.webView.loadHTMLString("<html><body>Media registration fixture</body></html>", baseURL: service.url)
+        try await waitFor("native media fixture") { !session.webView.isLoading && session.webView.url != nil }
+        _ = try await session.webView.callAsyncJavaScript("""
+            const samples=8000*3, bytes=new ArrayBuffer(44+samples*2), data=new DataView(bytes);
+            const text=(at,value)=>[...value].forEach((c,i)=>data.setUint8(at+i,c.charCodeAt(0)));
+            text(0,'RIFF');data.setUint32(4,36+samples*2,true);text(8,'WAVE');text(12,'fmt ');data.setUint32(16,16,true);
+            data.setUint16(20,1,true);data.setUint16(22,1,true);data.setUint32(24,8000,true);data.setUint32(28,16000,true);
+            data.setUint16(32,2,true);data.setUint16(34,16,true);text(36,'data');data.setUint32(40,samples*2,true);
+            window.soundURL=URL.createObjectURL(new Blob([bytes],{type:'audio/wav'}));
+            window.sound=new Audio(soundURL);
+            await Promise.race([sound.play(),new Promise((_,reject)=>setTimeout(()=>reject(new Error('Native sound start timed out')),4000))]);
+            """, arguments: [:], in: nil, contentWorld: .page)
+        try await waitForRegistration(true)
+        stage("registered")
+        _ = try await session.webView.evaluateJavaScript("sound.pause();void 0")
+        try await waitForRegistration(false)
+        stage("released after stop")
+        _ = try await session.webView.evaluateJavaScript("sound.dispatchEvent(new Event('play'));void 0")
+        try await Task.sleep(for: .milliseconds(100))
+        try require(await registered() == false, "A stale play event restored idle native registration")
+        let replay = "await Promise.race([sound.play(),new Promise((_,reject)=>setTimeout(()=>reject(new Error('Sound replay timed out')),4000))])"
+        _ = try await session.webView.callAsyncJavaScript(replay, arguments: [:], in: nil, contentWorld: .page)
+        try await waitForRegistration(true)
+        stage("replayed")
+        try await waitForRegistration(false)
+        stage("released after end")
+        session.setMuted(true)
+        _ = try await session.webView.callAsyncJavaScript(replay, arguments: [:], in: nil, contentWorld: .page)
+        try await Task.sleep(for: .milliseconds(300))
+        try require(await registered() == false, "Replaying a parked notification bypassed account mute")
+        session.setMuted(false)
+        try await waitForRegistration(true)
+        _ = try await session.webView.evaluateJavaScript("sound.pause();void 0")
+        try await waitForRegistration(false)
+        _ = try await session.webView.evaluateJavaScript("sound.load();URL.revokeObjectURL(soundURL);void 0")
+        print("PASS: stopped and finished notifications release WebKit's native Now Playing session"); fflush(stdout)
+    }
+
     @MainActor static func mediaPlaybackRegressionChecks() async throws {
         print("Media: shared playback regressions"); fflush(stdout)
         let service = Service(id: "messenger", name: "Messenger", url: URL(string: "https://www.facebook.com/messages/")!, glyph: "M", hosts: ["facebook.com"])
@@ -981,7 +1098,7 @@ struct BrowserChecks {
         session.webView.loadHTMLString("<html><body></body></html>", baseURL: service.url)
         try await waitFor("generic media fixture") { !session.webView.isLoading && session.webView.url != nil }
         let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
-        let script = try String(contentsOf: root.appendingPathComponent("Assets/Fixtures/media-playback-checks.js"), encoding: .utf8)
+        let script = try String(contentsOf: root.appendingPathComponent("macos/Tests/Fixtures/media-playback-checks.js"), encoding: .utf8)
         let result = try await session.webView.callAsyncJavaScript("return await " + script, arguments: [:], in: nil, contentWorld: .page) as? [String: Any]
         try require((result?["failures"] as? [String]) == [], "Shared media regressions: \(String(describing: result))")
         print("Media: shared playback assertions passed; checking live stream"); fflush(stdout)

@@ -84,6 +84,7 @@ struct Preferences: Codable, Equatable {
     var quiet: Bool?
     var captureLinks: Bool?
     var inlinePredictionsEnabled: Bool?
+    var mediaControlsEnabled: Bool?
     var closeToMenuBar: Bool?
     var menuBarEnabled: Bool?
     var removedAccounts: [RemovedAccount]?
