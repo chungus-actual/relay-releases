@@ -8,10 +8,13 @@
 # Relay
 
 **Chats, mail and music in one window, for Windows and macOS.**
+<br><sub>Explained by a cat who doesn't totally get it.</sub>
+
 [![Latest release](https://img.shields.io/github/v/release/chungus-actual/relay-releases?label=release)](https://github.com/chungus-actual/relay-releases/releases/latest)
 ![Windows 10+ x64](https://img.shields.io/badge/Windows-10%2B%20x64-0078D4)
 ![macOS 14+ Apple silicon](https://img.shields.io/badge/macOS-14%2B%20Apple%20silicon-000000)
 ![No telemetry](https://img.shields.io/badge/telemetry-none-lightgrey)
+![License: MIT](https://img.shields.io/badge/license-MIT-blue)
 
 **[Download for Windows](https://github.com/chungus-actual/relay-releases/releases/latest)** ·
 **[Download for macOS](https://github.com/chungus-actual/relay-releases/releases/tag/macos-0.6.12-29)**
@@ -251,8 +254,11 @@ Release tags point to their matching public source snapshot.
 
 Service icons are from [Simple Icons](https://github.com/simple-icons/simple-icons) under CC0 1.0;
 brand names and logos belong to their owners. The terminal bundles
-[xterm.js](https://github.com/xtermjs/xterm.js) and its fit add-on under the MIT License. The Mac app
+[xterm.js](https://github.com/xtermjs/xterm.js) and its fit add-on under the MIT License. The Windows app
+redistributes the WebView2 SDK libraries under Microsoft's BSD-style license. The Mac app
 bundles [Sparkle](https://sparkle-project.org) 2.10.0 for updates. Details in
 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md). I'm an original drawing. Nobody else's cat.
+
+Relay is MIT licensed ([LICENSE](LICENSE)): you can take it apart and build something else. Please don't take me apart.
 
 <p align="center"><sub>Okay, that's everything. I'm going back to sleep. Don't wake me unless it's food.</sub></p>
