@@ -8,8 +8,6 @@
 # Relay
 
 **Chats, mail and music in one window, for Windows and macOS.**
-<br><sub>Explained by a cat who doesn't totally get it.</sub>
-
 [![Latest release](https://img.shields.io/github/v/release/chungus-actual/relay-releases?label=release)](https://github.com/chungus-actual/relay-releases/releases/latest)
 ![Windows 10+ x64](https://img.shields.io/badge/Windows-10%2B%20x64-0078D4)
 ![macOS 14+ Apple silicon](https://img.shields.io/badge/macOS-14%2B%20Apple%20silicon-000000)
